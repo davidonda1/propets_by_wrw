@@ -1,0 +1,55 @@
+
+.grid {
+    display: grid;
+    grid-template-rows: 10% 1fr 10%;
+}
+
+
+header, footer {
+    background: #669885 0% 0% no-repeat padding-box;
+}
+
+
+header {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.sign_in  {
+    grid-column: 9 / 12;
+    grid-row: 2/3;
+}
+
+.sign_in > button {
+    background-color: #669885;
+    border: 1px solid white;
+    color: white;
+    border-radius: 1rem;
+    width: 7rem;
+    height: 2rem;
+}
+
+.pro_pets {
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.pro_pets > img {
+    width: 8.9rem;
+    height: 2rem;
+}
+main{
+    display: grid;
+    grid-template-rows: repeat(6,1fr);
+    grid-template-columns:repeat(12,1fr) ;
+}
+main > div > p{
+    grid-row: 2/4;
+    grid-column: 2/5;
+    background-color: red;
+}
+.pet>img{
+    width:28.2rem ;
+    height:37.2rem;
+}
