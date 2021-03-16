@@ -1,4 +1,5 @@
 import React from 'react';
+import Post from "../Posts/Post";
 
 const Lost = () => {
     return (
@@ -9,6 +10,9 @@ const Lost = () => {
                 <input type={'text'} placeholder={'Additional features'}/>
                 <input type={'text'} placeholder={'Location'}/>
             </header>
+            <main>
+                <Post/>
+            </main>
         </div>
     );
 };
