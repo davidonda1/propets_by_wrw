@@ -1,0 +1,9 @@
+/*.right_bar{
+    background: #84B6A3 ;
+}*/
+
+img {
+    display: block !important;
+    height: 100px;
+    width: 100px;
+}
