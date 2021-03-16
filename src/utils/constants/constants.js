@@ -6,7 +6,7 @@ export const posts = [{
         ' bad nymph, for jigs vex! Fox nymphs grab quick-jived waltz. Brick whangs jumpy veldt fox.' +
         ' Bright vixens jump; dozy fowl quack …more',
     img: 'image',
-
+    liked: false,
 
 },
     {
@@ -14,5 +14,6 @@ export const posts = [{
         time: Date.now().toFixed(2),
         text: 'Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox.' +
             ' Bright vixens jump; dozy fowl quack …more',
-        img: ''
+        img: '',
+        liked: false,
     }]
