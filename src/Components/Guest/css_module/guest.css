@@ -2,6 +2,7 @@
 .grid {
     display: grid;
     grid-template-rows: 10% 1fr 10%;
+
 }
 
 
@@ -14,6 +15,7 @@ header {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(12, 1fr);
+
 }
 
 .sign_in  {
@@ -44,12 +46,27 @@ main{
     grid-template-rows: repeat(6,1fr);
     grid-template-columns:repeat(12,1fr) ;
 }
-main > div > p{
-    grid-row: 2/4;
-    grid-column: 2/5;
-    background-color: red;
+.p-1{
+    grid-column: 1/6;
+    grid-row:2/4 ;
 }
-.pet>img{
-    width:28.2rem ;
-    height:37.2rem;
+.p-1 > p{
+width: 30rem;
+    height: 4rem;
+}
+.p-2{
+    grid-column: 1/6;
+    grid-row:2/4 ;
+}
+.p-2 > p{
+    width: 11rem;
+    height: 1.2rem;
+}
+.pet{
+    grid-column:6/12 ;
+    grid-row:1/6 ;
+}
+.pet > img{
+width:28rem ;
+    height:37rem ;
 }

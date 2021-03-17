@@ -1,12 +1,21 @@
 import React from 'react';
 import '../css_modules/rightBarCssModule.css'
 import pet from '../Images/petAvatar.png'
+import {add_1, add_2} from "../../../utils/constants/constants";
+
 const RightBar = () => {
     return (
-        <div>
-            <div>
-                <img src={pet} alt={'s'}/>
-                <p>e</p>
+
+
+
+
+
+<div className="grid-container">
+<div className="main">
+
+    <div className='add2'>
+        <img src={add_2} alt={'add_2'}/>
+    </div>
             </div>
         </div>
     )

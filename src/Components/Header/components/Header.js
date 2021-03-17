@@ -2,26 +2,16 @@ import React from 'react';
 import proPetsSVG from '../Images/proPets.svg';
 import questionSVG from '../Images/question.svg';
 import lupaSVG from '../Images/lupa.svg'
+import '../css_module/header.css'
+
 const Header = () => {
     return (
-        <div>
-            <div>
-                <img src={proPetsSVG}/>
-            </div>
-            <div>
-                <button>
-                    <img src={lupaSVG}/>
-                    <p>I lost my pet</p>
-                </button>
-            </div>
-            <div>
-                {/*todo*/}
-                <button>
-                    <img src={questionSVG}/>
-                    <p>I found a pet</p>
-                </button>
-            </div>
+
+
+        <div className="grid-container">
+            <div className="header"></div>
         </div>
+
     );
 };
 

@@ -6,40 +6,50 @@ import lupaSVG from '../Images/lupa.svg'
 
 const Guest = () => {
     return (
-        <div className={'grid'}>
-            <header className={'grid-item'}>
-                <div className={'pro_pets'}>
-                    <img src={propetsSVG}/>
-                    {/*TODO svg*/}
-                </div>
-                <div className={'sign_in'}>
-                    <button>Sign in</button>
-                </div>
-            </header>
-            <main className={'grid-item '}>
-                <div >
-                    <p>Welcome to your pawfessional community</p>
-                </div>
-                <div className={'pet'}>
-                    <img src={pet}/>
-                </div>
-                <div>
-                    <button>I lost my pet!</button>
-                    <img src={lupaSVG}/>
-                </div>
-                <div>
-                    <button>I found a pet!</button>
-                </div>
-                <div >
-                    {/*TODO link*/}
-                    <p>I’m okay, just want to {/*<a href='' join/>*/} the pawsome community!</p>
-                </div>
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='container-'>
+                    <header className='row'>
+                        <div className=' col-2'>
+                            <img src={propetsSVG}/>
+                            {/*TODO svg*/}
+                        </div>
+                        <div className='offset-6 col-2'>
+                            <button>Sign in</button>
+                        </div>
 
-            </main>
-            <footer className={'grid-item'}>
-                {/*ToDo footer*/}
+                    </header>
+                </div>
+            </div>
+                <main className='row'>
+                    <div className='container'>
+                        <div className='row'>
+                    <div>
+                        <p>Welcome to your pawfessional community</p>
+                    </div>
+                    <div>
+                        <img src={pet}/>
+                    </div>
+                    <div>
+                        <button>I lost my pet!</button>
+                        <img src={lupaSVG}/>
+                    </div>
+                    <div>
+                        <button>I found a pet!</button>
+                    </div>
+                    <div>
+                        {/*TODO link*/}
+                        <p>I’m okay, just want to {/*<a href='' join/>*/} the pawsome community!</p>
+                    </div>
+                    </div>
+                    </div>
+                </main>
+                <footer>
+                    {/*ToDo footer*/}
 
-            </footer>
+                </footer>
+
+
         </div>
     )
         ;
