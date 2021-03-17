@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from "../Posts/Post";
+import Lost_Post from "../Posts/Lost_Post";
 
 const Lost = () => {
     return (
@@ -11,7 +11,7 @@ const Lost = () => {
                 <input type={'text'} placeholder={'Location'}/>
             </header>
             <main>
-                <Post/>
+                <Lost_Post/>
             </main>
         </div>
     );

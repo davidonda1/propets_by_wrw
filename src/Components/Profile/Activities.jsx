@@ -1,11 +1,11 @@
 import React from 'react';
-import Post from "../Posts/Post";
+import Lost_Post from "../Posts/Lost_Post";
 
 const Activities = () => {
     return (
         <div>
             <div>
-            <Post/>
+            <Lost_Post/>
                 <button>Change</button>
                 <button>Delete</button>
             </div>

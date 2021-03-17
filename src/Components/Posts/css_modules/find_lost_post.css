@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    text-align: center;
+    font: normal medium Montserrat;
+}
+
+.header {
+    grid-area: 1 / 1 / 2 / 13;
+}
+
+.right_bar {
+    grid-area: 2 / 10 / 13 / 13;
+}
+
+.left_bar {
+    grid-area: 2 / 1 / 13 / 4;
+}
+
+.upper_text {
+    grid-area: 2 / 4 / 3 / 10;
+    color: #669885;
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.upper_text_span {
+    font: bold medium Montserrat;
+    font-size: 1rem;
+}
+
+.main {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-area: 3 / 4 / 13 / 10;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    font-size: 1rem;
+    letter-spacing: 1rem;
+    margin-bottom: 3rem;
+
+}
+
+.type {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.dog {
+    grid-area: 3 / 5 / 4 / 6;
+    text-align: left;
+}
+
+.sex {
+    grid-area: 4 / 4 / 5 / 5;
+}
+
+.male {
+    grid-area: 4 / 5 / 5 / 6;
+    text-align: left;
+}
+
+.breed {
+    grid-area: 5 / 4 / 6 / 5;
+}
+
+.golden_retriever {
+    grid-area: 5 / 5 / 6 / 6;
+    text-align: left;
+}
+
+.color {
+    grid-area: 6 / 4 / 8 / 5;
+
+}
+
+height_select {
+
+}
+
+.white {
+    grid-area: 6 / 5 / 7 / 6;
+    text-align: left;
+
+}
+
+.golden_ {
+    grid-area: 5 / 5 / 6 / 6;
+}
+
+.features {
+    grid-area: 7 / 4 / 8 / 5;
+}
+
+.features_area {
+    grid-area: 7 / 5 / 8 / 6;
+    padding-right: 10rem;
+}
+
+.man_dog {
+    grid-area: 3 / 7 / 8 / 10;
+}
+
+.description {
+    grid-area: 8 / 4 / 9 / 5;
+}
+
+.description_area {
+    grid-area: 8 / 5 / 10 / 7;
+    margin-right: 20rem;
+}
+
+.files {
+    grid-area: 8 / 8 / 10 / 10;
+    border: 1px solid #8DBFAC;
+    margin-right: 2rem;
+}
+
+.drag-and-drop {
+    grid-area: 8 / 7 / 10 / 8;
+}
+
+.location {
+    grid-area: 10 / 4 / 11 / 5;
+}
+
+.location_area {
+    grid-area: 10 / 5 / 11 / 6;
+}
+
+.browse {
+    grid-area: 10 / 7 / 11 / 8;
+}
+
+.contacts {
+    grid-area: 11 / 4 / 12 / 5;
+}
+
+.phone {
+    grid-area: 11 / 5 / 12 / 6;
+}
+
+.email {
+    grid-area: 11 / 7 / 12 / 8;
+}
+
+.facebook {
+    grid-area: 11 / 9 / 12 / 10;
+    padding-right: 3rem;
+}
+
+.user_avatar {
+    grid-area: 12 / 4 / 12 / 5;
+    padding-bottom: 7rem;
+}
+
+.user_name {
+    grid-area: 12 / 5 / 13 / 7;
+    font-size: 1rem;
+    color: #84B6A3;
+}
+
+.publish {
+    grid-area: 12 / 8 / 13 / 10;
+    background: #84B6A3 0% 0% no-repeat padding-box;
+    border: 1px solid #8DBFAC;
+    border-radius: 1rem;
+    opacity: 1;
+    color: white;
+    min-height: 2rem;
+    align-self: center;
+    margin-bottom: 5rem;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+
+input {
+    border: 0px solid white;
+    color: #BABABA;
+    border-bottom: 1px solid #8DBFAC;
+}
+
+select {
+    border: 0px solid white;
+}
+
+textarea {
+    border: 0px solid white;
+    min-height: 2rem;
+    max-height: 20rem;
+    resize: none;
+    overflow: hidden;
+    border: 1px solid #8DBFAC;
+}
+
+.drag-and-drop-btn {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #8DBFAC;
+    border-radius: 1rem;
+    opacity: 1;
+    cursor: pointer;
+    padding: 0.7rem;
+}

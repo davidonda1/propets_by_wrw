@@ -1,0 +1,167 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10% 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "header header header"
+    "main main main";
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 25% 1fr 25%;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "left_bar preview_post right_bar"
+    "left_bar preview_post right_bar";
+    grid-area: main;
+}
+
+.left_bar {
+    grid-area: left_bar;
+}
+
+.right_bar {
+    grid-area: right_bar;
+}
+
+.preview_post {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10% 1fr 20% 10% 10%;
+    gap: 0px 0px;
+    grid-template-areas:
+    "upper_text upper_text upper_text"
+    "preview_main preview_main preview_main"
+    "bottom_text bottom_text bottom_text"
+    "share edit publish"
+    "footer_text footer_text footer_text";
+    grid-area: preview_post;
+
+}
+
+.preview_main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "dog_photo dog_text dog_text"
+    "dog_photo color features"
+    "dog_photo sex features"
+    "dog_photo height features"
+    "dog_photo description description"
+    "dog_photo description description"
+    "dog_photo description description"
+    "dog_photo location ."
+    "dog_photo user icons";
+    grid-area: preview_main;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    margin: 1rem;
+}
+
+.dog_text {
+    grid-area: dog_text;
+}
+
+.color {
+    grid-area: color;
+}
+
+.sex {
+    grid-area: sex;
+}
+
+.features {
+    grid-area: features;
+}
+
+.height {
+    grid-area: height;
+}
+
+.description {
+    grid-area: description;
+}
+
+.dog_photo {
+    grid-area: dog_photo;
+}
+
+.location {
+    grid-area: location;
+}
+
+.user {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    ". user_name";
+    grid-area: user;
+}
+
+.user_name {
+    grid-area: user_name;
+}
+
+.icons {
+    grid-area: icons;
+}
+
+.bottom_text {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "text text text"
+    "text text text"
+    "text text text";
+    grid-area: bottom_text;
+}
+
+.text {
+    grid-area: text;
+}
+
+.edit {
+    grid-area: edit;
+}
+
+.publish {
+    grid-area: publish;
+}
+
+.share {
+    display: grid;
+    grid-template-columns: 10% 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    ". share_text";
+    grid-area: share;
+}
+
+.share_text {
+    grid-area: share_text;
+}
+
+.footer_text {
+    grid-area: footer_text;
+}
+
+.upper_text {
+    grid-area: upper_text;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
