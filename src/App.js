@@ -1,10 +1,10 @@
 import './App.css';
-import Publish_Preview from "./Components/Publish_Preview/Publish_Preview";
+import Guest from "./Components/Guest/components/Guest";
 
 function App() {
   return (
     <div>
-     <Publish_Preview/>
+      <Guest/>
     </div>
   );
 }

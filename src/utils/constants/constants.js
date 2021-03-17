@@ -16,15 +16,4 @@ export const posts = [{
             ' Bright vixens jump; dozy fowl quack …more',
         img: '',
         liked: false,
-    }];
-
-
-export const FOUND_POST_TEXT = {
-    bold: 'Found a pet? ',
-    text: 'Please complete the form to help.',
-};
-
-export const LOST_POST_TEXT = {
-    bold: 'Lost your buddy? ',
-    text: 'Keep calm and complete the form.',
-};
+    }]
