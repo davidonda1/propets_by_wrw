@@ -95,6 +95,7 @@
 .join {
     text-transform: uppercase;
     color: #84B6A3;
+    cursor: pointer;
 }
 
 .sign_in_button {

@@ -5,10 +5,10 @@ import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
 import user_avatar from '../../utils/images/user_avatar.png'
 import {GiPuppet} from "react-icons/gi";
-import {FOUND_POST_TEXT} from "../../utils/constants/constants";
+// import {FOUND_POST_TEXT} from "../../utils/constants/constants";
 
 
-const Lost_Post = () => {
+const Found_Post = () => {
     return (
         <div className="grid-container">
             <div className="header">
@@ -24,7 +24,7 @@ const Lost_Post = () => {
                 <LeftBar/>
             </div>
             <div className="upper_text">
-                <p><span className='upper_text_span'>{FOUND_POST_TEXT.bold}</span> {FOUND_POST_TEXT.text}</p>
+                <p><span className='upper_text_span'>Found a pet?</span> Cool!</p>
             </div>
             <div className="main"></div>
             <div className="type">
@@ -126,4 +126,4 @@ const Lost_Post = () => {
     );
 };
 
-export default Lost_Post;
+export default Found_Post;
