@@ -1,11 +1,12 @@
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 10% 1fr;
+    grid-template-rows: 5% 95%;
     gap: 0px 0px;
     grid-template-areas:
     "header header header"
     "main main main";
+
 }
 
 .header {
@@ -32,9 +33,10 @@
 }
 
 .preview_post {
+    background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 10% 1fr 20% 10% 10%;
+    grid-template-rows: 10% 1fr 20% 5% 5%;
     gap: 0px 0px;
     grid-template-areas:
     "upper_text upper_text upper_text"
