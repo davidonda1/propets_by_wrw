@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.jumbotron{
+    margin: 0;
+    padding: 0;
+    background-color: #84B6A3;
+    box-sizing: border-box;
+}
+.signin_btn_text{
+    text-align: center;
+    font: normal normal medium  Montserrat;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.signin_btn{
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    opacity: 1;
+}
+ul>li>a{
+    text-align: left;
+    font: normal normal medium  Montserrat;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.BTN{
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    opacity: 1;
+}
+.HEADER{
+    background-color: #FFFFFF;
+}
+.LOGOUT{
+    text-align: center;
+    font: normal normal medium  Montserrat;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+
+}
+.nav-item{
+    list-style: none;
+}
+li>a:hover{
+    color: navajowhite;
+}
+li>a:active{
+    color:rosybrown;
+}
+.MAIN{
+    background-color: #FFFFFF;
+}
+

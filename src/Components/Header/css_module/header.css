@@ -1,14 +1,43 @@
+/*.grid-container {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+}*/
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0px 0px;
+    grid-template-areas:
+    "header header header header header header header header header header header header"
+    "left left left register register register register register register right right right"
+    "left left left register register register register register register right right right"
+    "left left left register register register register register register right right right"
+    "left left left register register register register register register right right right"
+    "left left left register register register register register register right right right"
+    "left left left register register register register register register right right right"
+    "left left left register register register register register register right right right"
+    "left left left register register register register register register right right right"
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . ."
+    ". . . . . . . . . . . .";
 }
 
-.header {
-    background: #84B6A3 0% 0% no-repeat padding-box;
+.header { grid-area: header; }
+
+.register { grid-area: register; }
+
+.left { grid-area: left; }
+
+.right { grid-area: right; }
+
+
+/*.header {
+    background: white 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     opacity: 1;
     grid-area: 1 / 1 / 2 / 13;
-}
+}*/
 
