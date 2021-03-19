@@ -2,9 +2,9 @@ import React from 'react';
 import Header from "../Header/components/Header";
 import LeftBar from "../Left_Bar/LeftBar";
 import './css_module/preview.css'
-import dog from '../../utils/images/preview_dog.png'
+import dog from '../../utils/Images/preview_dog.png'
 import {VscLocation} from "react-icons/vsc";
-import user_avatar from '../../utils/images/user_avatar.png'
+import user_avatar from '../../utils/Images/user_avatar.png'
 import {AiFillPhone, AiFillFacebook, AiFillMail, AiFillEdit} from "react-icons/ai";
 import {FaPaw} from "react-icons/fa";
 
@@ -27,16 +27,16 @@ const PublishPreview = () => {
         //   <p>Preview and Publish. Please share the post to your FB to be more effective.</p>
         // </div>
         <div className="grid-container">
-            <div className="header">
+           {/* <div className="header">
                 <Header/>
-            </div>
+            </div>*/}
             <div className="main">
-                <div className="left_bar">
+               {/* <div className="left_bar">
                     <LeftBar/>
                 </div>
                 <div className="right_bar">
                     <LeftBar/>
-                </div>
+                </div>*/}
                 <div className="preview_post">
                     <div className="preview_main">
                         <div className="dog_text">

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css_modules/rightBarCssModule.css'
 import pet from '../Images/petAvatar.png'
-// import {add_1, add_2} from "../../../utils/constants/constants";
+ import  add_2 from "../../../utils/Images/add2.png";
 
 const RightBar = () => {
     return (

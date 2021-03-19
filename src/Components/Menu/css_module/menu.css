@@ -27,9 +27,10 @@ ul>li>a{
 }
 
 .BTN{
-    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+   /* border: 1px solid #FFFFFF;
     border-radius: 17px;
-    opacity: 1;
+    opacity: 1;*/
 }
 .HEADER{
     background-color: #FFFFFF;
@@ -42,6 +43,7 @@ ul>li>a{
     opacity: 1;
 
 }
+
 .nav-item{
     list-style: none;
 }

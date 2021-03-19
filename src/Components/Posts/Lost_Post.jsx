@@ -3,9 +3,9 @@ import './css_modules/find_lost_post.css'
 import LeftBar from "../Left_Bar/LeftBar";
 import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
-import user_avatar from '../../utils/images/user_avatar.png'
+import user_avatar from '../../utils/Images/user_avatar.png'
 import {GiPuppet} from "react-icons/gi";
-import {LOST_POST_TEXT} from "../../utils/constants/constants";
+/*import {LOST_POST_TEXT} from "../../utils/constants/constants";*/
 
 
 const Lost_Post = () => {
@@ -24,7 +24,7 @@ const Lost_Post = () => {
                 <LeftBar/>
             </div>
             <div className="upper_text">
-                <p><span className='upper_text_span'>{LOST_POST_TEXT.bold}</span> {LOST_POST_TEXT.text}</p>
+                <p><span className='upper_text_span'></span> </p>
             </div>
             <div className="main"></div>
             <div className="type">
