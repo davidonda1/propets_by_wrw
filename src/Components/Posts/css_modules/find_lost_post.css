@@ -4,7 +4,7 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0px 0px;
     text-align: center;
@@ -35,18 +35,18 @@
     font-size: 1rem;
 }
 
-.main {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    grid-area: 3 / 4 / 13 / 10;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    opacity: 1;
-    font-size: 1rem;
-    letter-spacing: 1rem;
-    margin-bottom: 3rem;
+/*.main {*/
+/*    margin-left: 1rem;*/
+/*    margin-right: 1rem;*/
+/*    grid-area: 3 / 4 / 13 / 10;*/
+/*    background: #FFFFFF 0% 0% no-repeat padding-box;*/
+/*    box-shadow: 0px 3px 6px #00000029;*/
+/*    opacity: 1;*/
+/*    font-size: 1rem;*/
+/*    letter-spacing: 1rem;*/
+/*    margin-bottom: 3rem;*/
 
-}
+/*}*/
 
 .type {
     grid-area: 3 / 4 / 4 / 5;
@@ -117,13 +117,13 @@ height_select {
 }
 
 .files {
-    grid-area: 8 / 8 / 10 / 10;
+    grid-area: 8 / 7 / 10 / 8;
     border: 1px solid #8DBFAC;
     margin-right: 2rem;
 }
 
 .drag-and-drop {
-    grid-area: 8 / 7 / 10 / 8;
+    grid-area: 5 / 7 / 7 / 8;
 }
 
 .location {
@@ -151,7 +151,7 @@ height_select {
 }
 
 .facebook {
-    grid-area: 11 / 9 / 12 / 10;
+    grid-area: 11 / 7 / 12 / 8;
     padding-right: 3rem;
 }
 
@@ -167,7 +167,7 @@ height_select {
 }
 
 .publish {
-    grid-area: 12 / 8 / 13 / 10;
+    grid-area: 12 / 7 / 13 / 8;
     background: #84B6A3 0% 0% no-repeat padding-box;
     border: 1px solid #8DBFAC;
     border-radius: 1rem;

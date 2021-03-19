@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './css_module/left_bar.css'
-import pet_avatar from '../../utils/images/petAvatar.png';
+import pet_avatar from '../../utils/Images/petAvatar.png'
 import {BsFillHouseFill} from "react-icons/bs";
 import {GiMagnifyingGlass} from "react-icons/gi";
 import {MdPets} from "react-icons/md";

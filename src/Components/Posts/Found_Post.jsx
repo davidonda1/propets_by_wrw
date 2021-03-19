@@ -3,7 +3,7 @@ import './css_modules/find_lost_post.css'
 import LeftBar from "../Left_Bar/LeftBar";
 import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
-import user_avatar from '../../utils/images/user_avatar.png'
+import user_avatar from '../../utils/Images/user_avatar.png'
 import {GiPuppet} from "react-icons/gi";
 // import {FOUND_POST_TEXT} from "../../utils/constants/constants";
 
@@ -11,18 +11,18 @@ import {GiPuppet} from "react-icons/gi";
 const Found_Post = () => {
     return (
         <div className="grid-container">
-            <div className="header">
-                {/*FIXME*/}
-                {/*<Header/>*/}
-            </div>
-            <div className="right_bar">
+           {/* <div className="header">
+                FIXME
+                <Header/>
+            </div>*/}
+          {/*  <div className="right_bar">
                 <LeftBar/>
-                {/*FIXME*/}
-                {/*<RightBar/>*/}
-            </div>
-            <div className="left_bar">
-                <LeftBar/>
-            </div>
+                FIXME
+                <RightBar/>
+            </div>*/}
+           {/* <div className="left_bar">
+               <LeftBar/>
+            </div>*/}
             <div className="upper_text">
                 <p><span className='upper_text_span'>Found a pet?</span> Cool!</p>
             </div>
