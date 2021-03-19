@@ -46,7 +46,7 @@ const Guest = () => {
             </div>
             <p className="join_text">
                 I’m okay, just want to <span onClick={() => setRegister(true)} className={'join'}>join</span> the
-                awsome community!
+                pawsome community!
             </p>
             <div className="footer"></div>
         </div>

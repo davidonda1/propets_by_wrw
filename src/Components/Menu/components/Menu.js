@@ -9,7 +9,8 @@ import { MdPets} from "react-icons/md";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { AiOutlineStar } from "react-icons/ai";
 import { IoIosLogOut } from "react-icons/io";
-import  add_2 from '../../../utils/Images/add2.png'
+import  add_2 from '../../../utils/images/add2.png'
+import Publish_Preview from "../../Publish_Preview/Publish_Preview";
 
 const Menu = () => {
     return (
@@ -46,7 +47,9 @@ const Menu = () => {
                         </li>
                     </ul>
                 </nav>
-                    <div className='col-8 MAIN '></div>
+                    <div className='col-8 MAIN '>
+                        <Publish_Preview/>
+                    </div>
                     <div className='col-2 mt-5 '><img src={add_2} alt={add_2}/></div>
                 </div>
             </div>

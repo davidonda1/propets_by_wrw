@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from "../Header/components/Header";
-import LeftBar from "../Left_Bar/LeftBar";
 import './css_module/preview.css'
 import dog from '../../utils/images/preview_dog.png'
 import {VscLocation} from "react-icons/vsc";
@@ -27,20 +25,11 @@ const PublishPreview = () => {
         //   <p>Preview and Publish. Please share the post to your FB to be more effective.</p>
         // </div>
         <div className="grid-container">
-            <div className="header">
-                <Header/>
-            </div>
             <div className="main">
-                <div className="left_bar">
-                    <LeftBar/>
-                </div>
-                <div className="right_bar">
-                    <LeftBar/>
-                </div>
                 <div className="preview_post">
                     <div className="preview_main">
                         <div className="dog_text">
-                            <p>Dog, Golden Retriever</p>
+                            <h2>Dog, Golden Retriever</h2>
                         </div>
                         <div className="color">
                             <p><span>Color: </span>golden</p>
@@ -63,7 +52,7 @@ const PublishPreview = () => {
                             <img src={dog} alt='dog'/>
                         </div>
                         <div className="location">
-                            <p><VscLocation/>Florentin, 27, Tel Aviv</p>
+                            <p><VscLocation/><span>Florentin, 27, Tel Aviv</span></p>
                         </div>
                         <div className="user">
                             <img src={user_avatar} alt='user_avatar'/>
@@ -98,7 +87,7 @@ const PublishPreview = () => {
                     </div>
                     <div className="footer_text"></div>
                     <div className="upper_text">
-                        <p>Preview and Publish. Please share the post to your FB to be more effective.</p>
+                        <p><span>Preview and Publish.</span> Please share the post to your FB to be more effective.</p>
                     </div>
                 </div>
             </div>

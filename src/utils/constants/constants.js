@@ -1,7 +1,8 @@
-import petAvatar from '../Images/petAvatar.png'
-import add1 from '../Images/add1.png'
-import add2 from '../Images/add2.png'
-import logo from '../Images/logo.svg'
+import petAvatar from '../images/petAvatar.png'
+import add1 from '../images/add1.png'
+import add2 from '../images/add2.png'
+import logo from '../images/logo.svg'
+
 export const posts = [{
     user: 'John Goodboi',
     time: Date.now().toFixed(2),
@@ -21,7 +22,7 @@ export const posts = [{
         img: '',
         liked: false,
     }]
-export const pet_avatar=petAvatar;
-export const add_1=add1;
-export const add_2=add2;
-export const logo_=logo;
+export const pet_avatar = petAvatar;
+export const add_1 = add1;
+export const add_2 = add2;
+export const logo_ = logo;

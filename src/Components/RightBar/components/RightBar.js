@@ -11,7 +11,7 @@ const RightBar = () => {
             <div className="main">
 
                 <div className='add2'>
-                    <img src={add_2} alt={'add_2'}/>
+                    <img src={'add_2'} alt={'add_2'}/>
                 </div>
             </div>
         </div>
