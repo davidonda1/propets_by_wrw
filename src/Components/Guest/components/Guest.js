@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import pet from '../Images/petImg/petImg.png';
-import propetsSVG from '../Images/propetsImg.svg';
-import lupaSVG from '../Images/lupa.svg';
+import pet from '../../../utils/Images/petImg.png';
+import propetsSVG from '../../../utils/Images/propetsImg.svg';
+import lupaSVG from '../../../utils/Images/lupa.svg';
 import Register from "../../Register/Register";
 import '../css_module/guest.css';
 

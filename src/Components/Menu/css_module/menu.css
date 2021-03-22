@@ -6,19 +6,7 @@
     background-color: #84B6A3;
     box-sizing: border-box;
 }
-.signin_btn_text{
-    text-align: center;
-    font: normal normal medium  Montserrat;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
-}
-.signin_btn{
-    border: 1px solid #FFFFFF;
-    border-radius: 17px;
-    opacity: 1;
-    background-color: #84B6A3;
-}
+
 ul>li>a{
     text-align: left;
     font: normal normal medium  Montserrat;
@@ -29,13 +17,8 @@ ul>li>a{
 
 .BTN{
     color: #FFFFFF;
-   /* border: 1px solid #FFFFFF;
-    border-radius: 17px;
-    opacity: 1;*/
 }
-.HEADER{
-    background-color: #FFFFFF;
-}
+
 .LOGOUT{
     text-align: center;
     font: normal normal medium  Montserrat;
@@ -57,49 +40,9 @@ li>a:active{
 .MAIN{
     background-color: #FFFFFF;
 }
-.iframe{
-   width: 850px;
-   height: 1000px;
-    border: 0;
 
 
-}
-.Lost{
-    background: #FFE18B 0% 0% no-repeat padding-box;
-    border: 1px solid #FFE78D;
-    border-radius: 17px;
-    opacity: 1;
-}
-.Lost_text{
-  color:  #393939
-}
-
-.Found{
-    text-align: left;
-    font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
-}
-.INPUT_HEADER{
-background-color: #FFFFFF;
-    border-radius: 15px;
-}
-.INPUT{
-    justify-content: flex-start;
-    justify-content: space-between;
-
-}
-.INPUT_text{
-    text-align: left;
-    font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
-    color: #84B6A3;
-    opacity: 1;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #8DBFAC;
-    border-radius: 15px;
 
 
-}
+
 

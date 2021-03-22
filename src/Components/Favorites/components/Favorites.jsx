@@ -1,5 +1,5 @@
 import React from 'react';
-import {posts} from '../../utils/constants/constants'
+import {posts} from '../../../utils/constants/constants'
 
 const Favorites = () => {
     return (

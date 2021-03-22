@@ -1,6 +1,6 @@
 import React from 'react';
 import './css_modules/find_lost_post.css'
-import LeftBar from "../Left_Bar/LeftBar";
+import LeftBar from "../Left_Bar/components/LeftBar";
 import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
 import user_avatar from '../../utils/Images/user_avatar.png'

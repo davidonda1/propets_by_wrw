@@ -1,43 +1,33 @@
-/*.grid-container {
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
-}*/
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-    "header header header header header header header header header header header header"
-    "left left left register register register register register register right right right"
-    "left left left register register register register register register right right right"
-    "left left left register register register register register register right right right"
-    "left left left register register register register register register right right right"
-    "left left left register register register register register register right right right"
-    "left left left register register register register register register right right right"
-    "left left left register register register register register register right right right"
-    "left left left register register register register register register right right right"
-    ". . . . . . . . . . . ."
-    ". . . . . . . . . . . ."
-    ". . . . . . . . . . . .";
+.signin_btn_text{
+    text-align: center;
+    font: normal normal medium  Montserrat;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.signin_btn{
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    opacity: 1;
+    background-color: #84B6A3;
+}
+.HEADER{
+    background-color: #FFFFFF;
+}
+.Lost{
+    background: #FFE18B 0% 0% no-repeat padding-box;
+    border: 1px solid #FFE78D;
+    border-radius: 17px;
+    opacity: 1;
+}
+.Lost_text{
+    color:  #393939
 }
 
-.header { grid-area: header; }
-
-.register { grid-area: register; }
-
-.left { grid-area: left; }
-
-.right { grid-area: right; }
-
-
-/*.header {
-    background: white 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+.Found{
+    text-align: left;
+    font: normal normal medium 12px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #FFFFFF;
     opacity: 1;
-    grid-area: 1 / 1 / 2 / 13;
-}*/
-
+}
