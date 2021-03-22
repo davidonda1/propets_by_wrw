@@ -88,3 +88,33 @@
 .Name,.pet{
     cursor: pointer;
 }
+.INFO{
+    text-align: left;
+    font: normal normal bold 19px/24px Montserrat;
+    letter-spacing: 0px;
+    color: #84B6A3;
+    opacity: 1;
+}
+p>span{
+    text-align: left;
+    font: normal normal medium 9px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #84B6A3;
+}
+.POINTER{
+    cursor: pointer;
+}
+.clock{
+    text-align: left;
+    font: normal normal medium 9px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #BABABA;
+    opacity: 1;
+}
+.noneActive{
+    opacity: 0.28;
+}
+.active{
+    opacity: 1;
+}
+

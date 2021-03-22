@@ -1,7 +1,7 @@
-import petAvatar from '../images/petAvatar.png'
-import add1 from '../images/add1.png'
-import add2 from '../images/add2.png'
-import logo from '../images/logo.svg'
+import petAvatar from '../Images/petAvatar.png'
+import add1 from '../Images/add1.png'
+import add2 from '../Images/add2.png'
+import logo from '../Images/logo.svg'
 
 export const posts = [{
     user: 'John Goodboi',

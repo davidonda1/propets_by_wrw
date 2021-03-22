@@ -6,6 +6,7 @@ import LeftBar from "./Components/Left_Bar/LeftBar";
 import Header from "./Components/Header/components/Header";
 import RightBar from "./Components/RightBar/components/RightBar";
 import Menu from "./Components/Menu/components/Menu";
+import PetFind from "./Components/PetFind/components/PetFind";
 
 function App() {
   return (
