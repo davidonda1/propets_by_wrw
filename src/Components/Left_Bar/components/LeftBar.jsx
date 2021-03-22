@@ -9,9 +9,19 @@ import {IoIosNotificationsOutline} from "react-icons/io";
 import {AiOutlineStar} from "react-icons/ai";
 import {IoIosLogOut} from "react-icons/io";
 import {Link} from "react-router-dom";
-import {FAVORITES, FOUND_PAGE, HOME_PAGE, LOST_PAGE, SERVICES, USER_PAGE} from "../../../utils/constants/constants";
+import {log_out} from '../../../Redux/actions/accountingActions';
+import {
+    FAVORITES,
+    FOUND_PAGE,
+    HOME_PAGE,
+    LOST_PAGE,
+    USER_PAGE,
+    VET_HELP
+} from "../../../utils/constants/constants";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
-const LeftBar = () => {
+const LeftBar = ({log_out}) => {
     return (
         <nav className="navbar fixed-top mt-5  NAV col-2">
             <ul className="navbar-nav ">
@@ -26,7 +36,7 @@ const LeftBar = () => {
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link"
-                          to={`${SERVICES}`}><IoIosNotificationsOutline/>Services</Link>
+                          to={`${VET_HELP}`}><IoIosNotificationsOutline/>Services</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to={`${FAVORITES}`}><AiOutlineStar/>Favorites</Link>
@@ -37,7 +47,7 @@ const LeftBar = () => {
                         Smith</Link>
                 </li>
 
-                <li className="nav-item">
+                <li onClick={() => log_out()} className="nav-item">
                     <Link className="nav-link col-2 LOGOUT" to='/guest'><IoIosLogOut/>Logout</Link>
                 </li>
             </ul>
@@ -46,4 +56,8 @@ const LeftBar = () => {
     );
 };
 
-export default LeftBar;
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({log_out}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps) (LeftBar);

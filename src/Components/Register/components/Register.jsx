@@ -4,10 +4,26 @@ import {FaFacebook} from "react-icons/fa";
 import {MdPets} from "react-icons/md";
 import {HOME_PAGE} from "../../../utils/constants/constants";
 import {Link} from "react-router-dom";
+import {bindActionCreators} from "redux";
+import {loginUser} from '../../../Redux/actions/accountingActions';
+import {connect} from "react-redux";
 
-const Register = ({cancel, change_page}) => {
+const Register = ({loginUser}) => {
 
-    const [mode, setMode] = useState(true);
+    const [mode, setMode] = useState(false);
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleClickCancel = () => {
+        setPassword('');
+        setEmail('');
+    }
+
+    const handleClickSubmit = () => {
+        loginUser(email, password);
+    }
+
 
     const active_class = 'active_class';
     const none_active_class = 'none_active_class';
@@ -16,9 +32,11 @@ const Register = ({cancel, change_page}) => {
         return (
             <>
                 <label className='name'>Email:</label>
-                <input className="input_name" type={'text'} placeholder={'example@gmail.com'}></input>
+                <input onChange={(event) => setEmail(event.target.value)} className="input_name" type={'text'}
+                       value={email} placeholder={'example@gmail.com'}></input>
                 <label className="email">Password:</label>
-                <input className="email_input" type={'password'} placeholder={'password'}></input>
+                <input onChange={(event) => setPassword(event.target.value)} className="email_input" type={'password'}
+                       value={password} placeholder={'password'}></input>
             </>
         )
     }
@@ -69,17 +87,21 @@ const Register = ({cancel, change_page}) => {
             <div onClick={() => setMode(false)} className={`signin_btn ${mode ? none_active_class : active_class}`}>
                 <p className="signin_btn_text">Sign in</p>
             </div>
-            <div className="cancel_btn" onClick={() => cancel(false)}>
+            <div className="cancel_btn" onClick={() => handleClickCancel()}>
                 <button className="cancel_btn_text">Cancel</button>
             </div>
-            <Link className="submit_btn" to={`${HOME_PAGE}`}>
-                <button className="submit_btn_text"><MdPets/>Submit</button>
-            </Link>
+            <div className="submit_btn" onClick={() => handleClickSubmit()}>
+                    <button className="submit_btn_text"><MdPets/>Submit</button>
+            </div>
             {mode ? signUp() : signIn()}
         </div>
 
     );
 };
 
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({loginUser}, dispatch)
+}
 
-export default Register;
+
+export default connect(null, mapDispatchToProps)(Register);

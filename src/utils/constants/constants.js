@@ -17,13 +17,17 @@ export const walking_services = walkingServices;
 export const fostering_img = forsteringImg;
 export const vet_help = vetHelp;
 
-export const HOME_PAGE = 'HOME_PAGE';
-export const GUEST_PAGE = 'GUEST_PAGE';
-export const LOST_PAGE = 'LOST_PAGE';
-export const FOUND_PAGE = 'FOUND_PAGE';
-export const SERVICES = 'SERVICES';
-export const FAVORITES = 'FAVORITES';
-export const USER_PAGE = 'USER_PAGE';
+export const HOME_PAGE = 'home';
+export const GUEST_PAGE = 'guest';
+export const LOST_PAGE = 'lost';
+export const FOUND_PAGE = 'found';
+export const SERVICES = 'services';
+export const FAVORITES = 'favorites';
+export const USER_PAGE = 'user';
+export const HOTELS = 'hotels';
+export const WALKING = 'walking';
+export const FOSTERING = 'fostering';
+export const VET_HELP = 'vetHelp';
 
 
 export const posts = [{

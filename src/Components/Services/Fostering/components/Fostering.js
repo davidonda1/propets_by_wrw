@@ -1,5 +1,5 @@
 import React from "react";
-import {forstering_img, pet_avatar} from '../../../../utils/constants/constants'
+import {fostering_img, pet_avatar} from '../../../../utils/constants/constants'
 import {AiFillStar, FaStarOfDavid} from "react-icons/all";
 import '../css_module/fostering.css'
 
@@ -17,7 +17,7 @@ const Fostering = () => {
                     </div>
                     <div className='row mt-4'>
                         <div className='offset-2 mb-4'>
-                            <img src={forstering_img} alt='forstering'/>
+                            <img src={fostering_img} alt='forstering'/>
                         </div>
                         <div className='offset-2 mb-5 col-7'>
                             <p className='fostering_user_text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dolorem, facere

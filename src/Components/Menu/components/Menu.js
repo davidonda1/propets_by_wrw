@@ -8,7 +8,7 @@ import {
     add_2,
     HOME_PAGE,
     LOST_PAGE,
-    FOUND_PAGE, SERVICES, FAVORITES, USER_PAGE
+    FOUND_PAGE, SERVICES, FAVORITES, USER_PAGE, VET_HELP, HOTELS, FOSTERING, WALKING
 } from "../../../utils/constants/constants";
 import Favorites from "../../Favorites/components/Favorites";
 import VetHelp from '../../Services/VetHelp/components/VetHelp'
@@ -18,16 +18,24 @@ import EditUser from "../../EditUser/components/EditUser";
 import Header from "../../Header/components/Header";
 import LeftBar from "../../Left_Bar/components/LeftBar";
 import RightBar from "../../RightBar/components/RightBar";
+import Hotels from "../../Services/Hotels/components/Hotels";
+import Fostering from "../../Services/Fostering/components/Fostering";
+import Walking from "../../Services/Walking/components/Walking";
 
 
-const Menu = (props) => {
+const Menu = ({page}) => {
 
-    const [page, setPage] = useState(HOME_PAGE);
 
     const renderPage = () => {
         switch (page) {
-            case SERVICES:
+            case VET_HELP:
                 return <VetHelp/>
+            case HOTELS:
+                return <Hotels/>
+            case FOSTERING:
+                return <Fostering/>
+            case WALKING:
+                return <Walking/>
             case LOST_PAGE:
                 return <Lost/>
             case FOUND_PAGE:
@@ -43,9 +51,9 @@ const Menu = (props) => {
         }
     }
 
-    useEffect(() => {
-        setPage(props.match.path.slice(1, props.match.path.length))
-    }, [props.match.path])
+    // useEffect(() => {
+    //     setPage(props.match.path.slice(1, props.match.path.length))
+    // }, [props.match.path])
 
     return (
         <div className='jumbotron '>
