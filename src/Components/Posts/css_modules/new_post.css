@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.new_post_text_area {
+    min-height: 20rem;
+    min-width: 75%;
+    border: 1px solid #8DBFAC;
+    resize: none;
+}
+
+.new_post_upper_text {
+    font: normal normal 600 16px/19px Montserrat;
+    color: #669885;
+}
+
+.new_post_upper_text > span {
+    font: normal normal bold 16px/19px Montserrat;
+}
+
+.new_post_text {
+    font: normal normal medium 12px/18px Montserrat;
+    color: #393939;
+}
+
+.new_post_text > span, .new_post_photos > span, .new_post_upload, .new_post_user_name {
+    font: normal normal medium 10px/18px Montserrat;
+    color: #84B6A3;
+}
+
+.new_post_user_name {
+    font: normal normal 600 16px/19px Montserrat;
+}
+
+.new_post_browse, .new_post_publish_button {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #8DBFAC;
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+}
+
+.new_post_publish_button {
+    background: #84B6A3 0% 0% no-repeat padding-box;
+    font: normal normal medium 12px/15px Montserrat;
+    border: 0px;
+    color: #FFFFFF;
+}

@@ -14,7 +14,7 @@ const EditUser = () => {
 
     const noneActive='noneActive';
     const active='active'
-const [edit,setEdit]=useState(true);
+const [edit,setEdit]=useState(false);
     const renderEdit = () => {
         return (
             <div className='container'>

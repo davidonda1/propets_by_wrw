@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import './css_module/register.css'
-import propetsImg from './Images/propets_img.svg'
 import {FaFacebook} from "react-icons/fa";
 import {MdPets} from "react-icons/md";
+import {HOME_PAGE} from "../../utils/constants/constants";
+import {Link} from "react-router-dom";
 
-const Register = ({cancel}) => {
+const Register = ({cancel, change_page}) => {
 
     const [mode, setMode] = useState(true);
 
@@ -35,7 +36,7 @@ const Register = ({cancel}) => {
 
                 <label className="pswrd">Password:</label>
 
-                <label className="pswrd_2">Password:</label>
+                <label className="pswrd_2">Repeat password:</label>
 
                 <input className="pswrd_input" type={'password'} placeholder={'   *****************'}/>
 
@@ -58,9 +59,6 @@ const Register = ({cancel}) => {
             <div className="welcome_text">
                 <h4><span className='welcome_span'>Welcome!</span> Please sign in / sign up to continue or</h4>
             </div>
-            <div className="propets">
-                <img className='propets_img' src={propetsImg} alt={'propetsImg'}></img>
-            </div>
             <div className="facebook_btn">
 
                 <p className='facebook_btn_text'><FaFacebook/>Enter with Facebook</p>
@@ -71,21 +69,17 @@ const Register = ({cancel}) => {
             <div onClick={() => setMode(false)} className={`signin_btn ${mode ? none_active_class : active_class}`}>
                 <p className="signin_btn_text">Sign in</p>
             </div>
-            {/*<div className="text">*/}
-            {/*    <p>By clicking “Submit”, you agree to us processing your information in accordance with these terms.</p>*/}
-            {/*</div>*/}
             <div className="cancel_btn" onClick={() => cancel(false)}>
                 <button className="cancel_btn_text">Cancel</button>
             </div>
-            <div className="submit_btn" onClick={() => console.log('submitted')}>
-
+            <Link className="submit_btn" to={`${HOME_PAGE}`}>
                 <button className="submit_btn_text"><MdPets/>Submit</button>
-            </div>
-
+            </Link>
             {mode ? signUp() : signIn()}
         </div>
 
     );
 };
+
 
 export default Register;

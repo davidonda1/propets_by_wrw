@@ -6,7 +6,7 @@ import Register from "../../Register/Register";
 import '../css_module/guest.css';
 
 
-const Guest = () => {
+const Guest = ({setPage}) => {
     const [register, setRegister] = useState(false);
 
     const showRegister = () => {

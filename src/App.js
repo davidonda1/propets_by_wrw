@@ -1,22 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React from 'react'
 import './App.css';
-import Guest from "./Components/Guest/components/Guest";
-import Register from "./Components/Register/Register";
-import LeftBar from "./Components/Left_Bar/components/LeftBar";
-import Header from "./Components/Header/components/Header";
-import RightBar from "./Components/RightBar/components/RightBar";
 import Menu from "./Components/Menu/components/Menu";
-import PetFind from "./Components/PetFind/components/PetFind";
-import Edit_User from "./Components/Profile/Edit_User";
-import EditUser from "./Components/EditUser/components/EditUser";
-import Lost from "./Components/Lost/components/Lost";
+import Guest from "./Components/Guest/components/Guest";
+import {Switch, Route, BrowserRouter} from 'react-router-dom'
+import {FAVORITES, FOUND_PAGE, HOME_PAGE, LOST_PAGE, SERVICES, USER_PAGE} from "./utils/constants/constants";
 
 function App() {
-  return (
-    <div>
-<New
-    </div>
-  );
+    return (
+        <Switch>
+            <Route exact
+                   path={[`/${HOME_PAGE}`, `/${FOUND_PAGE}`, `/${LOST_PAGE}`, `/${SERVICES}`, `/${SERVICES}/:name`, `/${USER_PAGE}`, `/${FAVORITES}`]}
+                   render={routeProps => <Menu {...routeProps}/>}/>
+            <Route exact path={['/', '/guest']}><Guest/></Route>
+            <Route><h1>Error. No such page...</h1></Route>
+        </Switch>
+    );
 }
 
 export default App;

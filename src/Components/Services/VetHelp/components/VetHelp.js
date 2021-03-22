@@ -1,23 +1,33 @@
 import React from "react";
-import petAvatar from '../Images/petAvatar.png';
-import vetHeplpImg from '../Images/vetHelpImg.png';
+import {pet_avatar, vet_help} from "../../../../utils/constants/constants";
+import {FaStarOfDavid} from "react-icons/all";
+import '../css_modules/vet_help.css'
+
 const VetHelp = () => {
     return (
-        <div>
-            <div>
-                <p>VetHelp. They deserve it.</p>
+        <div className='container mt-5'>
+            <div className='row'>
+                <p className='col-12 vet_help_upper_text'><span>VetHelp.</span> They deserve it.</p>
             </div>
-            <div>
-                <div><img src={petAvatar}/></div>
-                <div>
-                    <label>John Goodboi</label>
-                    <label>2 h</label>
+            <div className='container shadow'>
+                <div className='row ml-5 mt-3'>
+                    <div className='col-1'>
+                        <img src={pet_avatar} alt='avatar'/></div>
+                    <div className='row ml-3'>
+                        <label className='vet_help_user_name'>John Goodboi</label>
+                        <label className='col-12 vet_help_user_time'>2 h</label>
+                    </div>
                 </div>
-                <div><img src={vetHeplpImg}/></div>
-                <div>
-                    {/* TODO link*/}
-                    <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, “Lorem ipsum dolor sit amet..”, comes from a line in section 1.10.32. The standard chunk of Lorem</p>
-                    <label></label>
+                <div className='row mt-4'>
+                    <div className='mb-4'>
+                        <img className='offset-1 col-10' src={vet_help} alt='vet_help'/>
+                    </div>
+                    <div className='offset-1 mb-5 col-10'>
+                        <p className='vet_help_user_text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Consectetur dolorem, facere
+                            illo libero nemo perspiciatis rem rerum sed sit unde! <span>...more</span></p>
+                    </div>
+                    <FaStarOfDavid className='offset-11 mb-4 vet_help_star'/>
                 </div>
             </div>
         </div>
