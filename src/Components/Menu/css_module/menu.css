@@ -58,3 +58,12 @@ li>a:active{
     background-color: #FFFFFF;
 }
 
+.signin_btn {
+    opacity: 1 !important;
+    background-color: #84B6A3;
+}
+
+select {
+    appearance: none;
+    background-color: #84B6A3;
+}

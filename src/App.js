@@ -1,18 +1,17 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React     from 'react'
 import './App.css';
-import Guest from "./Components/Guest/components/Guest";
-import Register from "./Components/Register/Register";
-import LeftBar from "./Components/Left_Bar/LeftBar";
-import Header from "./Components/Header/components/Header";
-import RightBar from "./Components/RightBar/components/RightBar";
 import Menu from "./Components/Menu/components/Menu";
+import Guest from "./Components/Guest/components/Guest";
+import {Switch, Route, BrowserRouter} from 'react-router-dom'
 
 function App() {
-  return (
-    <div>
-<Menu/>
-    </div>
-  );
+    return (
+        <Switch>
+            <Route exact path={'/home'}><Menu/></Route>
+            <Route exact path={['/', '/guest']}><Guest/></Route>
+            <Route><h1>Error. No such page...</h1></Route>
+        </Switch>
+    );
 }
 
 export default App;

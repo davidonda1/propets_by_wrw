@@ -1,24 +1,54 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css_module/menu.css'
-import {logo_} from "../../../utils/constants/constants";
-import {pet_avatar} from "../../../utils/constants/constants";
-import {BsFillHouseFill  } from "react-icons/bs";
-import { GiMagnifyingGlass } from "react-icons/gi";
-import { MdPets} from "react-icons/md";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import { AiOutlineStar } from "react-icons/ai";
-import { IoIosLogOut } from "react-icons/io";
-import  add_2 from '../../../utils/Images/add2.png'
+import {
+    GUEST_PAGE,
+    logo_,
+    pet_avatar,
+    add_2,
+    HOME_PAGE,
+    LOST_PAGE,
+    FOUND_PAGE, SERVICES, FAVORITES, USER_PAGE
+} from "../../../utils/constants/constants";
+import {
+    BsFillHouseFill,
+    GiMagnifyingGlass,
+    MdPets,
+    IoIosNotificationsOutline,
+    AiOutlineStar,
+    IoIosLogOut
+} from "react-icons/all";
+import Favorites from "../../Favorites/Favorites";
+import {Link} from "react-router-dom";
+import {bindActionCreators} from "redux";
+import {change_page} from "../../../Redux/actions/pageActions";
+import {connect} from "react-redux";
+import VetHelp from "../../Services/VetHelp/components/VetHelp";
+import Lost from "../../Lost/Lost";
 import Found_Post from "../../Posts/Found_Post";
-import Lost_Post from "../../Posts/Lost_Post";
-import Publish_Preview from "../../Publish_Preview/Publish_Preview";
+import Home from "../../Home/Home";
 import Edit_User from "../../Profile/Edit_User";
-import EditUser from "../../EditUser/components/EditUser";
 
-const Menu = () => {
+const Menu = ({change_page, page}) => {
+
+    const renderPage = () => {
+        switch (page) {
+            case SERVICES:
+                return <VetHelp/>
+            case LOST_PAGE:
+                return <Lost/>
+            case FOUND_PAGE:
+                return <Found_Post/>
+            case HOME_PAGE:
+                return <Home/>
+            case FAVORITES:
+                return <Favorites/>
+            case USER_PAGE:
+                return <Edit_User/>
+        }
+    }
+
     return (
-
         <div className='jumbotron '>
             <div className='container-fluid HEADER  w-100 '>
                 <div className='row'>
@@ -30,54 +60,54 @@ const Menu = () => {
                     </button>
                 </div>
             </div>
-            <div  className='container col-8 '>
+            <div className='container col-8 '>
                 <div className='row '>
-                <nav class="navbar fixed-top mt-5  NAV col-2">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><BsFillHouseFill/>Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"><GiMagnifyingGlass/>Lost</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><MdPets/>Found</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><IoIosNotificationsOutline/>Services</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"><AiOutlineStar/>Favorites</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link col-1 BTN" href="#"><img src={pet_avatar} alt={pet_avatar}/>Anna Smith</a>
-                        </li>
+                    <nav className="navbar fixed-top mt-5  NAV col-2">
+                        <ul className="navbar-nav ">
+                            <li className="nav-item" onClick={() => change_page(HOME_PAGE)}>
+                                <a className="nav-link" href="#"><BsFillHouseFill/>Home</a>
+                            </li>
+                            <li className="nav-item" onClick={() => change_page(LOST_PAGE)}>
+                                <a className="nav-link" href="#"><GiMagnifyingGlass/>Lost</a>
+                            </li>
+                            <li className="nav-item" onClick={() => change_page(FOUND_PAGE)}>
+                                <a className="nav-link" href="#"><MdPets/>Found</a>
+                            </li>
+                            <li className="nav-item" onClick={() => change_page(SERVICES)}>
+                                <a className="nav-link" href="#"><IoIosNotificationsOutline/>Services</a>
+                            </li>
+                            <li className="nav-item" onClick={() => change_page(FAVORITES)}>
+                                <a className="nav-link" href="#"><AiOutlineStar/>Favorites</a>
+                            </li>
+                            <li className="nav-item" onClick={() => change_page(USER_PAGE)}>
+                                <a className="nav-link col-1 BTN" href="#"><img src={pet_avatar} alt={pet_avatar}/>Anna
+                                    Smith</a>
+                            </li>
 
-                        <li className="nav-item">
-                            <a className="nav-link col-2 LOGOUT" href="#"><IoIosLogOut/>Logout</a>
-                        </li>
-                    </ul>
-                </nav>
-                    <div className='col-8 MAIN '><EditUser/></div>
-                    <div className='col-2 offset-2 mt-5'><img src={add_2} alt={add_2}/></div>
+                            <li onClick={() => change_page(HOME_PAGE)} className="nav-item">
+                                <Link className="nav-link col-2 LOGOUT" to='/guest'><IoIosLogOut/>Logout</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div className='col-8 MAIN '>
+                        {renderPage()}
+                    </div>
+                    <div className='col-2 offset-2 mt-5'><img src={add_2} alt='advertisement'/></div>
                 </div>
             </div>
-           {/* <div className='container'>
-                <div className='row'>
-                    <p className='col-2 BTN'><img src={pet_avatar} alt={pet_avatar}/>Anna Smith</p>
-                </div>
-            </div>*/}
-           {/* <div className='container'>
-                <div className='row'>
-                    <li className="nav-item">
-                        <a className="nav-link col-2 LOGOUT" href="#"><IoIosLogOut/>Logout</a>
-                    </li>
-
-                </div>
-            </div>*/}
         </div>
-
     );
 };
 
-export default Menu;
+const mapStateToProps = state => {
+    return {
+        page: state.pageReducer.page
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({change_page}, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

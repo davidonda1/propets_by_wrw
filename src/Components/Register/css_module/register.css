@@ -194,7 +194,7 @@
 .signin_txt {
     padding-left: 2rem;
     padding-top: 4rem;
-    grid-area: 6 / 7 / 10 / 11;
+    grid-area: 8 / 7 / 10 / 11;
     text-align: left;
     font: normal medium Montserrat;
     font-size: 1rem;
@@ -309,15 +309,14 @@
     opacity: 1;
 }
 
-.propets_img {
-    fill: #669885;
-}
-
 .active_class {
     opacity: 1;
 }
 
+.signin_btn {
+    border-radius: 0;
+}
 .none_active_class {
-    opacity: 0.28;
+    opacity: 0.28 !important;
 }
 
