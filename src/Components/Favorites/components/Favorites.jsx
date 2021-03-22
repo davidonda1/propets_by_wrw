@@ -1,7 +1,7 @@
 import React from 'react';
-import {pet_avatar, posts} from '../../utils/constants/constants'
+import {pet_avatar, posts} from '../../../utils/constants/constants'
 import {FaStarOfDavid} from "react-icons/all";
-import './css_modules/favorites.css'
+import '../css_modules/favorites.css'
 
 const Favorites = () => {
     return (

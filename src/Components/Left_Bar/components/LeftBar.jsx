@@ -8,30 +8,40 @@ import {MdPets} from "react-icons/md";
 import {IoIosNotificationsOutline} from "react-icons/io";
 import {AiOutlineStar} from "react-icons/ai";
 import {IoIosLogOut} from "react-icons/io";
+import {Link} from "react-router-dom";
+import {FAVORITES, FOUND_PAGE, HOME_PAGE, LOST_PAGE, SERVICES, USER_PAGE} from "../../../utils/constants/constants";
 
 const LeftBar = () => {
     return (
-        <div className='container-fluid'>
-            <div className='row-cols-6 text-center'>
-                <ul className='nav flex-column col-2'>
-                    <li className='nav-item'>
-                        <BsFillHouseFill/> Home
-                    </li>
-                    <li className='nav-item'>
-                        <GiMagnifyingGlass/> Lost
-                    </li>
-                    <li className='nav-item'>
-                        <MdPets/> Found
-                    </li>
-                    <li className='nav-item'>
-                        <IoIosNotificationsOutline/> Services
-                    </li>
-                    <li className='nav-item'>
-                        <AiOutlineStar/> Favorites
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <nav className="navbar fixed-top mt-5  NAV col-2">
+            <ul className="navbar-nav ">
+                <li className="nav-item">
+                    <Link className="nav-link" to={`${HOME_PAGE}`}><BsFillHouseFill/>Home</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to={`${LOST_PAGE}`}><GiMagnifyingGlass/>Lost</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to={`${FOUND_PAGE}`}><MdPets/>Found</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link"
+                          to={`${SERVICES}`}><IoIosNotificationsOutline/>Services</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to={`${FAVORITES}`}><AiOutlineStar/>Favorites</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link col-1 BTN" to={`${USER_PAGE}`}><img src={pet_avatar}
+                                                                                  alt={pet_avatar}/>Anna
+                        Smith</Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link className="nav-link col-2 LOGOUT" to='/guest'><IoIosLogOut/>Logout</Link>
+                </li>
+            </ul>
+        </nav>
 
     );
 };

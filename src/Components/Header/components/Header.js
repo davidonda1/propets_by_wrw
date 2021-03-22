@@ -6,8 +6,8 @@ import {AiOutlineSearch} from "react-icons/ai";
 import {MdPets} from "react-icons/md";
 
 const Header = () => {
-    const renderNorm=()=>{
-        return(
+    const renderNorm = () => {
+        return (
             <div className='container-fluid HEADER  w-100 '>
                 <div className='row'>
                     <div className='offset-2 logo col-2'>
@@ -21,8 +21,8 @@ const Header = () => {
         );
 
     }
-    const renderLostFoundHeader=()=>{
-        return(
+    const renderLostFoundHeader = () => {
+        return (
             <div className='container-fluid HEADER w-100  '>
                 <div className='row mt-3 '>
                     <div className='offset-2 logo col-2'>
@@ -42,7 +42,7 @@ const Header = () => {
 
 
     return (
-       renderLostFoundHeader()
+        renderNorm()
     );
 };
 
