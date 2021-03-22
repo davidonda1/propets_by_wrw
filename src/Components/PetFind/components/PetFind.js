@@ -1,7 +1,7 @@
 import React from 'react';
 import manWithPetImg from '../Images/manWithPetImg.svg';
 import questionImg from '../Images/questionImg.svg';
-import petAvatar from '../Images/petAvatar/petAvatar.png'
+import petAvatar from '../Images/petAvatar/petAvatar.png';
 const PetFind = () => {
     return (
         <div>

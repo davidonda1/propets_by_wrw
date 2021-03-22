@@ -4,9 +4,6 @@ import {FaFacebook} from "react-icons/fa";
 import {MdPets} from "react-icons/md";
 import {HOME_PAGE} from "../../utils/constants/constants";
 import {Link} from "react-router-dom";
-import {bindActionCreators} from "redux";
-import {change_page} from "../../Redux/actions/pageActions";
-import {connect} from "react-redux";
 
 const Register = ({cancel, change_page}) => {
 
@@ -75,8 +72,7 @@ const Register = ({cancel, change_page}) => {
             <div className="cancel_btn" onClick={() => cancel(false)}>
                 <button className="cancel_btn_text">Cancel</button>
             </div>
-            <Link className="submit_btn" to='/home'
-                  onClick={() => change_page(HOME_PAGE)}>
+            <Link className="submit_btn" to={`${HOME_PAGE}`}>
                 <button className="submit_btn_text"><MdPets/>Submit</button>
             </Link>
             {mode ? signUp() : signIn()}
@@ -85,8 +81,5 @@ const Register = ({cancel, change_page}) => {
     );
 };
 
-const mapDispatchToProps = dispatch => {
-    return bindActionCreators({change_page}, dispatch)
-}
 
-export default connect(null, mapDispatchToProps)(Register);
+export default Register;

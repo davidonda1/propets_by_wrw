@@ -12,9 +12,10 @@ import {useState} from "react";
 const EditUser = () => {
 
 
-    const noneActive='noneActive';
-    const active='active'
-const [edit,setEdit]=useState(false);
+    const noneActive = 'noneActive';
+    const active = 'active'
+    const [edit, setEdit] = useState(false);
+
     const renderEdit = () => {
         return (
             <div className='container'>
@@ -46,17 +47,16 @@ const [edit,setEdit]=useState(false);
         return (
 
             <div className='container ALL'>
-                <div className='row  '>
+                <div className='row'>
                     <img className='col-5 mt-3 mb-3' src={preview_dog} alt='preview_dog'/>
                     <div className='container  col-6'>
-                        <div className='row mt-3 mb-3' >
+                        <div className='row mt-3 mb-3'>
                             <p className='INFO '>Dog, Golden Retriever</p>
                             <p className='POINTER'><TiPencil color='black'/><CgTrash color='black'/></p>
                         </div>
                         <div className='row P'>
                             <div className='row col-6'>
                                 <p><span>Color:</span> golden</p>
-                                <p><span>Sex:</span> male</p>
                                 <p><span>Sex:</span> male</p>
                             </div>
                             <div className='row col-6'>
@@ -74,7 +74,7 @@ const [edit,setEdit]=useState(false);
                             <p><IoLocationOutline color='black'/> Florentin, 27, Tel Aviv</p>
                         </div>
                         <div className='row POINTER'>
-                                <p className='col-8'><img src={pet_avatar} alt='pet_avatar'/><span>John Goodboi </span></p>
+                            <p className='col-8'><img src={pet_avatar} alt='pet_avatar'/><span>John Goodboi </span></p>
                             <p className='col-4'><AiOutlinePhone/><AiFillFacebook/><AiOutlineMessage/></p>
                         </div>
                         <div className='row'>
@@ -95,14 +95,14 @@ const [edit,setEdit]=useState(false);
             </div>
             <div className='container mt-3 ml-3 c1 col-10 '>
                 <div className='row Profiles'>
-                    <div onClick={()=>setEdit(true)} className={`MyProfile col-6 ${edit?active:noneActive}`}>
-                        <p  className='MyProfile_p mt-2'>My profile</p>
+                    <div onClick={() => setEdit(true)} className={`MyProfile col-6 ${edit ? active : noneActive}`}>
+                        <p className='MyProfile_p mt-2'>My profile</p>
                     </div>
-                    <div onClick={()=>setEdit(false)} className={`Activites col-6 ${edit?noneActive:active}`}>
-                        <p  className='Activites_p mt-2 '>Activites</p>
+                    <div onClick={() => setEdit(false)} className={`Activites col-6 ${edit ? noneActive : active}`}>
+                        <p className='Activites_p mt-2 '>Activites</p>
                     </div>
                 </div>
-                {edit?renderEdit():renderNorm()}
+                {edit ? renderEdit() : renderNorm()}
 
             </div>
             <div className='container mt-3 ml-3 '>

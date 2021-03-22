@@ -35,18 +35,6 @@
     font-size: 1rem;
 }
 
-/*.main {*/
-/*    margin-left: 1rem;*/
-/*    margin-right: 1rem;*/
-/*    grid-area: 3 / 4 / 13 / 10;*/
-/*    background: #FFFFFF 0% 0% no-repeat padding-box;*/
-/*    box-shadow: 0px 3px 6px #00000029;*/
-/*    opacity: 1;*/
-/*    font-size: 1rem;*/
-/*    letter-spacing: 1rem;*/
-/*    margin-bottom: 3rem;*/
-
-/*}*/
 
 .type {
     grid-area: 3 / 4 / 4 / 5;
