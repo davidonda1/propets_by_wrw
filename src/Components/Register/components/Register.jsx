@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import './css_module/register.css'
+import '../css_module/register.css'
 import {FaFacebook} from "react-icons/fa";
 import {MdPets} from "react-icons/md";
-import {HOME_PAGE} from "../../utils/constants/constants";
+import {HOME_PAGE} from "../../../utils/constants/constants";
 import {Link} from "react-router-dom";
 
 const Register = ({cancel, change_page}) => {

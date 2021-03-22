@@ -1,5 +1,5 @@
 import React from 'react';
-import Lost_Post from "../Posts/Lost_Post";
+import Lost_Post from "../../Posts/components/Lost_Post";
 
 const Activities = () => {
     return (

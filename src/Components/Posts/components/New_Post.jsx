@@ -1,7 +1,7 @@
 import React from 'react';
-import './css_modules/new_post.css'
+import '../css_modules/new_post.css'
 import {BsUpload} from "react-icons/all";
-import {pet_avatar} from "../../utils/constants/constants";
+import {pet_avatar} from "../../../utils/constants/constants";
 import {FaPaw} from "react-icons/fa";
 
 const New_Post = () => {

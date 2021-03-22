@@ -1,7 +1,7 @@
 import React from 'react';
-import {posts} from "../../utils/constants/constants";
+import {posts} from "../../../utils/constants/constants";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../Home/home.css'
+import '../css_module/home.css'
 import {BiDotsHorizontalRounded, FaStarOfDavid} from "react-icons/all";
 
 const Home = () => {

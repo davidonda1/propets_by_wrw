@@ -1,8 +1,8 @@
 import React from 'react';
-import './css_module/preview.css'
-import dog from '../../utils/Images/preview_dog.png'
+import '../css_module/preview.css'
+import dog from '../../../utils/Images/preview_dog.png'
 import {VscLocation} from "react-icons/vsc";
-import user_avatar from '../../utils/Images/user_avatar.png'
+import user_avatar from '../../../utils/Images/user_avatar.png'
 import {AiFillPhone, AiFillFacebook, AiFillMail, AiFillEdit} from "react-icons/ai";
 import {FaPaw} from "react-icons/fa";
 

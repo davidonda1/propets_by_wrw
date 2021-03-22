@@ -13,7 +13,7 @@ import {
 import Favorites from "../../Favorites/components/Favorites";
 import VetHelp from '../../Services/VetHelp/components/VetHelp'
 import Lost from '../../Lost/components/Lost'
-import Home from '../../Home/Home'
+import Home from '../../Home/components/Home'
 import EditUser from "../../EditUser/components/EditUser";
 import Header from "../../Header/components/Header";
 import LeftBar from "../../Left_Bar/components/LeftBar";
