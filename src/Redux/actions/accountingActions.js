@@ -71,7 +71,7 @@ export const registerUser = (name, email, password) => {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                      break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
@@ -106,7 +106,7 @@ export const loginUser = (token) => {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
@@ -147,7 +147,7 @@ export const userInfo = () => {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -193,7 +193,7 @@ export const editUser = (name, avatar, phone) => {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -233,7 +233,7 @@ export const deleteUser = () => {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -278,7 +278,7 @@ export const addUserRole = () => {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -323,7 +323,7 @@ return(dispatch,getState)=>{
                     dispatch(putError(error403))
                     break;
                 default:
-                    return
+                    break;
             }
             if (response.ok) {
                 dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -362,7 +362,7 @@ export const blockUserAccount=()=>{
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -401,7 +401,7 @@ export const addUserFavorite=()=>{
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -439,7 +439,7 @@ export const addUserActivity=()=>{
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     return response.json()
@@ -476,7 +476,7 @@ export const delUserFavorite=()=>{
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -513,7 +513,7 @@ export const delUserActivity=()=>{
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     return response.json()
@@ -544,7 +544,7 @@ export const getUserDataPostActivites=()=> {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     return response.json()
@@ -576,7 +576,7 @@ export const getUserDataPostFavourites=()=> {
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     return response.json()
@@ -610,7 +610,7 @@ export const tokenValidation=()=>{
                         dispatch(putError(error403))
                         break;
                     default:
-                        return
+                        break;
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
