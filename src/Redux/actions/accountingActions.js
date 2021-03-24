@@ -88,7 +88,7 @@ export const userInfo = () => {
 
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         fetch(`${BASE_URL}${login}/info`, {
             method: 'Get',
             headers: {
@@ -145,7 +145,7 @@ export const editUser = (name, avatar, phone) => {
 export const deleteUser = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         fetch(`${BASE_URL}${login}`, {
             method: 'Del',
             headers: {
@@ -169,7 +169,7 @@ export const deleteUser = () => {
 export const addUserRole = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const role=getState().accountingReducer.role;
         //FIXME
         fetch(`${BASE_URL}${login}/role/${role}`, {
@@ -200,7 +200,7 @@ export const addUserRole = () => {
 export const delUserRole=()=>{
 return(dispatch,getState)=>{
     const login = getState().accountingReducer.email;
-    const token = getState().accountingReducer.token;
+    const token = getState().accountingReducer.xToken;
     const role=getState().accountingReducer.role;
     fetch(`${BASE_URL}${login}/role/${role}`,{
         method:'Del',
@@ -231,7 +231,7 @@ return(dispatch,getState)=>{
 export const blockUserAccount=()=>{
     return(dispatch,getState)=>{
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const status=getState().accountingReducer.status;
         fetch(`${BASE_URL}${login}/block/${status}`,{
             method:'Put',
@@ -256,7 +256,7 @@ export const blockUserAccount=()=>{
 export const addUserFavorite=()=>{
     return(dispatch,getState)=>{
         const login=getState().accountingReducer.email;
-        const token=getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const postId=getState().accountingReducer.postId;
         fetch(`${BASE_URL}${login}/favorite/${postId}`,{
             method:'Put',
@@ -281,7 +281,7 @@ export const addUserFavorite=()=>{
 export const addUserActivity=()=>{
     return(dispatch,getState)=>{
         const login=getState().accountingReducer.email;
-        const token=getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const postId=getState().accountingReducer.postId;
         fetch(`${BASE_URL}${login}/activity/${postId}`,{
             method:'Put',
@@ -306,7 +306,7 @@ export const delUserFavorite=()=>{
     return(dispatch,getState)=>{
         const login=getState().accountingReducer.email;
         const postId=getState().accountingReducer.postId;
-        const token=getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         fetch(`${BASE_URL}${login}/favorite/${postId}`,{
             method:'Del',
             headers:{
