@@ -21,7 +21,8 @@ import {
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-const LeftBar = ({log_out}) => {
+const LeftBar = ({log_out, nickName, user_avatar}) => {
+
     return (
         <nav className="navbar fixed-top mt-5  NAV col-2">
             <ul className="navbar-nav ">
@@ -43,7 +44,7 @@ const LeftBar = ({log_out}) => {
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link col-1 BTN" to={`${USER_PAGE}`}>
-                        <img src={pet_avatar} alt={pet_avatar}/>Anna Smith
+                        <img src={user_avatar} alt={'avatar'}/>{nickName}
                     </Link>
                 </li>
 
@@ -62,8 +63,9 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-
+        nickName: state.accountingReducer.nickName,
+        user_avatar: state.accountingReducer.user_avatar,
     }
 }
 
-export default connect(null, mapDispatchToProps)(LeftBar);
+export default connect(mapStateToProps, mapDispatchToProps)(LeftBar);

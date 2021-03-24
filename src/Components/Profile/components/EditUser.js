@@ -1,20 +1,25 @@
 import React from 'react';
-import '../css_module/editUser.css'
-import pet from '../../../utils/Images/petAvatar.png'
-import preview_dog from '../../../utils/Images/preview_dog.png'
+import '../css_module/editUser.css';
+import pet from '../../../utils/Images/petAvatar.png';
+import preview_dog from '../../../utils/Images/preview_dog.png';
 import {GiDisc} from "react-icons/gi";
 import {BiPencil} from "react-icons/bi";
 import {AiOutlineMessage, AiOutlinePhone, CgTrash, IoLocationOutline, TiPencil} from "react-icons/all";
 import {pet_avatar} from "../../../utils/constants/constants";
 import {AiFillFacebook} from "react-icons/ai";
 import {useState} from "react";
+import {connect} from "react-redux";
 
-const EditUser = () => {
+const EditUser = ({nickName}) => {
+
+    const noneActive = 'noneActive';
+    const active = 'active'
 
 
-    const noneActive='noneActive';
-    const active='active'
-const [edit,setEdit]=useState(false);
+    const [edit, setEdit] = useState(false);
+
+
+
     const renderEdit = () => {
         return (
             <div className='container'>
@@ -30,14 +35,14 @@ const [edit,setEdit]=useState(false);
                     <label className='i1'>Email:</label>
                     <input className='l1 ml-3 mb-2 col-6' type='text' placeholder='helenjohnson@gmail.com'/>
                 </div>
-                <div className='row t2 mt-3 ml-3'>
-                    <label className='i2'>Phone:</label>
-                    <input className='l2 ml-3 mb-2 col-6' type='text' placeholder='000-000-00-00'/>
+                <div className='row t2 mt-3 '>
+                    <label className='i2'>Password:</label>
+                    <input className='l2 ml-3 mb-2 col-6' type='password' placeholder='password'/>
                 </div>
-                <div className='row t3 mt-3 ml-3'>
-                    <label className='i3'>FB link:</label>
+                <div className='row t3 mt-3 ml-2'>
+                    <label className='i3'>Name:</label>
                     <input className=' l3 ml-3 mb-2 col-6' type='text'
-                           placeholder='https://www.facebook.com/anna.smith908430'/>
+                           placeholder='enter name you would like to change'/>
                 </div>
             </div>
         );
@@ -49,7 +54,7 @@ const [edit,setEdit]=useState(false);
                 <div className='row  '>
                     <img className='col-5 mt-3 mb-3' src={preview_dog} alt='preview_dog'/>
                     <div className='container  col-6'>
-                        <div className='row mt-3 mb-3' >
+                        <div className='row mt-3 mb-3'>
                             <p className='INFO '>Dog, Golden Retriever</p>
                             <p className='POINTER'><TiPencil color='black'/><CgTrash color='black'/></p>
                         </div>
@@ -74,7 +79,7 @@ const [edit,setEdit]=useState(false);
                             <p><IoLocationOutline color='black'/> Florentin, 27, Tel Aviv</p>
                         </div>
                         <div className='row POINTER'>
-                                <p className='col-8'><img src={pet_avatar} alt='pet_avatar'/><span>John Goodboi </span></p>
+                            <p className='col-8'><img src={pet_avatar} alt='pet_avatar'/><span>John Goodboi </span></p>
                             <p className='col-4'><AiOutlinePhone/><AiFillFacebook/><AiOutlineMessage/></p>
                         </div>
                         <div className='row'>
@@ -95,14 +100,14 @@ const [edit,setEdit]=useState(false);
             </div>
             <div className='container mt-3 ml-3 c1 col-10 '>
                 <div className='row Profiles'>
-                    <div onClick={()=>setEdit(true)} className={`MyProfile col-6 ${edit?active:noneActive}`}>
-                        <p  className='MyProfile_p mt-2'>My profile</p>
+                    <div onClick={() => setEdit(true)} className={`MyProfile col-6 ${edit ? active : noneActive}`}>
+                        <p className='MyProfile_p mt-2'>My profile</p>
                     </div>
-                    <div onClick={()=>setEdit(false)} className={`Activites col-6 ${edit?noneActive:active}`}>
-                        <p  className='Activites_p mt-2 '>Activites</p>
+                    <div onClick={() => setEdit(false)} className={`Activites col-6 ${edit ? noneActive : active}`}>
+                        <p className='Activites_p mt-2 '>Activites</p>
                     </div>
                 </div>
-                {edit?renderEdit():renderNorm()}
+                {edit ? renderEdit() : renderNorm()}
 
             </div>
             <div className='container mt-3 ml-3 '>
@@ -115,4 +120,11 @@ const [edit,setEdit]=useState(false);
     );
 };
 
-export default EditUser;
+const mapStateToProps = state => {
+    return {
+        nickName: state.accountingReducer.nickName,
+    }
+}
+
+
+export default connect(mapStateToProps, null) (EditUser);
