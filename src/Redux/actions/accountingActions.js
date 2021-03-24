@@ -64,7 +64,7 @@ export const userInfo = () => {
 
     return (dispatch, getState) => {
         const login = getState().email;
-        const token=getState().token;
+        const token = getState().token;
         fetch(`${BASE_URL}${login}/info`, {
             method: 'Get',
             headers: {
@@ -83,10 +83,10 @@ export const userInfo = () => {
             .catch(e => alert(e.status))
     }
 }
-export const editUser = (name, email, password) => {
+export const editUser = (name,avatar, phone) => {
     return (dispatch, getState) => {
         const login = getState().email;
-        const token=getState().token;
+        const token = getState().token;
         fetch(`${BASE_URL}1${login}`, {
             method: 'Put',
             headers: {
@@ -95,18 +95,76 @@ export const editUser = (name, email, password) => {
             },
             body: JSON.stringify({
                 name: name,
-                email: email,
-                password: password
+                avatar: avatar,
+                phone: phone
             })
         })
-            .then(response=>{
-                if(response.ok){
+            .then(response => {
+                if (response.ok) {
                     return response.json()
-                }else{
+                } else {
                     throw new Error(response.statusText)
                 }
             })
-            .then(user=>dispatch(put_user(user,token)))
-            .catch(e=>alert(e.status))
+            .then(user => dispatch(put_user(user, token)))
+            .catch(e => alert(e.status))
     }
+}
+
+export const deleteUser = () => {
+    return (dispatch, getState) => {
+        const login = getState().email;
+        const token = getState().token;
+        fetch(`${BASE_URL}${login}`, {
+            method: 'Del',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Token': token
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => alert(e))
+    }
+}
+//FIXME
+export const addUserRole = (role) => {
+    return (dispatch, getState) => {
+        const login = getState().email;
+        const token = getState().token;
+        //FIXME
+        fetch(`${BASE_URL}${login}/role/User`, {
+            method: 'Put',
+            headers: {
+                'X-Token': token
+            },
+            body: JSON.stringify([])
+            //body contains this|||||>
+            /* [
+             "User",
+                 "Moderator"
+             ]*/
+
+
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => alert(e))
+    }
+}
+
+export const delUserRole=()=>{
+
 }

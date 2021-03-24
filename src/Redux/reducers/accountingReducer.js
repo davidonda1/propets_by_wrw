@@ -5,7 +5,8 @@ const initialState = {
     nickName: '',
     user_avatar: '',
     token: '',
-    email:''
+    email:'',
+
 }
 
 export const accountingReducer = (state = initialState, action) => {
