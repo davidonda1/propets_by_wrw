@@ -13,6 +13,13 @@ export const log_out = () => {
     }
 }
 
+export const putXToken = xToken => {
+    return {
+        type: 'PUT_X_TOKEN',
+        payload: xToken,
+    }
+}
+
 export const loginUser = (token) => {
     return dispatch => {
         fetch(`${BASE_URL}login`, {
@@ -23,6 +30,7 @@ export const loginUser = (token) => {
         })
             .then(response => {
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));
                     return response.json();
                 } else {
                     throw new Error(response.status)
@@ -31,7 +39,6 @@ export const loginUser = (token) => {
             .then(user => {
                 dispatch(put_user(user, token));
                 localStorage.setItem('token', token);
-                console.log(user);
             })
             .catch(error => console.log('Error'))
     }
@@ -83,20 +90,21 @@ export const userInfo = () => {
             .catch(e => alert(e.status))
     }
 }
-export const editUser = (name,avatar, phone) => {
+export const editUser = (name, avatar, phone) => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.token;
-        fetch(`${BASE_URL}1${login}`, {
+        const xToken = getState().accountingReducer.xToken;
+        fetch(`${BASE_URL}${login}`, {
             method: 'Put',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Token': token
+                'X-Token': xToken
             },
             body: JSON.stringify({
                 name: name,
                 avatar: avatar,
-                phone: phone
+                phone: phone,
             })
         })
             .then(response => {
@@ -138,7 +146,7 @@ export const addUserRole = () => {
     return (dispatch, getState) => {
         const login = getState().email;
         const token = getState().token;
-        const role=getState().role;
+        const role = getState().role;
         //FIXME
         fetch(`${BASE_URL}${login}/role/${role}`, {
             method: 'Put',
@@ -166,45 +174,45 @@ export const addUserRole = () => {
     }
 }
 //FIXME
-export const delUserRole=()=>{
-return(dispatch,getState)=>{
-    const login=getState().email;
-    const token=getState().token;
-    const role=getState().role;
-    fetch(`${BASE_URL}${login}/role/${role}`,{
-        method:'Del',
-        headers:{
-            'Authorization': token,
-            'X-Token':token
-        },
-        body:JSON.stringify([])
-        //body contains this|||||>
-        /* [
-         "User",
-             "Moderator"
-         ]*/
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw new Error(response.statusText)
-            }
+export const delUserRole = () => {
+    return (dispatch, getState) => {
+        const login = getState().email;
+        const token = getState().token;
+        const role = getState().role;
+        fetch(`${BASE_URL}${login}/role/${role}`, {
+            method: 'Del',
+            headers: {
+                'Authorization': token,
+                'X-Token': token
+            },
+            body: JSON.stringify([])
+            //body contains this|||||>
+            /* [
+             "User",
+                 "Moderator"
+             ]*/
         })
-        .then(data => console.log(data))
-        .catch(e => alert(e))
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => alert(e))
 
-}
+    }
 }
 
-export const blockUserAccount=()=>{
-    return(dispatch,getState)=>{
-        const login=getState().email;
-        const token=getState().token;
-        const status=getState().status
-        fetch(`${BASE_URL}${login}/block/${status}`,{
-            method:'Put',
-            headers:{
+export const blockUserAccount = () => {
+    return (dispatch, getState) => {
+        const login = getState().email;
+        const token = getState().token;
+        const status = getState().status
+        fetch(`${BASE_URL}${login}/block/${status}`, {
+            method: 'Put',
+            headers: {
                 'Content-Type': 'application/json',
                 'X-Token': token
 
@@ -223,11 +231,10 @@ export const blockUserAccount=()=>{
     }
 }
 
-export const addUserFavorite=()=>{
-    return(dispatch,getState)=>{
-        const login=getState().email;
-        const token=getState().token;
-        const postId=getState().postId
-        fe
+export const addUserFavorite = () => {
+    return (dispatch, getState) => {
+        const login = getState().email;
+        const token = getState().token;
+        const postId = getState().postId
     }
 }
