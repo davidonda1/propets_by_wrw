@@ -6,8 +6,8 @@ const initialState = {
     token: '',
     email: '',
     role: 'User',
-    status:'true',
-    postId:'',
+    status: 'true',
+    postId: '',
     xToken: '',
 }
 export const accountingReducer = (state = initialState, action) => {

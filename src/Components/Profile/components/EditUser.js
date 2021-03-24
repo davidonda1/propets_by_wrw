@@ -22,6 +22,7 @@ const EditUser = ({nickName, editUser}) => {
     const [phone, setPhone] = useState('');
     const [avatar, setAvatar] = useState('');
     const [name, setName] = useState('');
+    const [message, setMessage] = useState('');
 
 
     const handleClickCancel = () => {
@@ -34,7 +35,9 @@ const EditUser = ({nickName, editUser}) => {
 
     const handleClickSubmit = () => {
         editUser(name, avatar, phone);
+        setMessage('Loading...');
     }
+
 
     const renderEdit = () => {
         return (
@@ -111,6 +114,7 @@ const EditUser = ({nickName, editUser}) => {
     }
     return (
         <div className='container'>
+            <p>{message}</p>
             <div className='container mt-3 ml-3'>
                 <div className='row'>
                     <p className='p '><span className='span'>Your profile.</span> Change, edit and manage your data.</p>
