@@ -33,7 +33,10 @@ const EditUser = ({nickName, editUser, message, userPhone, userAvatar}) => {
     }
 
     const handleClickSubmit = () => {
-        editUser(name, avatar, phone);
+        if (!name) setName(nickName);
+        if (!phone) setPhone(userPhone);
+        if (!avatar) setAvatar(userAvatar);
+            editUser(name, avatar, phone);
     }
 
 
