@@ -63,10 +63,15 @@ export const registerUser = (name, email, password) => {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
@@ -93,10 +98,15 @@ export const loginUser = (token) => {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
@@ -129,10 +139,15 @@ export const userInfo = () => {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -170,10 +185,15 @@ export const editUser = (name, avatar, phone) => {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -205,10 +225,15 @@ export const deleteUser = () => {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -245,10 +270,15 @@ export const addUserRole = () => {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -285,10 +315,15 @@ return(dispatch,getState)=>{
             switch (response.status){
                 case 400:
                     dispatch(putError(error400))
+                    break;
                 case 401:
                     dispatch(putError(error401))
+                    break;
                 case 403:
                     dispatch(putError(error403))
+                    break;
+                default:
+                    return
             }
             if (response.ok) {
                 dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -319,10 +354,15 @@ export const blockUserAccount=()=>{
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -353,10 +393,15 @@ export const addUserFavorite=()=>{
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -386,10 +431,15 @@ export const addUserActivity=()=>{
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     return response.json()
@@ -418,10 +468,15 @@ export const delUserFavorite=()=>{
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
@@ -450,10 +505,15 @@ export const delUserActivity=()=>{
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     return response.json()
@@ -476,10 +536,15 @@ export const getUserDataPostActivites=()=> {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     return response.json()
@@ -503,10 +568,15 @@ export const getUserDataPostFavourites=()=> {
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     return response.json()
@@ -532,10 +602,15 @@ export const tokenValidation=()=>{
                 switch (response.status){
                     case 400:
                         dispatch(putError(error400))
+                        break;
                     case 401:
                         dispatch(putError(error401))
+                        break;
                     case 403:
                         dispatch(putError(error403))
+                        break;
+                    default:
+                        return
                 }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));//may be
