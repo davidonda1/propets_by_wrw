@@ -8,9 +8,9 @@ export const put_user = (user, token) => {
 };
 
 export const log_out = () => {
-return {
-    type: LOGOUT,
-}
+    return {
+        type: LOGOUT,
+    }
 }
 
 export const loginUser = (token) => {
@@ -31,6 +31,7 @@ export const loginUser = (token) => {
             .then(user => {
                 dispatch(put_user(user, token));
                 localStorage.setItem('token', token);
+                console.log(user);
             })
             .catch(error => console.log('Error'))
     }
@@ -56,4 +57,56 @@ export const registerUser = (name, email, password) => {
     }
 
 
+}
+
+
+export const userInfo = () => {
+
+    return (dispatch, getState) => {
+        const login = getState().email;
+        const token=getState().token;
+        fetch(`${BASE_URL}${login}/info`, {
+            method: 'Get',
+            headers: {
+                'X-Token': token
+            },
+
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => alert(e.status))
+    }
+}
+export const editUser = (name, email, password) => {
+    return (dispatch, getState) => {
+        const login = getState().email;
+        const token=getState().token;
+        fetch(`${BASE_URL}1${login}`, {
+            method: 'Put',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Token': token
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password
+            })
+        })
+            .then(response=>{
+                if(response.ok){
+                    return response.json()
+                }else{
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(user=>dispatch(put_user(user,token)))
+            .catch(e=>alert(e.status))
+    }
 }
