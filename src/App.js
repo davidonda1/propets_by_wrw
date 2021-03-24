@@ -2,31 +2,40 @@ import React, {useEffect} from 'react'
 import './App.css';
 import Menu from "./Components/Menu/components/Menu";
 import Guest from "./Components/Guest/components/Guest";
-import {Switch, Route, BrowserRouter} from 'react-router-dom'
-import {useHistory} from "react-router-dom";
+import {Switch, Route, useHistory} from 'react-router-dom'
 import {
     FAVORITES, FOSTERING,
     FOUND_PAGE,
     HOME_PAGE,
     HOTELS,
     LOST_PAGE,
-    SERVICES,
     USER_PAGE,
     VET_HELP, WALKING
 } from "./utils/constants/constants";
-import {userInfo} from "./Redux/actions/accountingActions";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {loginUser} from './Redux/actions/accountingActions'
+import {accountingReducer} from "./Redux/reducers/accountingReducer";
 
 
-function App() {
+function App({loginUser, token}) {
 
     let history = useHistory();
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            history.push(`/${HOME_PAGE}`);
+            loginUser(localStorage.getItem('token'));
         }
     }, [])
+
+    useEffect(() => {
+        if (token) {
+            history.push(HOME_PAGE)
+        }
+    }, [token])
+
     return (
+
         <Switch>
             <Route exact path={`/${HOME_PAGE}`}><Menu page={HOME_PAGE}/></Route>
             <Route exact path={`/${FOUND_PAGE}`}><Menu page={FOUND_PAGE}/></Route>
@@ -40,7 +49,21 @@ function App() {
             <Route exact path={['/', '/guest']}><Guest/></Route>
             <Route><h1>Error. No such page...</h1></Route>
         </Switch>
+
+        // <Switch>
+        //     {token ? <Route exact path={`/${HOME_PAGE}`}><Menu page={HOME_PAGE}/></Route>
+        //         : <Route exact path={['/', '/guest']}><Guest/></Route>}
+        // </Switch>
     );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({loginUser}, dispatch);
+}
+const mapStateToProps = state => {
+    return {
+        token: state.accountingReducer.token
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
