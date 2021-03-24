@@ -1,4 +1,11 @@
-import {BASE_URL, createToken, LOGOUT, PUT_MESSAGE, PUT_USER} from "../../utils/constants/accountingConstants";
+import {
+    BASE_URL,
+    createToken,
+    error400, error401, error403,
+    LOGOUT,
+    PUT_MESSAGE,
+    PUT_USER
+} from "../../utils/constants/accountingConstants";
 
 export const put_user = (user, token) => {
     return {
@@ -30,6 +37,13 @@ export const putMessage=(message)=>{
     }
 }
 
+export const putError=(error)=>{
+    return{
+        type:PUT_MESSAGE,
+        payload:error
+    }
+}
+
 
 export const registerUser = (name, email, password) => {
     return dispatch => {
@@ -46,15 +60,23 @@ export const registerUser = (name, email, password) => {
             })
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
                     return response.json();
                 } else {
-                    throw new Error(response.status)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(user => dispatch(put_user(user, token)))
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -68,18 +90,26 @@ export const loginUser = (token) => {
             }
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
                     return response.json();
                 } else {
-                    throw new Error(response.status)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(user => {
                 dispatch(put_user(user, token));
                 localStorage.setItem('token', token);
             })
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -88,7 +118,7 @@ export const userInfo = () => {
 
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         fetch(`${BASE_URL}${login}/info`, {
             method: 'Get',
             headers: {
@@ -96,14 +126,23 @@ export const userInfo = () => {
             },
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -128,17 +167,25 @@ export const editUser = (name, avatar, phone) => {
             })
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
-                    console.log(response.status)
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     dispatch(putMessage(''));
                     return response.json()
 
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(user => dispatch(put_user(user, token)))
-            .catch(e => console.log(e))
+
     }
 }
 
@@ -146,7 +193,7 @@ export const editUser = (name, avatar, phone) => {
 export const deleteUser = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         fetch(`${BASE_URL}${login}`, {
             method: 'Del',
             headers: {
@@ -155,14 +202,23 @@ export const deleteUser = () => {
             }
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -170,7 +226,7 @@ export const deleteUser = () => {
 export const addUserRole = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const role=getState().accountingReducer.role;
         //FIXME
         fetch(`${BASE_URL}${login}/role/${role}`, {
@@ -186,14 +242,23 @@ export const addUserRole = () => {
              ]*/
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -201,7 +266,7 @@ export const addUserRole = () => {
 export const delUserRole=()=>{
 return(dispatch,getState)=>{
     const login = getState().accountingReducer.email;
-    const token = getState().accountingReducer.token;
+    const token = getState().accountingReducer.xToken;
     const role=getState().accountingReducer.role;
     fetch(`${BASE_URL}${login}/role/${role}`,{
         method:'Del',
@@ -217,14 +282,23 @@ return(dispatch,getState)=>{
          ]*/
     })
         .then(response => {
+            switch (response.status){
+                case 400:
+                    dispatch(putError(error400))
+                case 401:
+                    dispatch(putError(error401))
+                case 403:
+                    dispatch(putError(error403))
+            }
             if (response.ok) {
+                dispatch(putXToken(response.headers.get('X-Token')));//may be
                 return response.json()
             } else {
-                throw new Error(response.statusText)
+                dispatch(putError('Go To Administrator'))
             }
         })
         .then(data => console.log(data))
-        .catch(e => console.log(e.status))
+
 }
 }
 
@@ -232,7 +306,7 @@ return(dispatch,getState)=>{
 export const blockUserAccount=()=>{
     return(dispatch,getState)=>{
         const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const status=getState().accountingReducer.status;
         fetch(`${BASE_URL}${login}/block/${status}`,{
             method:'Put',
@@ -242,22 +316,31 @@ export const blockUserAccount=()=>{
             }
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
-
+//FIXME
 export const addUserFavorite=()=>{
     return(dispatch,getState)=>{
         const login=getState().accountingReducer.email;
-        const token=getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const postId=getState().accountingReducer.postId;
         fetch(`${BASE_URL}${login}/favorite/${postId}`,{
             method:'Put',
@@ -267,22 +350,31 @@ export const addUserFavorite=()=>{
 
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
-
+//FIXME
 export const addUserActivity=()=>{
     return(dispatch,getState)=>{
         const login=getState().accountingReducer.email;
-        const token=getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         const postId=getState().accountingReducer.postId;
         fetch(`${BASE_URL}${login}/activity/${postId}`,{
             method:'Put',
@@ -291,14 +383,22 @@ export const addUserActivity=()=>{
             }
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -307,7 +407,7 @@ export const delUserFavorite=()=>{
     return(dispatch,getState)=>{
         const login=getState().accountingReducer.email;
         const postId=getState().accountingReducer.postId;
-        const token=getState().accountingReducer.token;
+        const token = getState().accountingReducer.xToken;
         fetch(`${BASE_URL}${login}/favorite/${postId}`,{
             method:'Del',
             headers:{
@@ -315,14 +415,23 @@ export const delUserFavorite=()=>{
             }
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -338,17 +447,25 @@ export const delUserActivity=()=>{
             }
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
-//CANBEFIXED
+//FIXME
 export const getUserDataPostActivites=()=> {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
@@ -356,18 +473,26 @@ export const getUserDataPostActivites=()=> {
             method:'Get',
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
 
     }
 }
-//CANBEFIXED
+//FIXME
 export const getUserDataPostFavourites=()=> {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
@@ -375,14 +500,22 @@ export const getUserDataPostFavourites=()=> {
             method:'Get',
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
     }
 }
 
@@ -396,14 +529,23 @@ export const tokenValidation=()=>{
             }
         })
             .then(response => {
+                switch (response.status){
+                    case 400:
+                        dispatch(putError(error400))
+                    case 401:
+                        dispatch(putError(error401))
+                    case 403:
+                        dispatch(putError(error403))
+                }
                 if (response.ok) {
+                    dispatch(putXToken(response.headers.get('X-Token')));//may be
                     return response.json()
                 } else {
-                    throw new Error(response.statusText)
+                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(data => console.log(data))
-            .catch(e => console.log(e.status))
+
 
     }
 }
