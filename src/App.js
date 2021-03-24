@@ -14,6 +14,7 @@ import {
     USER_PAGE,
     VET_HELP, WALKING
 } from "./utils/constants/constants";
+import {userInfo} from "./Redux/actions/accountingActions";
 
 
 function App() {

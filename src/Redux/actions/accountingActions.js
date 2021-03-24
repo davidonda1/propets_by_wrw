@@ -55,4 +55,6 @@ export const registerUser = (name, email, password) => {
             .then(response => response.json())
             .then(user => dispatch(put_user(user, token)))
     }
+
+
 }
