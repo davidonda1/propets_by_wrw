@@ -1,4 +1,4 @@
-import {LOGOUT, PUT_USER} from "../../utils/constants/accountingConstants";
+import {LOGOUT, PUT_MESSAGE, PUT_USER} from "../../utils/constants/accountingConstants";
 
 const initialState = {
     nickName: '',
@@ -9,9 +9,15 @@ const initialState = {
     status:'true',
     postId:'',
     xToken: '',
+    message:''
 }
 export const accountingReducer = (state = initialState, action) => {
     switch (action.type) {
+        case PUT_MESSAGE:
+            return {
+                ...state,
+                message: action.payload
+            }
         case PUT_USER:
             return {
                 ...state,
