@@ -12,7 +12,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {editUser} from '../../../Redux/actions/accountingActions';
 
-const EditUser = ({nickName, editUser}) => {
+const EditUser = ({nickName, editUser, message}) => {
 
     const noneActive = 'noneActive';
     const active = 'active'
@@ -22,7 +22,6 @@ const EditUser = ({nickName, editUser}) => {
     const [phone, setPhone] = useState('');
     const [avatar, setAvatar] = useState('');
     const [name, setName] = useState('');
-    const [message, setMessage] = useState('');
 
 
     const handleClickCancel = () => {
@@ -35,7 +34,6 @@ const EditUser = ({nickName, editUser}) => {
 
     const handleClickSubmit = () => {
         editUser(name, avatar, phone);
-        setMessage('Loading...');
     }
 
 
@@ -52,12 +50,14 @@ const EditUser = ({nickName, editUser}) => {
                 </div>
                 <div className='row t1 mt-3 ml-3'>
                     <label className='i1'>Phone:</label>
-                    <input onChange={(event) => setPhone(event.target.value)} className='l1 ml-3 mb-2 col-6' value={phone} type='text'
+                    <input onChange={(event) => setPhone(event.target.value)} className='l1 ml-3 mb-2 col-6'
+                           value={phone} type='text'
                            placeholder='helenjohnson@gmail.com'/>
                 </div>
                 <div className='row t2 mt-3 '>
                     <label className='i2'>Avatar:</label>
-                    <input className='l2 ml-3 mb-2 col-6' onChange={(event) => setAvatar(event.target.value)} value={avatar} type='avatar' placeholder='password'/>
+                    <input className='l2 ml-3 mb-2 col-6' onChange={(event) => setAvatar(event.target.value)}
+                           value={avatar} type='avatar' placeholder='password'/>
                 </div>
                 <div className='row t3 mt-3 ml-2'>
                     <label className='i3'>Name:</label>
@@ -114,7 +114,7 @@ const EditUser = ({nickName, editUser}) => {
     }
     return (
         <div className='container'>
-            <p>{message}</p>
+            <p>{message ? <div className="spinner-border text-dark"></div> : ''}</p>
             <div className='container mt-3 ml-3'>
                 <div className='row'>
                     <p className='p '><span className='span'>Your profile.</span> Change, edit and manage your data.</p>
@@ -135,7 +135,8 @@ const EditUser = ({nickName, editUser}) => {
             <div className='container mt-3 ml-3 '>
                 <div className='row BTN'>
                     <button onClick={() => handleClickCancel()} className='b1 offset-5 col-2'>Cancel</button>
-                    <button onClick={() => handleClickSubmit()} className='b2 offset-1 col-2'><GiDisc/>Save changes</button>
+                    <button onClick={() => handleClickSubmit()} className='b2 offset-1 col-2'><GiDisc/>Save changes
+                    </button>
                 </div>
             </div>
         </div>
@@ -145,6 +146,7 @@ const EditUser = ({nickName, editUser}) => {
 const mapStateToProps = state => {
     return {
         nickName: state.accountingReducer.nickName,
+        message: state.accountingReducer.message,
     }
 }
 

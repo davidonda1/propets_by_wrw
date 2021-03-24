@@ -129,6 +129,7 @@ export const editUser = (name, avatar, phone) => {
         })
             .then(response => {
                 if (response.ok) {
+                    console.log(response.status)
                     dispatch(putMessage(''));
                     return response.json()
 
@@ -137,7 +138,7 @@ export const editUser = (name, avatar, phone) => {
                 }
             })
             .then(user => dispatch(put_user(user, token)))
-            .catch(e => console.log(e.status))
+            .catch(e => console.log(e))
     }
 }
 
