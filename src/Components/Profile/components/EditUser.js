@@ -33,10 +33,7 @@ const EditUser = ({nickName, editUser, message, userPhone, userAvatar}) => {
     }
 
     const handleClickSubmit = () => {
-        if (!name) setName(nickName);
-        if (!phone) setPhone(userPhone);
-        if (!avatar) setAvatar(userAvatar);
-            editUser(name, avatar, phone);
+            editUser(name || nickName, avatar || userAvatar, phone || userPhone);
     }
 
 
@@ -60,7 +57,7 @@ const EditUser = ({nickName, editUser, message, userPhone, userAvatar}) => {
                 <div className='row t2 mt-3 '>
                     <label className='i2'>Avatar:</label>
                     <input className='l2 ml-3 mb-2 col-6' onChange={(event) => setAvatar(event.target.value)}
-                           value={avatar} type='avatar' placeholder='password'/>
+                           value={avatar} type='avatar' placeholder='enter url of new avatar'/>
                 </div>
                 <div className='row t3 mt-3 ml-2'>
                     <label className='i3'>Name:</label>
