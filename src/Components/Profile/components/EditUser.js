@@ -9,16 +9,32 @@ import {pet_avatar} from "../../../utils/constants/constants";
 import {AiFillFacebook} from "react-icons/ai";
 import {useState} from "react";
 import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {editUser} from '../../../Redux/actions/accountingActions';
 
-const EditUser = ({nickName}) => {
+const EditUser = ({nickName, editUser}) => {
 
     const noneActive = 'noneActive';
     const active = 'active'
 
+    const [edit, setEdit] = useState(true);
 
-    const [edit, setEdit] = useState(false);
+    const [phone, setPhone] = useState('');
+    const [avatar, setAvatar] = useState('');
+    const [name, setName] = useState('');
 
 
+    const handleClickCancel = () => {
+        if (edit) {
+            setPhone('');
+            setName('');
+            setAvatar('');
+        }
+    }
+
+    const handleClickSubmit = () => {
+        editUser(name, avatar, phone);
+    }
 
     const renderEdit = () => {
         return (
@@ -28,20 +44,22 @@ const EditUser = ({nickName}) => {
                         <img className='pet' src={pet} alt='pet'/>
                     </div>
                     <div className='p offset-1 col-2 mt-4 mr-2 '>
-                        <p className='Name'>Anna Smith<span><BiPencil/></span></p>
+                        <p className='Name'>{nickName}<span><BiPencil/></span></p>
                     </div>
                 </div>
                 <div className='row t1 mt-3 ml-3'>
-                    <label className='i1'>Email:</label>
-                    <input className='l1 ml-3 mb-2 col-6' type='text' placeholder='helenjohnson@gmail.com'/>
+                    <label className='i1'>Phone:</label>
+                    <input onChange={(event) => setPhone(event.target.value)} className='l1 ml-3 mb-2 col-6' value={phone} type='text'
+                           placeholder='helenjohnson@gmail.com'/>
                 </div>
                 <div className='row t2 mt-3 '>
-                    <label className='i2'>Password:</label>
-                    <input className='l2 ml-3 mb-2 col-6' type='password' placeholder='password'/>
+                    <label className='i2'>Avatar:</label>
+                    <input className='l2 ml-3 mb-2 col-6' onChange={(event) => setAvatar(event.target.value)} value={avatar} type='avatar' placeholder='password'/>
                 </div>
                 <div className='row t3 mt-3 ml-2'>
                     <label className='i3'>Name:</label>
-                    <input className=' l3 ml-3 mb-2 col-6' type='text'
+                    <input value={name} onChange={(event) => setName(event.target.value)}
+                           className=' l3 ml-3 mb-2 col-6' type='text'
                            placeholder='enter name you would like to change'/>
                 </div>
             </div>
@@ -112,8 +130,8 @@ const EditUser = ({nickName}) => {
             </div>
             <div className='container mt-3 ml-3 '>
                 <div className='row BTN'>
-                    <button className='b1 offset-5 col-2'>Cancel</button>
-                    <button className='b2 offset-1 col-2'><GiDisc/>Save changes</button>
+                    <button onClick={() => handleClickCancel()} className='b1 offset-5 col-2'>Cancel</button>
+                    <button onClick={() => handleClickSubmit()} className='b2 offset-1 col-2'><GiDisc/>Save changes</button>
                 </div>
             </div>
         </div>
@@ -126,5 +144,9 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({editUser}, dispatch);
+}
 
-export default connect(mapStateToProps, null) (EditUser);
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditUser);
