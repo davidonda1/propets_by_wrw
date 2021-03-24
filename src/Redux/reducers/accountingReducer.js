@@ -10,7 +10,8 @@ const initialState = {
     postId:'',
     xToken: '',
     message:'',
-    error:''
+    error:'',
+    phone:''
 }
 export const accountingReducer = (state = initialState, action) => {
     switch (action.type) {
