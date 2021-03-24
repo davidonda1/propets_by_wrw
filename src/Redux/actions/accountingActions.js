@@ -12,7 +12,6 @@ export const log_out = () => {
         type: LOGOUT,
     }
 }
-
 export const putXToken = xToken => {
     return {
         type: 'PUT_X_TOKEN',
@@ -43,6 +42,36 @@ export const loginUser = (token) => {
             .catch(error => console.log('Error'))
     }
 }
+export const editUser = (name, avatar, phone) => {
+    return (dispatch, getState) => {
+        const login = getState().accountingReducer.email;
+        const token = getState().accountingReducer.token;
+        const xToken = getState().accountingReducer.xToken;
+        fetch(`${BASE_URL}${login}`, {
+            method: 'Put',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Token': xToken
+            },
+            body: JSON.stringify({
+                name: name,
+                avatar: avatar,
+                phone: phone,
+            })
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(user => dispatch(put_user(user, token)))
+            .catch(e => alert(e.status))
+    }
+}
+
+
 
 
 export const registerUser = (name, email, password) => {
@@ -51,8 +80,10 @@ export const registerUser = (name, email, password) => {
         fetch(`${BASE_URL}registration`, {
             method: 'Post',
             headers: {
-                'Content-Type': 'application/json'
-            },
+                'Content-Type': 'application/json',
+
+
+    },
             body: JSON.stringify({
                 name: name,
                 email: email,
@@ -87,42 +118,15 @@ export const userInfo = () => {
                 }
             })
             .then(data => console.log(data))
-            .catch(e => alert(e.status))
-    }
-}
-export const editUser = (name, avatar, phone) => {
-    return (dispatch, getState) => {
-        const login = getState().accountingReducer.email;
-        const token = getState().accountingReducer.token;
-        const xToken = getState().accountingReducer.xToken;
-        fetch(`${BASE_URL}${login}`, {
-            method: 'Put',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Token': xToken
-            },
-            body: JSON.stringify({
-                name: name,
-                avatar: avatar,
-                phone: phone,
-            })
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                } else {
-                    throw new Error(response.statusText)
-                }
-            })
-            .then(user => dispatch(put_user(user, token)))
-            .catch(e => alert(e.status))
+            .catch(e => console.log(e.status))
     }
 }
 
+
 export const deleteUser = () => {
     return (dispatch, getState) => {
-        const login = getState().email;
-        const token = getState().token;
+        const login = getState().accountingReducer.email;
+        const token = getState().accountingReducer.token;
         fetch(`${BASE_URL}${login}`, {
             method: 'Del',
             headers: {
@@ -138,15 +142,15 @@ export const deleteUser = () => {
                 }
             })
             .then(data => console.log(data))
-            .catch(e => alert(e))
+            .catch(e => console.log(e.status))
     }
 }
 //FIXME
 export const addUserRole = () => {
     return (dispatch, getState) => {
-        const login = getState().email;
-        const token = getState().token;
-        const role = getState().role;
+        const login = getState().accountingReducer.email;
+        const token = getState().accountingReducer.token;
+        const role=getState().accountingReducer.role;
         //FIXME
         fetch(`${BASE_URL}${login}/role/${role}`, {
             method: 'Put',
@@ -170,49 +174,49 @@ export const addUserRole = () => {
                 }
             })
             .then(data => console.log(data))
-            .catch(e => alert(e))
+            .catch(e => console.log(e.status))
     }
 }
 //FIXME
-export const delUserRole = () => {
-    return (dispatch, getState) => {
-        const login = getState().email;
-        const token = getState().token;
-        const role = getState().role;
-        fetch(`${BASE_URL}${login}/role/${role}`, {
-            method: 'Del',
-            headers: {
-                'Authorization': token,
-                'X-Token': token
-            },
-            body: JSON.stringify([])
-            //body contains this|||||>
-            /* [
-             "User",
-                 "Moderator"
-             ]*/
+export const delUserRole=()=>{
+return(dispatch,getState)=>{
+    const login = getState().accountingReducer.email;
+    const token = getState().accountingReducer.token;
+    const role=getState().accountingReducer.role;
+    fetch(`${BASE_URL}${login}/role/${role}`,{
+        method:'Del',
+        headers:{
+            'Authorization': token,
+            'X-Token':token
+        },
+        body:JSON.stringify([])
+        //body contains this|||||>
+        /* [
+         "User",
+             "Moderator"
+         ]*/
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                throw new Error(response.statusText)
+            }
         })
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                } else {
-                    throw new Error(response.statusText)
-                }
-            })
-            .then(data => console.log(data))
-            .catch(e => alert(e))
+        .then(data => console.log(data))
+        .catch(e => console.log(e.status))
 
-    }
+}
 }
 
-export const blockUserAccount = () => {
-    return (dispatch, getState) => {
-        const login = getState().email;
-        const token = getState().token;
-        const status = getState().status
-        fetch(`${BASE_URL}${login}/block/${status}`, {
-            method: 'Put',
-            headers: {
+export const blockUserAccount=()=>{
+    return(dispatch,getState)=>{
+        const login = getState().accountingReducer.email;
+        const token = getState().accountingReducer.token;
+        const status=getState().accountingReducer.status;
+        fetch(`${BASE_URL}${login}/block/${status}`,{
+            method:'Put',
+            headers:{
                 'Content-Type': 'application/json',
                 'X-Token': token
 
@@ -226,15 +230,163 @@ export const blockUserAccount = () => {
                 }
             })
             .then(data => console.log(data))
-            .catch(e => alert(e))
+            .catch(e => console.log(e.status))
 
     }
 }
 
-export const addUserFavorite = () => {
+export const addUserFavorite=()=>{
+    return(dispatch,getState)=>{
+        const login=getState().accountingReducer.email;
+        const token=getState().accountingReducer.token;
+        const postId=getState().accountingReducer.postId;
+        fetch(`${BASE_URL}${login}/favorite/${postId}`,{
+            method:'Put',
+            headers:{
+                'X-Token': token
+            }
+
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => console.log(e.status))
+
+
+    }
+}
+
+export const addUserActivity=()=>{
+    return(dispatch,getState)=>{
+        const login=getState().accountingReducer.email;
+        const token=getState().accountingReducer.token;
+        const postId=getState().accountingReducer.postId;
+        fetch(`${BASE_URL}${login}/activity/${postId}`,{
+            method:'Put',
+            headers:{
+                //FIXME
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => console.log(e.status))
+    }
+}
+
+export const delUserFavorite=()=>{
+    return(dispatch,getState)=>{
+        const login=getState().accountingReducer.email;
+        const postId=getState().accountingReducer.postId;
+        const token=getState().accountingReducer.token;
+        fetch(`${BASE_URL}${login}/favorite/${postId}`,{
+            method:'Del',
+            headers:{
+                'X-Token':token
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => console.log(e.status))
+
+    }
+}
+
+export const delUserActivity=()=>{
+    return(dispatch,getState)=>{
+        const login=getState().accountingReducer.email;
+        const postId=getState().accountingReducer.postId;
+        fetch(`${BASE_URL}${login}/activity/${postId}`,{
+            method:'Del',
+            headers:{
+                //FiXME
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => console.log(e.status))
+
+
+    }
+}
+//CANBEFIXED
+export const getUserDataPostActivites=()=> {
     return (dispatch, getState) => {
-        const login = getState().email;
-        const token = getState().token;
-        const postId = getState().postId
+        const login = getState().accountingReducer.email;
+        fetch(`${BASE_URL}${login}?dataType=true`,{
+            method:'Get',
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => console.log(e.status))
+
+    }
+}
+//CANBEFIXED
+export const getUserDataPostFavourites=()=> {
+    return (dispatch, getState) => {
+        const login = getState().accountingReducer.email;
+        fetch(`${BASE_URL}${login}?dataType=false`,{
+            method:'Get',
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => console.log(e.status))
+    }
+}
+
+export const tokenValidation=()=>{
+    return(dispatch,getState)=>{
+        const token=getState().accountingReducer.token
+        fetch(`${BASE_URL}token/validation`,{
+            method:'Get',
+            headers:{
+                'X-Token':token
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error(response.statusText)
+                }
+            })
+            .then(data => console.log(data))
+            .catch(e => console.log(e.status))
+
     }
 }

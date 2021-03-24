@@ -1,6 +1,5 @@
 import {LOGOUT, PUT_USER} from "../../utils/constants/accountingConstants";
 
-
 const initialState = {
     nickName: '',
     user_avatar: '',
@@ -10,9 +9,7 @@ const initialState = {
     status:'true',
     postId:'',
     xToken: '',
-
 }
-
 export const accountingReducer = (state = initialState, action) => {
     switch (action.type) {
         case PUT_USER:
@@ -33,3 +30,29 @@ export const accountingReducer = (state = initialState, action) => {
             return state
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
