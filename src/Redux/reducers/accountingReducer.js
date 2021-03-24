@@ -5,7 +5,10 @@ const initialState = {
     nickName: '',
     user_avatar: '',
     token: '',
-    email:'',
+    email: '',
+    role: 'User',
+    status:'true',
+    postId:''
 
 }
 
@@ -13,10 +16,10 @@ export const accountingReducer = (state = initialState, action) => {
     switch (action.type) {
         case PUT_USER:
             return {
-               nickName: action.payload.user.name,
+                nickName: action.payload.user.name,
                 user_avatar: action.payload.user.avatar,
                 token: action.payload.token,
-                email:action.payload.email
+                email: action.payload.email
             }
         case LOGOUT:
             localStorage.removeItem('token');
