@@ -42,9 +42,9 @@ const LeftBar = ({log_out}) => {
                     <Link className="nav-link" to={`${FAVORITES}`}><AiOutlineStar/>Favorites</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link col-1 BTN" to={`${USER_PAGE}`}><img src={pet_avatar}
-                                                                                  alt={pet_avatar}/>Anna
-                        Smith</Link>
+                    <Link className="nav-link col-1 BTN" to={`${USER_PAGE}`}>
+                        <img src={pet_avatar} alt={pet_avatar}/>Anna Smith
+                    </Link>
                 </li>
 
                 <li onClick={() => log_out()} className="nav-item">
@@ -60,4 +60,10 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators({log_out}, dispatch)
 }
 
-export default connect(null, mapDispatchToProps) (LeftBar);
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+
+export default connect(null, mapDispatchToProps)(LeftBar);

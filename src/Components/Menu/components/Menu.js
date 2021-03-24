@@ -51,9 +51,6 @@ const Menu = ({page}) => {
         }
     }
 
-    // useEffect(() => {
-    //     setPage(props.match.path.slice(1, props.match.path.length))
-    // }, [props.match.path])
 
     return (
         <div className='jumbotron '>
