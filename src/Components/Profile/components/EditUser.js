@@ -12,7 +12,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {editUser} from '../../../Redux/actions/accountingActions';
 
-const EditUser = ({nickName, editUser, message}) => {
+const EditUser = ({nickName, editUser, message, userPhone, userAvatar}) => {
 
     const noneActive = 'noneActive';
     const active = 'active'
@@ -114,7 +114,7 @@ const EditUser = ({nickName, editUser, message}) => {
     }
     return (
         <div className='container'>
-            <p>{message ? <div className="spinner-border text-dark"></div> : ''}</p>
+            <p>{message ? <label className="spinner-border text-dark"></label> : ''}</p>
             <div className='container mt-3 ml-3'>
                 <div className='row'>
                     <p className='p '><span className='span'>Your profile.</span> Change, edit and manage your data.</p>
@@ -147,6 +147,8 @@ const mapStateToProps = state => {
     return {
         nickName: state.accountingReducer.nickName,
         message: state.accountingReducer.message,
+        userAvatar: state.accountingReducer.user_avatar,
+        userPhone: state.accountingReducer.phone,
     }
 }
 
