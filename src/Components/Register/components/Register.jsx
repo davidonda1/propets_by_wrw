@@ -2,13 +2,12 @@ import React, {useState} from 'react';
 import '../css_module/register.css'
 import {FaFacebook} from "react-icons/fa";
 import {MdPets} from "react-icons/md";
-import {HOME_PAGE} from "../../../utils/constants/constants";
-import {Link} from "react-router-dom";
 import {bindActionCreators} from "redux";
 import {loginUser} from '../../../Redux/actions/accountingActions';
 import {connect} from "react-redux";
+import {createToken} from "../../../utils/constants/accountingConstants";
 
-const Register = ({loginUser}) => {
+const Register = ({loginUser, token}) => {
 
     const [mode, setMode] = useState(false);
 
@@ -21,7 +20,9 @@ const Register = ({loginUser}) => {
     }
 
     const handleClickSubmit = () => {
-        loginUser(email, password);
+        const token = createToken(email, password);
+        loginUser(token);
+
     }
 
 
@@ -90,10 +91,12 @@ const Register = ({loginUser}) => {
             <div className="cancel_btn" onClick={() => handleClickCancel()}>
                 <button className="cancel_btn_text">Cancel</button>
             </div>
-            <div className="submit_btn" onClick={() => handleClickSubmit()}>
+                <div className="submit_btn" onClick={() => handleClickSubmit()}>
                     <button className="submit_btn_text"><MdPets/>Submit</button>
-            </div>
-            {mode ? signUp() : signIn()}
+                </div>
+            {
+                mode ? signUp() : signIn()
+            }
         </div>
 
     );
@@ -103,5 +106,11 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators({loginUser}, dispatch)
 }
 
+const mapStateToProps = state => {
+    return {
+        token: state.accountingReducer.token
+    }
+}
 
-export default connect(null, mapDispatchToProps)(Register);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

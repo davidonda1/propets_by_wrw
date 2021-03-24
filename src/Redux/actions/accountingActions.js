@@ -13,11 +13,10 @@ return {
 }
 }
 
-export const loginUser = (email, password) => {
+export const loginUser = (token) => {
     return dispatch => {
-        const token = createToken(email, password);
         fetch(`${BASE_URL}login`, {
-            method: 'POST',
+            method: 'Post',
             headers: {
                 'Authorization': token
             }
@@ -33,7 +32,7 @@ export const loginUser = (email, password) => {
                 dispatch(put_user(user, token));
                 localStorage.setItem('token', token);
             })
-            .catch(error => alert('Error'))
+            .catch(error => console.log('Error'))
     }
 }
 
