@@ -6,6 +6,7 @@ import {AiOutlineSearch} from "react-icons/ai";
 import {MdPets} from "react-icons/md";
 
 const Header = () => {
+
     const renderNorm = () => {
         return (
             <div className='container-fluid HEADER  w-100 '>
@@ -13,9 +14,6 @@ const Header = () => {
                     <div className='offset-2 logo col-2'>
                         <img src={logo_} alt='logo'/>
                     </div>
-                    <button className='signin_btn  offset-5 col-1  justify-content-center  '>
-                        <p className='signin_btn_text'>Sign in</p>
-                    </button>
                 </div>
             </div>
         );
@@ -41,9 +39,7 @@ const Header = () => {
     }
 
 
-    return (
-        renderNorm()
-    );
+    return renderNorm();
 };
 
 export default Header;

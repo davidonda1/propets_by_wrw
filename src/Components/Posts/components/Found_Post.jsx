@@ -111,7 +111,7 @@ const Found_Post = () => {
                 <input type='email' placeholder='Email'/>
             </div>
             <div className="facebook">
-                <input type='text' placeholder='Facebook Profile'/>
+                <input type='text' placeholder='Facebook EditUser'/>
             </div>
             <div className="user_avatar">
                 <img src={user_avatar} alt='user_avatar'/>
