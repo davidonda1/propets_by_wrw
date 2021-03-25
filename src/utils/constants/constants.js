@@ -33,7 +33,7 @@ export const VET_HELP = 'vetHelp';
 export const posts = [{
     user: 'John Goodboi',
     avatar: pet_avatar,
-    time: Date.now().toFixed(2),
+    time: `${new Date().getHours()}h`,
     text: 'The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.' +
         ' Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz,' +
         ' bad nymph, for jigs vex! Fox nymphs grab quick-jived waltz. Brick whangs jumpy veldt fox.' +
@@ -44,7 +44,7 @@ export const posts = [{
 },
     {
         user: 'John Goodboi',
-        time: Date.now().toFixed(2),
+        time: `${new Date().getHours() + 1}h`,
         text: 'Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox.' +
             ' Bright vixens jump; dozy fowl quack',
         img: preview_dog,
