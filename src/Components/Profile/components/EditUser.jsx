@@ -8,21 +8,40 @@ import {connect} from "react-redux";
 
 const EditUser = ({nickName, editUser, userPhone, userAvatar}) => {
 
+    const [editMode, setEditMode] = useState(false);
     const [phone, setPhone] = useState('');
     const [avatar, setAvatar] = useState('');
     const [name, setName] = useState('');
 
 
     const handleClickCancel = () => {
-        setPhone('');
-        setName('');
-        setAvatar('');
+        if (!editMode) {
+            setPhone('');
+            setName('');
+            setAvatar('');
+        } else {
+            setName('');
+        }
     }
 
 
     const handleClickSubmit = () => {
+        setEditMode(false);
         editUser(name || nickName, avatar || userAvatar, phone || userPhone);
         handleClickCancel();
+    }
+
+    const editForm = () => {
+        return (
+            <div className='container'>
+                    <button className='b1 mb-1 col-12 ml-5' onClick={() => handleClickCancel()}>Reset</button>
+                    <button className='b2 mb-1 col-12 ml-5' onClick={() => handleClickSubmit()}>Save</button>
+                <input className='ml-2' type='text' placeholder='enter your new name' onChange={(event) => setName(event.target.value)}
+                       value={name}/>
+                <button className='b2 mt-1 ml-5 ' onClick={() => setEditMode(false)}>Save without changes</button>
+
+            </div>
+        )
     }
 
     return (
@@ -30,10 +49,12 @@ const EditUser = ({nickName, editUser, userPhone, userAvatar}) => {
             <div className='container shadow'>
                 <div className='row Visit'>
                     <div className='img ml-2 mt-3 col-1'>
-                        <img className='pet' src={pet} alt='pet'/>
+                        <img className='pet' src={userAvatar} alt='avatar'/>
                     </div>
-                    <div className='p offset-1 col-2 mt-4 mr-2 '>
-                        <p className='Name'>{nickName}<span><BiPencil/></span></p>
+                    <div className='p offset-1 col-2 mt-4 mr-2'>
+                        {editMode ? editForm() :
+                            <p onClick={() => setEditMode(true)} className='Name'>{nickName}<span><BiPencil/></span>
+                            </p>}
                     </div>
                 </div>
                 <div className='row t1 mt-3 ml-3'>

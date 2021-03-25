@@ -36,7 +36,6 @@ function App({loginUser, token}) {
     }, [token])
 
     return (
-
         <Switch>
             <Route exact path={`/${HOME_PAGE}`}>{token ? <Menu page={HOME_PAGE}/> : <Redirect to={'/'}/>}</Route>
             <Route exact path={`/${FOUND_PAGE}`}>{token ? <Menu page={FOUND_PAGE}/> : <Redirect to={'/'}/>}</Route>
@@ -50,7 +49,6 @@ function App({loginUser, token}) {
             <Route exact path={['/', '/guest']}><Guest/></Route>
             <Route><h1>Error. No such page...</h1></Route>
         </Switch>
-
     );
 }
 
