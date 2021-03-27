@@ -113,6 +113,7 @@ export const loginUser = (token) => {
                 // }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
                     return response.json();
                 } else {
                     dispatch(putError('Go To Administrator'))

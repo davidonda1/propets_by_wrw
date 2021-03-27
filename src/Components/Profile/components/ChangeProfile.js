@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css_module/editUser.css';
 import {useState} from "react";
-
 import Profile from "./EditUser";
 import {connect} from "react-redux";
 import EditActivities from "./EditActivities";
@@ -32,7 +31,6 @@ const ChangeProfile = ({message}) => {
                 </div>
             </div>
             {edit ? <Profile/> : <EditActivities/>}
-
         </div>
     );
 };

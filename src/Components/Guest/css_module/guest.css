@@ -124,6 +124,10 @@
 }
 
 
+.spinner-border {
+    grid-area: 6 / 6 / 6 / 6;
+}
+
 /*FIXME
 Padding i_lost_text
 Padding i_found_text
