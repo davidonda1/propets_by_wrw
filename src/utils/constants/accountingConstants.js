@@ -12,3 +12,4 @@ export const createToken = (login, password) => {
 export const error400='ERROR 400, No rights to request';
 export const error401='ERROR 401, ARTEM LOX';
 export const error403='ERROR 403, Forbidden';
+export const errorDefault='ERROR,Go To Administrator';
