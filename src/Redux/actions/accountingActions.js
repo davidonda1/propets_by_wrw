@@ -1,7 +1,7 @@
 import {
     BASE_URL_ACCOUNT,
     createToken,
-    error400, error401, error403,
+    error400, error401, error403, errorDefault,
     LOGOUT,
     PUT_MESSAGE,
     PUT_USER
@@ -60,24 +60,19 @@ export const registerUser = (name, email, password) => {
             })
         })
             .then(response => {
-                // switch (response.status) {
-                //     case 400:
-                //         dispatch(putError(error400))
-                //         break;
-                //     case 401:
-                //         dispatch(putError(error401))
-                //         break;
-                //     case 403:
-                //         dispatch(putError(error403))
-                //         break;
-                //     default:
-                //         break;
-                // }
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
+                }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
                     return response.json();
-                } else {
-                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(user => {
@@ -98,25 +93,20 @@ export const loginUser = (token) => {
             }
         })
             .then(response => {
-                // switch (response.status) {
-                //     case 400:
-                //         dispatch(putError(error400))
-                //         break;
-                //     case 401:
-                //         dispatch(putError(error401))
-                //         break;
-                //     case 403:
-                //         dispatch(putError(error403))
-                //         break;
-                //     default:
-                //         break;
-                // }
+
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
+                }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
                     dispatch(putMessage('Loading'));
                     return response.json();
-                } else {
-                    dispatch(putError('Go To Administrator'))
                 }
             })
             .then(user => {
@@ -141,24 +131,19 @@ export const userInfo = () => {
             },
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
@@ -187,26 +172,19 @@ export const editUser = (name, avatar, phone) => {
             })
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    dispatch(putMessage(''));
-                    return response.json()
-
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(user => dispatch(put_user(user, token)))
@@ -227,24 +205,19 @@ export const deleteUser = () => {
             }
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
@@ -272,24 +245,19 @@ export const addUserRole = () => {
              ]*/
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
@@ -317,24 +285,19 @@ export const delUserRole = () => {
              ]*/
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
@@ -356,24 +319,19 @@ export const blockUserAccount = () => {
             }
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
@@ -395,24 +353,19 @@ export const addUserFavorite = () => {
 
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
@@ -433,18 +386,14 @@ export const addUserActivity = () => {
             }
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
                     return response.json()
@@ -470,24 +419,19 @@ export const delUserFavorite = () => {
             }
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
@@ -507,18 +451,15 @@ export const delUserActivity = () => {
             }
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
                     return response.json()
@@ -538,18 +479,14 @@ export const getUserDataPostActivites = () => {
             method: 'Get',
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
                     return response.json()
@@ -570,18 +507,14 @@ export const getUserDataPostFavourites = () => {
             method: 'Get',
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
                     return response.json()
@@ -604,24 +537,19 @@ export const tokenValidation = () => {
             }
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
+                if (response.status===400){
+                    dispatch(putError(error400))
+                }else if(response.status===401){
+                    dispatch(putError(error401))
+                }else if(response.status===403){
+                    dispatch(putError(error403))
+                }else{
+                    dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
-                    dispatch(putXToken(response.headers.get('X-Token')));//may be
-                    return response.json()
-                } else {
-                    dispatch(putError('Go To Administrator'))
+                    dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
+                    return response.json();
                 }
             })
             .then(data => console.log(data))
