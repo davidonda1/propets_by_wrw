@@ -1,5 +1,5 @@
 import {
-    BASE_URL,
+    BASE_URL_ACCOUNT,
     createToken,
     error400, error401, error403,
     LOGOUT,
@@ -48,7 +48,7 @@ export const putError = (error) => {
 export const registerUser = (name, email, password) => {
     return dispatch => {
         const token = createToken(email, password);
-        fetch(`${BASE_URL}registration`, {
+        fetch(`${BASE_URL_ACCOUNT}registration`, {
             method: 'Post',
             headers: {
                 'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export const registerUser = (name, email, password) => {
 
 export const loginUser = (token) => {
     return dispatch => {
-        fetch(`${BASE_URL}login`, {
+        fetch(`${BASE_URL_ACCOUNT}login`, {
             method: 'Post',
             headers: {
                 'Authorization': token
@@ -113,7 +113,7 @@ export const loginUser = (token) => {
                 // }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
-                    dispatch(putMessage('Loading'))
+                    dispatch(putMessage('Loading'));
                     return response.json();
                 } else {
                     dispatch(putError('Go To Administrator'))
@@ -122,6 +122,7 @@ export const loginUser = (token) => {
             .then(user => {
                 dispatch(put_user(user, token));
                 localStorage.setItem('token', token);
+                dispatch(putMessage(''));
             })
 
     }
@@ -133,7 +134,7 @@ export const userInfo = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.xToken;
-        fetch(`${BASE_URL}${login}/info`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/info`, {
             method: 'Get',
             headers: {
                 'X-Token': token
@@ -173,7 +174,7 @@ export const editUser = (name, avatar, phone) => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.token;
         const xToken = getState().accountingReducer.xToken;
-        fetch(`${BASE_URL}${login}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}`, {
             method: 'Put',
             headers: {
                 'Content-Type': 'application/json',
@@ -218,7 +219,7 @@ export const deleteUser = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.xToken;
-        fetch(`${BASE_URL}${login}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}`, {
             method: 'Del',
             headers: {
                 'Content-Type': 'application/json',
@@ -258,7 +259,7 @@ export const addUserRole = () => {
         const token = getState().accountingReducer.xToken;
         const role = getState().accountingReducer.role;
         //FIXME
-        fetch(`${BASE_URL}${login}/role/${role}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/role/${role}`, {
             method: 'Put',
             headers: {
                 'X-Token': token
@@ -302,7 +303,7 @@ export const delUserRole = () => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.xToken;
         const role = getState().accountingReducer.role;
-        fetch(`${BASE_URL}${login}/role/${role}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/role/${role}`, {
             method: 'Del',
             headers: {
                 'Authorization': token,
@@ -347,7 +348,7 @@ export const blockUserAccount = () => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.xToken;
         const status = getState().accountingReducer.status;
-        fetch(`${BASE_URL}${login}/block/${status}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/block/${status}`, {
             method: 'Put',
             headers: {
                 'Content-Type': 'application/json',
@@ -386,7 +387,7 @@ export const addUserFavorite = () => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.xToken;
         const postId = getState().accountingReducer.postId;
-        fetch(`${BASE_URL}${login}/favorite/${postId}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/favorite/${postId}`, {
             method: 'Put',
             headers: {
                 'X-Token': token
@@ -425,7 +426,7 @@ export const addUserActivity = () => {
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.xToken;
         const postId = getState().accountingReducer.postId;
-        fetch(`${BASE_URL}${login}/activity/${postId}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/activity/${postId}`, {
             method: 'Put',
             headers: {
                 //FIXME
@@ -462,7 +463,7 @@ export const delUserFavorite = () => {
         const login = getState().accountingReducer.email;
         const postId = getState().accountingReducer.postId;
         const token = getState().accountingReducer.xToken;
-        fetch(`${BASE_URL}${login}/favorite/${postId}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/favorite/${postId}`, {
             method: 'Del',
             headers: {
                 'X-Token': token
@@ -499,7 +500,7 @@ export const delUserActivity = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
         const postId = getState().accountingReducer.postId;
-        fetch(`${BASE_URL}${login}/activity/${postId}`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}/activity/${postId}`, {
             method: 'Del',
             headers: {
                 //FiXME
@@ -533,7 +534,7 @@ export const delUserActivity = () => {
 export const getUserDataPostActivites = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        fetch(`${BASE_URL}${login}?dataType=true`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}?dataType=true`, {
             method: 'Get',
         })
             .then(response => {
@@ -565,7 +566,7 @@ export const getUserDataPostActivites = () => {
 export const getUserDataPostFavourites = () => {
     return (dispatch, getState) => {
         const login = getState().accountingReducer.email;
-        fetch(`${BASE_URL}${login}?dataType=false`, {
+        fetch(`${BASE_URL_ACCOUNT}${login}?dataType=false`, {
             method: 'Get',
         })
             .then(response => {
@@ -596,7 +597,7 @@ export const getUserDataPostFavourites = () => {
 export const tokenValidation = () => {
     return (dispatch, getState) => {
         const token = getState().accountingReducer.xToken
-        fetch(`${BASE_URL}token/validation`, {
+        fetch(`${BASE_URL_ACCOUNT}token/validation`, {
             method: 'Get',
             headers: {
                 'X-Token': token

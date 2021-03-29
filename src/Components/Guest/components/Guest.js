@@ -23,13 +23,6 @@ const Guest = () => {
         if (!token) {
             return (
                 <>
-                    <div className="header"></div>
-                    <div className="propets">
-                        <img src={propetsSVG} alt={'propet'}/>
-                    </div>
-                    <div className="sign_in">
-                        <button onClick={() => setRegister(!register)} className={'sign_in_button'}>Sign in</button>
-                    </div>
                     <div className="main">
                         {showRegister()}
                     </div>
@@ -53,7 +46,6 @@ const Guest = () => {
                         <span onClick={() => setRegister(true)} className={'join'}>join</span>
                         the pawsome community!
                     </p>
-                    <div className="footer"></div>
                 </>
             );
         } else {
@@ -64,7 +56,15 @@ const Guest = () => {
 
     return (
         <div className={`grid-container`}>
+            <div className="header"></div>
+            <div className="propets">
+                <img src={propetsSVG} alt={'propet'}/>
+            </div>
+            <div className="sign_in">
+                <button onClick={() => setRegister(!register)} className={'sign_in_button'}>Sign in</button>
+            </div>
             {showFullPage()}
+            <div className="footer"></div>
         </div>
     );
 };

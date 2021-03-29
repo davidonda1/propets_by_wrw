@@ -14,7 +14,6 @@ const initialState = {
     phone:''
 }
 export const accountingReducer = (state = initialState, action) => {
-    console.log(action.payload)
     switch (action.type) {
         case PUT_MESSAGE:
             return {

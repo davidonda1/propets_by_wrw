@@ -21,6 +21,8 @@ import RightBar from "../../RightBar/components/RightBar";
 import Hotels from "../../Services/Hotels/components/Hotels";
 import Fostering from "../../Services/Fostering/components/Fostering";
 import Walking from "../../Services/Walking/components/Walking";
+import Lost_Post from "../../Posts/components/Lost_Post";
+import Found_Post from "../../Posts/components/Found_Post";
 
 
 const Menu = ({page}) => {
@@ -37,9 +39,9 @@ const Menu = ({page}) => {
             case WALKING:
                 return <Walking/>
             case LOST_PAGE:
-                return <Lost/>
+                return <Lost_Post/>
             case FOUND_PAGE:
-                return <Lost/>
+                return <Found_Post/>
             case HOME_PAGE:
                 return <Home/>
             case FAVORITES:
