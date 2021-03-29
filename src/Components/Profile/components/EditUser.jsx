@@ -33,13 +33,12 @@ const EditUser = ({nickName, editUser, userPhone, userAvatar}) => {
 
     const editForm = () => {
         return (
-            <div className='container'>
-                    <button className='b1 mb-1 col-12 ml-5' onClick={() => handleClickCancel()}>Reset</button>
-                    <button className='b2 mb-1 col-12 ml-5' onClick={() => handleClickSubmit()}>Save</button>
-                <input className='ml-2' type='text' placeholder='enter your new name' onChange={(event) => setName(event.target.value)}
-                       value={name}/>
-                <button className='b2 mt-1 ml-5 ' onClick={() => setEditMode(false)}>Save without changes</button>
-
+            <div className='container '>
+                <button className='b1 mb-1 col-12 ml-5' onClick={() => handleClickCancel()}>Reset</button>
+                <button className='b2 mb-1 col-12 ml-5' onClick={() => handleClickSubmit()}>Save</button>
+                <input type='text' placeholder='enter your new name' value={name}
+                       onChange={(event) => setName(event.target.value)}/>
+                <button className='b2 mt-1 ml-5 col-12' onClick={() => setEditMode(false)}>Cancel</button>
             </div>
         )
     }

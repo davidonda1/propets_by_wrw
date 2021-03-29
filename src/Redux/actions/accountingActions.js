@@ -60,19 +60,19 @@ export const registerUser = (name, email, password) => {
             })
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
-                }
+                // switch (response.status) {
+                //     case 400:
+                //         dispatch(putError(error400))
+                //         break;
+                //     case 401:
+                //         dispatch(putError(error401))
+                //         break;
+                //     case 403:
+                //         dispatch(putError(error403))
+                //         break;
+                //     default:
+                //         break;
+                // }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
                     return response.json();
@@ -80,7 +80,10 @@ export const registerUser = (name, email, password) => {
                     dispatch(putError('Go To Administrator'))
                 }
             })
-            .then(user => dispatch(put_user(user, token)))
+            .then(user => {
+                dispatch(put_user(user, token));
+                localStorage.setItem('token', token);
+            })
 
     }
 }
@@ -95,21 +98,22 @@ export const loginUser = (token) => {
             }
         })
             .then(response => {
-                switch (response.status) {
-                    case 400:
-                        dispatch(putError(error400))
-                        break;
-                    case 401:
-                        dispatch(putError(error401))
-                        break;
-                    case 403:
-                        dispatch(putError(error403))
-                        break;
-                    default:
-                        break;
-                }
+                // switch (response.status) {
+                //     case 400:
+                //         dispatch(putError(error400))
+                //         break;
+                //     case 401:
+                //         dispatch(putError(error401))
+                //         break;
+                //     case 403:
+                //         dispatch(putError(error403))
+                //         break;
+                //     default:
+                //         break;
+                // }
                 if (response.ok) {
                     dispatch(putXToken(response.headers.get('X-Token')));
+                    dispatch(putMessage('Loading'))
                     return response.json();
                 } else {
                     dispatch(putError('Go To Administrator'))
