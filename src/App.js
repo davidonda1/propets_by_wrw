@@ -16,11 +16,12 @@ import {
 } from "./utils/constants/constants";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {loginUser} from './Redux/actions/accountingActions'
+import {loginUser, userInfo} from './Redux/actions/accountingActions'
+import {newLostPet} from "./Redux/actions/lostFoundActions";
 
 
 function App({loginUser, token}) {
-
+   newLostPet();
     let history = useHistory();
 
     useEffect(() => {
