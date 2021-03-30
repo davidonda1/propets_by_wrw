@@ -15,7 +15,11 @@ import {useState} from "react/cjs/react.production.min";
 
 const Found_Post = () => {
 
-    const [object, setObject] = useState({});
+    const [object, setObject] = useState({
+        type:'Dog',
+        sex:'Male',
+        height:'45 cm'
+    });
     const handleClickInfo = (event, field) => {
         setObject((prevState) => ({...prevState, [field]: event.target.value}));
     }
@@ -60,6 +64,7 @@ const Found_Post = () => {
                         <label>Height:</label>
                         <select onChange={(event)=>handleClickInfo(event,'height')} className='select mb-2 ml-2'>
                         <option>45-70 cm</option>
+
                         </select>
                         <AiOutlineArrowDown class='mt-1'/>
                         </div>
