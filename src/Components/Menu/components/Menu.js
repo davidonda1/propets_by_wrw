@@ -1,18 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css_module/menu.css'
 import {
-    GUEST_PAGE,
-    logo_,
-    pet_avatar,
-    add_2,
     HOME_PAGE,
     LOST_PAGE,
-    FOUND_PAGE, SERVICES, FAVORITES, USER_PAGE, VET_HELP, HOTELS, FOSTERING, WALKING
+    FOUND_PAGE, FAVORITES, USER_PAGE, VET_HELP, HOTELS, FOSTERING, WALKING
 } from "../../../utils/constants/constants";
 import Favorites from "../../Favorites/components/Favorites";
 import VetHelp from '../../Services/VetHelp/components/VetHelp'
-import Lost from '../../Lost/components/Lost'
 import Home from '../../Home/components/Home'
 import EditUser from "../../Profile/components/ChangeProfile";
 import Header from "../../Header/components/Header";
@@ -26,6 +21,16 @@ import Found_Post from "../../Posts/components/Found_Post";
 
 
 const Menu = ({page}) => {
+
+    const [headerMode, setHeaderMode] = useState('');
+
+    useEffect(() => {
+        if (page === LOST_PAGE || page === FOUND_PAGE) {
+            setHeaderMode('lost')
+        } else {
+            setHeaderMode('')
+        }
+    }, [page])
 
 
     const renderPage = () => {
@@ -57,7 +62,7 @@ const Menu = ({page}) => {
     return (
         <div className='jumbotron '>
             <div className='container-fluid HEADER  w-100 '>
-                <Header/>
+                <Header headerMode={headerMode}/>
             </div>
             <div className='container col-8 '>
                 <div className='row '>

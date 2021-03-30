@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react'
-import './App.css';
+import React, {useEffect} from 'react';
 import Menu from "./Components/Menu/components/Menu";
 import Guest from "./Components/Guest/components/Guest";
 import {Switch, Route, useHistory, Redirect} from 'react-router-dom';
@@ -18,7 +17,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {loginUser, userInfo} from './Redux/actions/accountingActions'
 import {newLostPet} from "./Redux/actions/lostFoundActions";
-
+import './App.css';
 
 function App({loginUser, token}) {
    newLostPet();

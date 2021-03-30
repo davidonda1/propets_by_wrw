@@ -25,7 +25,7 @@ const LeftBar = ({log_out, nickName, user_avatar}) => {
 
     return (
         <nav className="navbar fixed-top mt-5  NAV col-2">
-            <ul className="navbar-nav ">
+            <ul className="navbar-nav mt-5 ">
                 <li className="nav-item">
                     <Link className="nav-link" to={`${HOME_PAGE}`}><BsFillHouseFill/>Home</Link>
                 </li>

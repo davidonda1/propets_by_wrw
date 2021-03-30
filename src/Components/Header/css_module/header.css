@@ -5,29 +5,32 @@
     color: #FFFFFF;
     opacity: 1;
 }
-.signin_btn{
-    border: 1px solid #FFFFFF;
-    border-radius: 17px;
-    opacity: 1;
-    background-color: #84B6A3;
-}
+
 .HEADER{
     background-color: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+
 }
-.Lost{
-    background: #FFE18B 0% 0% no-repeat padding-box;
-    border: 1px solid #FFE78D;
-    border-radius: 17px;
-    opacity: 1;
-}
+
+
 .Lost_text{
     color:  #393939
 }
 
-.Found{
-    text-align: left;
-    font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
-    color: #FFFFFF;
+.lost_btn{
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
     opacity: 1;
+    background: #FFE18B 0% 0% no-repeat padding-box;
 }
+
+.found_btn {
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    opacity: 1;
+    background: #84B6A3 0% 0% no-repeat padding-box;
+}
+
+/*.found_btn, .lost_btn {*/
+/*    margin-bottom: 1rem;*/
+/*}*/

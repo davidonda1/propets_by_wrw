@@ -2,40 +2,24 @@ import React from 'react';
 import '../css_module/preview.css'
 import dog from '../../../utils/Images/preview_dog.png'
 import {VscLocation} from "react-icons/vsc";
-import user_avatar from '../../../utils/Images/user_avatar.png'
 import {AiFillPhone, AiFillFacebook, AiFillMail, AiFillEdit} from "react-icons/ai";
 import {FaPaw} from "react-icons/fa";
+import {connect} from "react-redux";
 
-const PublishPreview = () => {
+const PublishPreview = ({pet_info, images, setEdit}) => {
     return (
-        // <div>
-        //     <header>
-        //         <p>Preview and Publish. Please share the post to your FB to be more effective.
-        //         </p>
-        //     </header>
-        //     <Lost_Post/>
-        //     <footer>
-        //         <p>Fingers crossed. We wish your fluffy to be found as soon as possible. Your post will expire in two weeks. To make it active again follow the instructions you’ll get in email.</p>
-        //         <input type={'checkbox'}/>
-        //         <label>Share to Facebook</label>
-        //         <button>Edit</button>
-        //         <button>Publish</button>
-        //         <p>By clicking “Publish”, you agree to us processing your information in accordance with these terms.</p>
-        //     </footer>
-        //   <p>Preview and Publish. Please share the post to your FB to be more effective.</p>
-        // </div>
         <div className="grid-container">
             <div className="main">
                 <div className="preview_post">
                     <div className="preview_main">
                         <div className="dog_text">
-                            <h2>Dog, Golden Retriever</h2>
+                            <h2>{pet_info.type}, {pet_info.breed}</h2>
                         </div>
                         <div className="color">
                             <p><span>Color: </span>golden</p>
                         </div>
                         <div className="sex">
-                            <p><span>Sex: </span>male</p>
+                            <p><span>Sex: </span>{pet_info.sex}</p>
                         </div>
                         <div className="features">
                             <p>Distinctive features: <span> blue collar with stars, no left ear, damaged tail.</span>
@@ -49,15 +33,15 @@ const PublishPreview = () => {
                             </p>
                         </div>
                         <div className="dog_photo">
-                            <img src={dog} alt='dog'/>
+                            <img src={images[0] || dog} alt='dog'/>
                         </div>
                         <div className="location">
-                            <p><VscLocation/><span>Florentin, 27, Tel Aviv</span></p>
+                            <p><VscLocation/><span>{pet_info.address.street}, {pet_info.address.building}, {pet_info.address.city}, {pet_info.address.country}</span></p>
                         </div>
                         <div className="user">
-                            <img src={user_avatar} alt='user_avatar'/>
+                            <img src={pet_info.avatar} alt='user_avatar'/>
                             <div className="user_name">
-                                <p>John Goodboi</p>
+                                <p>{pet_info.userName}</p>
                             </div>
                         </div>
                         <div className="icons">
@@ -73,7 +57,7 @@ const PublishPreview = () => {
                                 instructions you’ll get in email.</p>
                         </div>
                     </div>
-                    <div className="edit">
+                    <div className="edit" onClick={() => setEdit(true)}>
                         <button><AiFillEdit/>Edit</button>
                     </div>
                     <div className="publish">
@@ -96,4 +80,11 @@ const PublishPreview = () => {
     );
 };
 
-export default PublishPreview;
+const mapStateToProps = state => {
+    return {
+        images: state.lost_found_post_reducer.images,
+        pet_info: state.lost_found_post_reducer.petInfo,
+    }
+}
+
+export default connect(mapStateToProps)(PublishPreview);
