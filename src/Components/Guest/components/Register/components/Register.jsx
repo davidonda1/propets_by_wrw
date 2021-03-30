@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import '../css_module/register.css'
 import {FaFacebook} from "react-icons/fa";
 import {MdPets} from "react-icons/md";
 import {bindActionCreators} from "redux";
-import {loginUser, registerUser} from '../../../Redux/actions/accountingActions';
+import {loginUser, registerUser} from '../../../../../Redux/actions/accountingActions';
 import {connect} from "react-redux";
-import {createToken} from "../../../utils/constants/accountingConstants";
+import {createToken} from "../../../../../utils/constants/accountingConstants";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
+import '../css_module/register.css';
 
-const Register = ({loginUser, registerUser}) => {
+const Register = ({loginUser, registerUser, cancel}) => {
 
     const [mode, setMode] = useState(true);
 
@@ -21,15 +21,12 @@ const Register = ({loginUser, registerUser}) => {
 
     const handleClickCancel = () => {
         if (mode) {
-            setPassword('');
-            setEmail('');
             setName('');
             setRepeatPass('');
-        } else {
-            setEmail('');
-            setPassword('');
         }
-
+        setPassword('');
+        setEmail('');
+        cancel(false)
     }
 
     const handleClickSubmit = () => {
@@ -79,29 +76,29 @@ const Register = ({loginUser, registerUser}) => {
 
 
     return (
-        <div className='grid-container'>
-            <div className="welcome_text">
-                <h4><span className='welcome_span'>Welcome!</span> Please sign in / sign up to continue or</h4>
+        <>
+            <div className='grid-container'>
+                <div className="welcome_text">
+                    <h4><span className='welcome_span'>Welcome!</span> Please sign in / sign up to continue or</h4>
+                </div>
+                <div className="facebook_btn">
+                    <p className='facebook_btn_text'><FaFacebook/>Enter with Facebook</p>
+                </div>
+                <div onClick={() => setMode(true)} className={`signup_btn ${mode ? active_class : none_active_class}`}>
+                    <p className="signup_btn_text">Sign up</p>
+                </div>
+                <div onClick={() => setMode(false)} className={`signin_btn ${mode ? none_active_class : active_class}`}>
+                    <p className="signin_btn_text">Sign in</p>
+                </div>
+                <div className="cancel_btn" onClick={() => handleClickCancel()}>
+                    <button className="cancel_btn_text">Cancel</button>
+                </div>
+                <div className="submit_btn" onClick={() => handleClickSubmit()}>
+                    <button className="submit_btn_text"><MdPets/>Submit</button>
+                </div>
+                {conditionRender()}
             </div>
-            <div className="facebook_btn">
-
-                <p className='facebook_btn_text'><FaFacebook/>Enter with Facebook</p>
-            </div>
-            <div onClick={() => setMode(true)} className={`signup_btn ${mode ? active_class : none_active_class}`}>
-                <p className="signup_btn_text">Sign up</p>
-            </div>
-            <div onClick={() => setMode(false)} className={`signin_btn ${mode ? none_active_class : active_class}`}>
-                <p className="signin_btn_text">Sign in</p>
-            </div>
-            <div className="cancel_btn" onClick={() => handleClickCancel()}>
-                <button className="cancel_btn_text">Cancel</button>
-            </div>
-            <div className="submit_btn" onClick={() => handleClickSubmit()}>
-                <button className="submit_btn_text"><MdPets/>Submit</button>
-            </div>
-            {conditionRender()}
-        </div>
-
+        </>
     );
 };
 

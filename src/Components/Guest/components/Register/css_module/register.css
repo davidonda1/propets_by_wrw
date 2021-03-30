@@ -13,12 +13,8 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0px 0px;
-    /*background: #FFFFFF 0% 0% no-repeat padding-box;*/
-    /*border: 1px solid #707070;*/
-    /*backdrop-filter: blur(30px);*/
-    /*opacity: 1;*/
     background: rgba(255, 255, 255, 1);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(1px);
     height: 100%;
     width: 100%;
 

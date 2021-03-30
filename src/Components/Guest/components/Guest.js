@@ -1,34 +1,22 @@
 import React, {useState} from 'react';
 import pet from '../../../utils/Images/petImg.png';
 import propetsSVG from '../../../utils/Images/propetsImg.svg';
-import lupaSVG from '../../../utils/Images/lupa.svg';
-import Register from "../../Register/components/Register";
+import Register from '../components/Register/components/Register';
+import {GiMagnifyingGlass} from "react-icons/gi";
 import '../css_module/guest.css';
 
-
 const Guest = () => {
+
     const [register, setRegister] = useState(false);
 
     const token = localStorage.getItem('token');
-
-    const showRegister = () => {
-        if (register) {
-            return (<Register cancel={setRegister}/>)
-        } else {
-            return (<></>)
-        }
-    }
 
     const showFullPage = () => {
         if (!token) {
             return (
                 <>
-                    <div className="main">
-                        {showRegister()}
-                    </div>
                     <div onClick={() => setRegister(true)} className="i_lost_pet">
-                        <p className={'i_lost_text'}>I lost my pet!</p>
-                        <img className={'i_lost_pet_img'} src={lupaSVG} alt={'lupa'}/>
+                        <p className={'i_lost_text'}>I lost my pet! <GiMagnifyingGlass/></p>
                     </div>
                     <div onClick={() => setRegister(true)} className="i_found_pet">
                         <p className={'i_found_text'}>I found a pet!</p>
@@ -49,7 +37,7 @@ const Guest = () => {
                 </>
             );
         } else {
-            return <label className="spinner-border text-dark"></label>
+            return <label className="spinner-border text-success"/>
         }
     }
 
@@ -63,7 +51,7 @@ const Guest = () => {
             <div className="sign_in">
                 <button onClick={() => setRegister(!register)} className={'sign_in_button'}>Sign in</button>
             </div>
-            {showFullPage()}
+            {register ? <div className="main"><Register cancel={setRegister}/></div> :  showFullPage()}
             <div className="footer"></div>
         </div>
     );

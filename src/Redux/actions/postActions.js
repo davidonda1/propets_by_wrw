@@ -1,8 +1,8 @@
-import {BASE_URL_LOST, PUT_IMG, PUT_LOST} from "../../utils/constants/lost_found_post_constants";
+import {BASE_URL_LOST, PUT_IMG, PUT_LOST, PUT_MESSAGE} from "../../utils/constants/lost_found_post_constants";
 
-export const putLost = () => ({
+export const putLost = petInfo => ({
     type: PUT_LOST,
-    payload: ''
+    payload: petInfo
 })
 
 export const putImg = url => ({
@@ -11,6 +11,11 @@ export const putImg = url => ({
 })
 
 
+export const putMessage = message => ({
+    type: PUT_MESSAGE,
+    payload: message,
+})
+
 export const lostPost = (info) => {
     return (dispatch, getState) => {
 
@@ -18,9 +23,10 @@ export const lostPost = (info) => {
         const login = getState().accountingReducer.email;
         const userName = getState().accountingReducer.nickName;
         const avatar = getState().accountingReducer.user_avatar;
+        const photos = getState().lost_found_post_reducer.images;
 
         fetch(`${BASE_URL_LOST}${login}`, {
-            method: 'Post',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'X-Token': xToken
@@ -41,17 +47,21 @@ export const lostPost = (info) => {
                     latitude: info.location.latitude,
                     longitude: info.location.longitude
                 },
-                photos: info.photos,
+                photos: photos,
                 tags: info.tags
             })
         })
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log('Lost post posted')
+                dispatch(putLost(data))
+            })
     }
 }
 
 export const getImg = image => {
     return (dispatch) => {
+        dispatch(putMessage('Loading'));
         fetch(`https://api.imgur.com/3/image`, {
             method: 'POST',
             headers: {
@@ -66,8 +76,10 @@ export const getImg = image => {
         })
             .then(json => {
                 dispatch(putImg(json.data.link));
+                dispatch(putMessage(''));
             })
             .catch(error => {
+                dispatch(putMessage('Error'))
                 console.error(error);
             });
     }
