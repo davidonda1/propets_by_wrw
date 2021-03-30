@@ -1,11 +1,13 @@
 import React from 'react';
-import '../css_module/header.css'
-import '../css_module/header.css'
-import {logo_} from "../../../utils/constants/constants";
+import {HOME_PAGE, logo_} from "../../../utils/constants/constants";
 import {AiOutlineSearch} from "react-icons/ai";
 import {MdPets} from "react-icons/md";
+import {useHistory} from "react-router-dom";
+import '../css_module/header.css'
 
-const Header = () => {
+const Header = ({headerMode}) => {
+
+    const history = useHistory();
 
     const renderNorm = () => {
         return (
@@ -17,8 +19,16 @@ const Header = () => {
                 </div>
             </div>
         );
-
     }
+
+    const handleClickLost = () => {
+        history.push(HOME_PAGE)
+    }
+
+    const handleClickFound = () => {
+        history.push(HOME_PAGE)
+    }
+
     const renderLostFoundHeader = () => {
         return (
             <div className='container-fluid HEADER w-100  '>
@@ -26,11 +36,11 @@ const Header = () => {
                     <div className='offset-2 logo col-2'>
                         <img src={logo_} alt='logo'/>
                     </div>
-                    <button className='signin_btn offset-3  col-2   Lost'>
+                    <button onClick={() => handleClickLost()} className='lost_btn offset-3  col-2 Lost'>
                         <p className='signin_btn_text Lost_text justify-content-center '><AiOutlineSearch/>I lost my pet
                         </p>
                     </button>
-                    <button className='signin_btn ml-3  col-2   Found  '>
+                    <button onClick={() => handleClickFound()} className='found_btn ml-3  col-2   Found  '>
                         <p className='signin_btn_text justify-content-center'><MdPets/>I found a pet</p>
                     </button>
                 </div>
@@ -39,7 +49,15 @@ const Header = () => {
     }
 
 
-    return renderNorm();
+    const header = () => {
+        if (headerMode === 'lost') {
+            return renderLostFoundHeader();
+        } else {
+            return renderNorm();
+        }
+    }
+
+    return header();
 };
 
 export default Header;
