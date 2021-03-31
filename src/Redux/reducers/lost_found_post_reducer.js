@@ -1,4 +1,4 @@
-import {PUT_IMG, PUT_LOST, PUT_MESSAGE} from "../../utils/constants/lost_found_post_constants";
+import {PUT_IMG, PUT_LOADING, PUT_LOST, PUT_MESSAGE} from "../../utils/constants/lost_found_post_constants";
 
 const initialState = {
     images: [],
@@ -14,6 +14,8 @@ export const lost_found_post_reducer = (state = initialState, action) => {
             return {...state, petInfo: action.payload};
         case PUT_MESSAGE:
             return {...state, message: action.payload}
+        case PUT_LOADING:
+            return {...state, loading: action.payload};
         default:
             return state;
     }

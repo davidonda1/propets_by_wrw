@@ -1,15 +1,14 @@
 import React from 'react';
-import '../css_module/preview.css'
-import dog from '../../../utils/Images/preview_dog.png'
 import {VscLocation} from "react-icons/vsc";
 import {AiFillPhone, AiFillFacebook, AiFillMail, AiFillEdit} from "react-icons/ai";
 import {FaPaw} from "react-icons/fa";
 import {connect} from "react-redux";
+import '../css_module/preview.css';
 
-const PublishPreview = ({pet_info, images, setEdit}) => {
+const PublishPreview = ({pet_info, images, setEdit, avatar, userName}) => {
     return (
-        <div className="grid-container">
-            <div className="main">
+        <div className="publish_container">
+            <div className="publish_main">
                 <div className="preview_post">
                     <div className="preview_main">
                         <div className="dog_text">
@@ -33,15 +32,15 @@ const PublishPreview = ({pet_info, images, setEdit}) => {
                             </p>
                         </div>
                         <div className="dog_photo">
-                            <img src={images[0] || dog} alt='dog'/>
+                            <img src={images[0]} alt='dog'/>
                         </div>
                         <div className="location">
                             <p><VscLocation/><span>{pet_info.address.street}, {pet_info.address.building}, {pet_info.address.city}, {pet_info.address.country}</span></p>
                         </div>
                         <div className="user">
-                            <img src={pet_info.avatar} alt='user_avatar'/>
+                            <img src={avatar} alt='user_avatar'/>
                             <div className="user_name">
-                                <p>{pet_info.userName}</p>
+                                <p>{userName}</p>
                             </div>
                         </div>
                         <div className="icons">
@@ -84,6 +83,8 @@ const mapStateToProps = state => {
     return {
         images: state.lost_found_post_reducer.images,
         pet_info: state.lost_found_post_reducer.petInfo,
+        avatar: state.accountingReducer.user_avatar,
+        userName: state.accountingReducer.nickName,
     }
 }
 

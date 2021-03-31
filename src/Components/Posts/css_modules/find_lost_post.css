@@ -96,13 +96,7 @@ outline: #84B6A3;
     outline: #84B6A3;
 }
 
-.BTN {
-    text-align: left;
-    font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
-    color: #84B6A3;
-    opacity: 1;
-}
+
 my_p{
     text-align: left;
     font: normal normal 600 16px/19px Montserrat;
@@ -125,13 +119,6 @@ BTN_1{
     opacity: 1;
 }
 
-.BTN_around {
-
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #8DBFAC;
-    border-radius: 15px;
-    opacity: 1;
-}
 
 .DRAG {
     text-align: center;
@@ -149,3 +136,12 @@ BTN_1{
 .input{
     outline: #669885;
 }
+
+.BTN {
+    text-align: left;
+    font: normal normal medium 12px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #84B6A3;
+    opacity: 1;
+}
+

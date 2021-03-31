@@ -21,7 +21,7 @@
 .main {
     grid-area: 3 / 1 / 11 / 12;
     display: grid;
-    width: 360rem;
+    width: 119rem;
 }
 
 .propets {
@@ -129,9 +129,3 @@
 .spinner-border {
     grid-area: 6 / 6 / 6 / 6;
 }
-
-/*FIXME
-Padding i_lost_text
-Padding i_found_text
-SVG i_lost_text
-   */

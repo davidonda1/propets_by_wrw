@@ -22,9 +22,9 @@ export const newLostPet = (userName, avatar, type, sex, breed, country, city, st
             body: {
                 userName: userName,
                 avatar: avatar,
-                type: type,
-                sex: sex,
-                breed: breed,
+                type,
+                sex,
+                breed,
                 address: {
                     country: country,
                     city: city,

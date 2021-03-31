@@ -1,15 +1,9 @@
 import React from 'react';
 import '../css_modules/find_lost_post.css'
 import man_with_pet from '../../../utils/Images/manWithPetImg.svg'
-import import_1 from '../../../utils/Images/question_1.svg'
-import LeftBar from "../../Left_Bar/components/LeftBar";
-import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
 import user_avatar from '../../../utils/Images/user_avatar.png'
 import {AiOutlineArrowDown} from "react-icons/all";
-import {GiPuppet} from "react-icons/gi";
-
-// import {FOUND_POST_TEXT} from "../../utils/constants/constants";
 
 
 const Found_Post = () => {
@@ -24,7 +18,7 @@ const Found_Post = () => {
                     </div>
                 </div>
             </div>
-            <div className='container '>
+            <div className='container shadow pb-3'>
                 <img className='fixed-top offset-5 img_man  ' src={man_with_pet}/>
                 <textarea className='textarea h col-1  offset-6  fixed-top '>img1.jpg X </textarea>
                 <div className='row col-6 label_select'>
@@ -92,7 +86,7 @@ const Found_Post = () => {
                 <div className='container mt-3'>
                     <div className='row mr-3'>
                         <img className='img' src={user_avatar}/>
-                     <p className='HEADER_TEXT col-3 ml-2 mt-3'>John Goodboi</p>
+                        <p className='HEADER_TEXT col-3 ml-2 mt-3'>John Goodboi</p>
                         <button className='col-2 offset-10 my_btn_around justify-content-center '><p
                             className='BTN_1 justify-content-center '>Publish</p>
                         </button>
@@ -100,9 +94,6 @@ const Found_Post = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className='container'>
-
-            </div>*/}
         </div>
     );
 };

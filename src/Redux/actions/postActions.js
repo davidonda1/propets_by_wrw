@@ -1,4 +1,10 @@
-import {BASE_URL_LOST, PUT_IMG, PUT_LOST, PUT_MESSAGE} from "../../utils/constants/lost_found_post_constants";
+import {
+    BASE_URL_LOST,
+    PUT_IMG,
+    PUT_LOADING,
+    PUT_LOST,
+    PUT_MESSAGE
+} from "../../utils/constants/lost_found_post_constants";
 
 export const putLost = petInfo => ({
     type: PUT_LOST,
@@ -14,6 +20,11 @@ export const putImg = url => ({
 export const putMessage = message => ({
     type: PUT_MESSAGE,
     payload: message,
+})
+
+export const putLoading = () => ({
+    type: PUT_LOADING,
+    payload: 'done',
 })
 
 export const lostPost = (info) => {
@@ -38,10 +49,10 @@ export const lostPost = (info) => {
                 sex: info.sex,
                 breed: info.breed,
                 address: {
-                    country: info.location.country,
-                    city: info.location.city,
-                    street: info.location.street,
-                    building: info.location.building,
+                    country: info.address.country,
+                    city: info.address.city,
+                    street: info.address.street,
+                    building: info.address.building,
                 },
                 location: {
                     latitude: info.location.latitude,
@@ -53,8 +64,8 @@ export const lostPost = (info) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Lost post posted')
-                dispatch(putLost(data))
+                dispatch(putLost(data));
+                dispatch(putLoading());
             })
     }
 }

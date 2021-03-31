@@ -77,7 +77,7 @@ const Register = ({loginUser, registerUser, cancel}) => {
 
     return (
         <>
-            <div className='grid-container'>
+            <div className='register_grid-container'>
                 <div className="welcome_text">
                     <h4><span className='welcome_span'>Welcome!</span> Please sign in / sign up to continue or</h4>
                 </div>
