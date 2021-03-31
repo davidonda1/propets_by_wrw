@@ -1,5 +1,5 @@
 import React from 'react';
-import {HOME_PAGE, logo_} from "../../../../../utils/constants/constants";
+import {FOUND_POST, HOME_PAGE, logo_, LOST_POST} from "../../../../../utils/constants/constants";
 import {AiOutlineSearch} from "react-icons/ai";
 import {MdPets} from "react-icons/md";
 import {useHistory} from "react-router-dom";
@@ -22,11 +22,11 @@ const Header = ({headerMode}) => {
     }
 
     const handleClickLost = () => {
-        history.push(HOME_PAGE)
+        history.push(LOST_POST)
     }
 
     const handleClickFound = () => {
-        history.push(HOME_PAGE)
+        history.push(FOUND_POST)
     }
 
     const renderLostFoundHeader = () => {

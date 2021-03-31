@@ -28,6 +28,8 @@ export const HOTELS = 'hotels';
 export const WALKING = 'walking';
 export const FOSTERING = 'fostering';
 export const VET_HELP = 'vetHelp';
+export const LOST_POST = 'lost_post';
+export const FOUND_POST = 'found_post';
 
 
 export const posts = [{

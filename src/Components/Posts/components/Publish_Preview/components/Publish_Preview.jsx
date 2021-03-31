@@ -6,8 +6,13 @@ import {connect} from "react-redux";
 import '../css_module/preview.css';
 import {bindActionCreators} from "redux";
 import {lostPost} from '../../../../../Redux/actions/postActions';
+import {useHistory} from "react-router-dom";
+import {HOME_PAGE} from "../../../../../utils/constants/constants";
 
 const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost}) => {
+
+    const history = useHistory();
+
     return (
         <div className="publish_container">
             <div className="publish_main">
@@ -61,7 +66,10 @@ const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost})
                     <div className="edit" onClick={() => setEdit(true)}>
                         <button><AiFillEdit/>Edit</button>
                     </div>
-                    <div onClick={() => lostPost(pet_info)} className="publish">
+                    <div onClick={() => {
+                        lostPost(pet_info)
+                        history.push(HOME_PAGE)
+                    }} className="publish">
                         <button><FaPaw/>Publish</button>
                     </div>
                     <div className="share">

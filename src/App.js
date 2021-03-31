@@ -5,10 +5,10 @@ import {Switch, Route, useHistory, Redirect} from 'react-router-dom';
 import {
     FAVORITES,
     FOSTERING,
-    FOUND_PAGE,
+    FOUND_PAGE, FOUND_POST,
     HOME_PAGE,
     HOTELS,
-    LOST_PAGE,
+    LOST_PAGE, LOST_POST,
     USER_PAGE,
     VET_HELP,
     WALKING,
@@ -46,6 +46,8 @@ function App({loginUser, token}) {
             <Route exact path={`/${WALKING}`}>{token ? <Menu page={WALKING}/> : <Redirect to={'/'}/>}</Route>
             <Route exact path={`/${USER_PAGE}`}>{token ? <Menu page={USER_PAGE}/> : <Redirect to={'/'}/>}</Route>
             <Route exact path={`/${FAVORITES}`}>{token ? <Menu page={FAVORITES}/> : <Redirect to={'/'}/>}</Route>
+            <Route exact path={`/${LOST_POST}`}>{token ? <Menu page={LOST_POST}/> : <Redirect to={'/'}/>}</Route>
+            <Route exact path={`/${FOUND_POST}`}>{token ? <Menu page={FOUND_POST}/> : <Redirect to={'/'}/>}</Route>
             <Route exact path={['/', '/guest']}><Guest/></Route>
             <Route><h1>Error. No such page...</h1></Route>
         </Switch>

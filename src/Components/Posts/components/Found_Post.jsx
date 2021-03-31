@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../css_modules/find_lost_post.css'
 import man_with_pet from '../../../utils/Images/manWithPetImg.svg'
 import {FaFileUpload} from "react-icons/fa";
 import user_avatar from '../../../utils/Images/user_avatar.png'
 import {AiOutlineArrowDown} from "react-icons/all";
-import {useState} from "react/cjs/react.production.min";
-
 const Found_Post = () => {
 
     const [object, setObject] = useState({
