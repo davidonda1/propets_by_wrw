@@ -6,22 +6,60 @@ import LeftBar from "../../Left_Bar/components/LeftBar";
 import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
 import user_avatar from '../../../utils/Images/user_avatar.png'
-import {AiOutlineArrowDown} from "react-icons/all";
+import {AiOutlineArrowDown, RiDeleteBack2Fill} from "react-icons/all";
 import {GiPuppet} from "react-icons/gi";
-import {useState} from "react/cjs/react.production.min";
+import {useState} from "react";
+import {bindActionCreators} from "redux";
+import {addInfo} from "../../../Redux/actions/lostFoundActions";
+import {connect} from "react-redux";
 
 // import {FOUND_POST_TEXT} from "../../utils/constants/constants";
 
 
-const Found_Post = () => {
+const Found_Post = ({addInfo}) => {
 
     const [object, setObject] = useState({
-        type:'Dog',
-        sex:'Male',
-        height:'45 cm'
+        type: 'Dog',
+        sex: 'Male',
+        height: '45 cm',
+        images: [],
+        address: {
+            country: ''
+        }
     });
     const handleClickInfo = (event, field) => {
-        setObject((prevState) => ({...prevState, [field]: event.target.value}));
+        if (field === 'location') {
+            const address = {
+                country: event.target.value,
+                city: event.target.value,
+                street: event.target.value,
+                building: 10
+
+            }
+            const location = {
+                latitude: 31.78,
+                longitude: 35.23
+            }
+            setObject(prevState => ({...prevState, address, location}))
+        } else {
+            setObject((prevState) => ({...prevState, [field]: event.target.value}));
+        }
+    }
+
+    const handleClickPublish = () => {
+        console.log('HEy')
+        addInfo(object)
+    }
+    const handleClickImages = (event) => {
+        const new_images = [...object.images];
+        new_images.push(event.target.value);
+        setObject(prevState => ({...prevState, images: new_images}));
+    }
+    const handleClickDelete = (item) => {
+        const index = object.images.indexOf(item);
+        const new_images = [...object.images];
+        new_images.splice(index, 1);
+        setObject(prevState => ({...prevState, images: new_images}))
     }
     return (
         <div className='container'>
@@ -35,84 +73,107 @@ const Found_Post = () => {
             </div>
             <div className='container '>
                 <img className='fixed-top offset-5 img_man  ' src={man_with_pet}/>
-                <textarea className='textarea h col-1  offset-6  fixed-top '>img1.jpg X </textarea>
+                <div className='textarea h col-1  offset-6  fixed-top '>{
+                    object.images.map(item => <p key={item}>{item}<span
+                        onClick={() => handleClickDelete(item)}><RiDeleteBack2Fill/></span></p>)
+                }</div>
                 <div className='row col-6 label_select'>
                     <label className='mr-3'>Type:</label>
-                    <select onChange={(event)=>handleClickInfo(event,'type')} className='select mb-2'>
+                    <select value={object.type} onChange={(event) => handleClickInfo(event, 'type')}
+                            className='select mb-2'>
                         <option>Dog</option>
                         <option>Cat</option>
-                        </select>
-                        <AiOutlineArrowDown class='ml-3 mt-1'/>
-                        </div>
-                        <div className='row col-6 label_select'>
-                        <label className='mr-2'>Sex:</label>
-                        <select onChange={(event)=>handleClickInfo(event,'sex')}  className='select mb-2 ml-2'>
+                    </select>
+                    <AiOutlineArrowDown className='ml-3 mt-1'/>
+                </div>
+                <div className='row col-6 label_select'>
+                    <label className='mr-2'>Sex:</label>
+                    <select value={object.sex} onChange={(event) => handleClickInfo(event, 'sex')}
+                            className='select mb-2 ml-2'>
                         <option>Male</option>
                         <option>Female</option>
-                        </select>
-                        <AiOutlineArrowDown class='ml-1 mt-1'/>
-                        </div>
-                        <div className='row col-6 label_input'>
-                        <label>Breed:</label>
-                        <input onChange={(event)=>handleClickInfo(event,'breed')} className='input ml-3 mb-1' type='text' placeholder='Golden Retriever'/>
-                        </div>
-                        <div className='row col-6 label_input'>
-                        <label>Color:</label>
-                        <input onChange={(event)=>handleClickInfo(event,'color')} className='input ml-3 mb-1' type='text' placeholder='Beige'/>
-                        </div>
-                        <div className='row col-6 label_select'>
-                        <label>Height:</label>
-                        <select onChange={(event)=>handleClickInfo(event,'height')} className='select mb-2 ml-2'>
+                    </select>
+                    <AiOutlineArrowDown className='ml-1 mt-1'/>
+                </div>
+                <div className='row col-6 label_input'>
+                    <label>Breed:</label>
+                    <input onChange={(event) => handleClickInfo(event, 'breed')} className='input ml-3 mb-1' type='text'
+                           placeholder='Golden Retriever' value={object.breed}/>
+                </div>
+                <div className='row col-6 label_input'>
+                    <label>Color:</label>
+                    <input onChange={(event) => handleClickInfo(event, 'color')} className='input ml-3 mb-1' type='text'
+                           placeholder='Beige' value={object.color}/>
+                </div>
+                <div className='row col-6 label_select'>
+                    <label>Height:</label>
+                    <select value={object.height} onChange={(event) => handleClickInfo(event, 'height')}
+                            className='select mb-2 ml-2'>
                         <option>45-70 cm</option>
 
-                        </select>
-                        <AiOutlineArrowDown class='mt-1'/>
-                        </div>
-                        <div className='row   '>
-                        <label className='col-3 '>Distinktive features: <span className='green_small'></span></label>
-                        <textarea onChange={(event)=>handleClickInfo(event,'distinktive_features')} className='textarea '>blue collar with stars, no left ear, damaged tail.</textarea>
-                        </div>
-                        <div className='row mt-2 '>
-                        <label className='col-3 '>Description: <span
+                    </select>
+                    <AiOutlineArrowDown className='mt-1'/>
+                </div>
+                <div className='row   '>
+                    <label className='col-3 '>Distinktive features: <span className='green_small'></span></label>
+                    <textarea onChange={(event) => handleClickInfo(event, 'distinktive_features')}
+                              className='textarea ' value={object['distinktive_features']}
+                              placeholder='blue collar with stars, no left ear, damaged tail.'/>
+                </div>
+                <div className='row mt-2 '>
+                    <label className='col-3 '>Description: <span
                         className='green_small'></span></label>
-                        <textarea onChange={(event)=>handleClickInfo(event,'description')}   className='textarea_1 '>brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.</textarea>
+                    <textarea onChange={(event) => handleClickInfo(event, 'description')} className='textarea_1 '
+                              value={object.description}
+                              placeholder='brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.'></textarea>
 
-                        </div>
-                        <div className='row mt-2  '>
-                        <label className='col-3 '>Location:</label>
-                        <textarea onChange={(event)=>handleClickInfo(event,'location')} className='textarea'>Florentin Street, Tel Aviv</textarea>
-                        <div>
-                        <p className='col-6 offset-7 DRAG '><FaFileUpload/>Drag and drop photos or</p>
-                        <button className='col-6 offset-7 BTN_around justify-content-center '><p
-                        className='BTN justify-content-center'>Browse</p>
-                        </button>
-                        </div>
-                        </div>
-                        <div className='container mt-3'>
-                        <div className='row mr-3'>
+                </div>
+                <div className='row mt-2  '>
+                    <label className='col-3 '>Location:</label>
+                    <textarea onChange={(event) => handleClickInfo(event, 'location')} className='textarea'
+                              value={object.address.country || ''}/>
+                    <div>
+                        <p className='col-6 offset-2 DRAG '><FaFileUpload/>Drag and drop photos or</p>
+                        <input onChange={(event) => handleClickImages(event)}
+                               className='col-6 offset-2 BTN_around justify-content-center ' type='file'/>
+                    </div>
+                </div>
+                <div className='container mt-3'>
+                    <div className='row mr-3'>
                         <label className='col-3'>Contacts:</label>
-                        <input onChange={(event)=>handleClickInfo(event,'phone')} className='input' type='text' placeholder='Phone*'/>
-                        <input onChange={(event)=>handleClickInfo(event,'email')} className='input ml-2' type='text' placeholder='Email'/>
-                        <input onChange={(event)=>handleClickInfo(event,'facebook_profile')} className='input ml-2' type='text' placeholder='Facebook profile'/>
+                        <input onChange={(event) => handleClickInfo(event, 'phone')} className='input' type='text'
+                               placeholder='Phone*' value={object.phone}/>
+                        <input onChange={(event) => handleClickInfo(event, 'email')} className='input ml-2' type='text'
+                               placeholder='Email' value={object.email}/>
+                        <input onChange={(event) => handleClickInfo(event, 'facebook_profile')} className='input ml-2'
+                               type='text' placeholder='Facebook profile' value={object.facebook_profile || ''}/>
 
-                        </div>
-                        </div>
-                        <div className='container mt-3'>
-                        <div className='row mr-3'>
+                    </div>
+                </div>
+                <div className='container mt-3'>
+                    <div className='row mr-3'>
                         <img className='img' src={user_avatar}/>
                         <p className='HEADER_TEXT col-3 ml-2 mt-3'>John Goodboi</p>
-                        <button className='col-2 offset-10 my_btn_around justify-content-center '><p
-                        className='BTN_1 justify-content-center '>Publish</p>
+                        <button onClick={() => handleClickPublish()}
+                                className='col-2 offset-10 my_btn_around justify-content-center '><p
+                            className='BTN_1 justify-content-center '>Publish</p>
                         </button>
 
-                        </div>
-                        </div>
-                        </div>
-                    {/* <div className='container'>
+                    </div>
+                </div>
+            </div>
+            {/* <div className='container'>
 
             </div>*/}
-                        </div>
-                        );
-                    };
+        </div>
+    );
+};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({addInfo}, dispatch)
+}
+const mapStateToProps=(state)=>{
+    return{
 
-export default Found_Post;
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)( Found_Post);
