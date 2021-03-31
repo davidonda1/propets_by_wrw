@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {AiOutlineArrowDown, RiDeleteBin2Fill} from "react-icons/all";
 import man_with_pet from "../../../utils/Images/manWithPetImg.svg";
 import '../css_modules/find_lost_post.css';
-import PublishPreview from "../../Publish_Preview/components/Publish_Preview";
+import PublishPreview from "./Publish_Preview/components/Publish_Preview";
 
 const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => {
 

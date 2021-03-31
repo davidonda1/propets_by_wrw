@@ -2,7 +2,7 @@ import React from 'react';
 import '../css_modules/find_lost_post.css'
 import man_with_pet from '../../../utils/Images/manWithPetImg.svg'
 import import_1 from '../../../utils/Images/question_1.svg'
-import LeftBar from "../../Left_Bar/components/LeftBar";
+import LeftBar from "../../Menu/components/Left_Bar/components/LeftBar";
 import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
 import user_avatar from '../../../utils/Images/user_avatar.png'

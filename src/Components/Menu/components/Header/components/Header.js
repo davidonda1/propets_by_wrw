@@ -1,5 +1,5 @@
 import React from 'react';
-import {HOME_PAGE, logo_} from "../../../utils/constants/constants";
+import {HOME_PAGE, logo_} from "../../../../../utils/constants/constants";
 import {AiOutlineSearch} from "react-icons/ai";
 import {MdPets} from "react-icons/md";
 import {useHistory} from "react-router-dom";
