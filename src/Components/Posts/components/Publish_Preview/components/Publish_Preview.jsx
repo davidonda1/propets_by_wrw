@@ -4,8 +4,10 @@ import {AiFillPhone, AiFillFacebook, AiFillMail, AiFillEdit} from "react-icons/a
 import {FaPaw} from "react-icons/fa";
 import {connect} from "react-redux";
 import '../css_module/preview.css';
+import {bindActionCreators} from "redux";
+import {lostPost} from '../../../../../Redux/actions/postActions';
 
-const PublishPreview = ({pet_info, images, setEdit, avatar, userName}) => {
+const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost}) => {
     return (
         <div className="publish_container">
             <div className="publish_main">
@@ -59,7 +61,7 @@ const PublishPreview = ({pet_info, images, setEdit, avatar, userName}) => {
                     <div className="edit" onClick={() => setEdit(true)}>
                         <button><AiFillEdit/>Edit</button>
                     </div>
-                    <div className="publish">
+                    <div onClick={() => lostPost(pet_info)} className="publish">
                         <button><FaPaw/>Publish</button>
                     </div>
                     <div className="share">
@@ -88,4 +90,8 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(PublishPreview);
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({lostPost}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PublishPreview);

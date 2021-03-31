@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css_module/left_bar.css'
-import pet_avatar from '../../../utils/Images/petAvatar.png'
+import pet_avatar from '../../../../../utils/Images/petAvatar.png'
 import {BsFillHouseFill} from "react-icons/bs";
 import {GiMagnifyingGlass} from "react-icons/gi";
 import {MdPets} from "react-icons/md";
@@ -9,7 +9,7 @@ import {IoIosNotificationsOutline} from "react-icons/io";
 import {AiOutlineStar} from "react-icons/ai";
 import {IoIosLogOut} from "react-icons/io";
 import {Link} from "react-router-dom";
-import {log_out} from '../../../Redux/actions/accountingActions';
+import {log_out} from '../../../../../Redux/actions/accountingActions';
 import {
     FAVORITES,
     FOUND_PAGE,
@@ -17,7 +17,7 @@ import {
     LOST_PAGE,
     USER_PAGE,
     VET_HELP
-} from "../../../utils/constants/constants";
+} from "../../../../../utils/constants/constants";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 

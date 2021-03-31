@@ -10,9 +10,9 @@ import Favorites from "../../Favorites/components/Favorites";
 import VetHelp from '../../Services/VetHelp/components/VetHelp'
 import Home from '../../Home/components/Home'
 import EditUser from "../../Profile/components/ChangeProfile";
-import Header from "../../Header/components/Header";
-import LeftBar from "../../Left_Bar/components/LeftBar";
-import RightBar from "../../RightBar/components/RightBar";
+import Header from "./Header/components/Header";
+import LeftBar from "./Left_Bar/components/LeftBar";
+import RightBar from "./RightBar/components/RightBar";
 import Hotels from "../../Services/Hotels/components/Hotels";
 import Fostering from "../../Services/Fostering/components/Fostering";
 import Walking from "../../Services/Walking/components/Walking";

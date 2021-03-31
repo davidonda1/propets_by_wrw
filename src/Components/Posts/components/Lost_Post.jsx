@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {AiOutlineArrowDown, RiDeleteBin2Fill} from "react-icons/all";
 import man_with_pet from "../../../utils/Images/manWithPetImg.svg";
 import '../css_modules/find_lost_post.css';
-import PublishPreview from "../../Publish_Preview/components/Publish_Preview";
+import PublishPreview from "./Publish_Preview/components/Publish_Preview";
 
 const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => {
 
@@ -18,6 +18,9 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
         type: 'dog',
         sex: 'male',
         height: '45-70',
+        address: {
+            country: ''
+        },
     });
 
     const handleClickDelete = (item) => {
@@ -30,7 +33,6 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
             alert('Enter location info');
             return;
         }
-
         if (images.length) {
             setInfo(prevState => ({...prevState, imgur, tags: ['tag1', 'tag2', 'tag3']}));
             putLost(info);
@@ -46,15 +48,16 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                 country: event.target.value,
                 city: event.target.value,
                 street: event.target.value,
-                building: event.target.value
+                building: 10
             };
             const location = {
-                latitude: '213.123.123',
-                longitude: '543.435.655',
+                latitude: 13.22,
+                longitude: 12.88,
             };
             setInfo((prevState) => ({...prevState, address, location}));
+        } else {
+            setInfo((prevState) => ({...prevState, [field]: event.target.value}));
         }
-        setInfo((prevState) => ({...prevState, [field]: event.target.value}));
     }
 
 
@@ -86,7 +89,8 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     </div>
                     <div className='row col-6 label_select'>
                         <label className='mr-2'>Sex:</label>
-                        <select onChange={(event) => handleClickInfo(event, 'sex')}
+                        <select value={info.sex}
+                            onChange={(event) => handleClickInfo(event, 'sex')}
                                 className='select mb-2 ml-2'>
                             <option>Male</option>
                             <option>Female</option>
@@ -95,12 +99,14 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     </div>
                     <div className='row col-6 label_input'>
                         <label>Breed:</label>
-                        <input onChange={(event) => handleClickInfo(event, 'breed')} className='input ml-3 mb-1'
+                        <input value={info.breed || ''}
+                            onChange={(event) => handleClickInfo(event, 'breed')} className='input ml-3 mb-1'
                                type='text' placeholder='Golden Retriever'/>
                     </div>
                     <div className='row col-6 label_input'>
                         <label>Color:</label>
-                        <input onChange={(event) => handleClickInfo(event, 'color')} className='input ml-3 mb-1'
+                        <input value={info.color || ''}
+                            onChange={(event) => handleClickInfo(event, 'color')} className='input ml-3 mb-1'
                                type='text' placeholder='Beige'/>
                     </div>
                     <div className='row col-6 label_select'>
@@ -110,9 +116,10 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                         </select>
                         <AiOutlineArrowDown className='mt-1'/>
                     </div>
-                    <div className='row   '>
+                    <div className='row'>
                         <label className='col-3 '>Distinktive features: <span className='green_small'></span></label>
-                        <textarea onChange={(event) => handleClickInfo(event, 'features')} className='textarea'
+                        <textarea value={info.features || ''}
+                            onChange={(event) => handleClickInfo(event, 'features')} className='textarea'
                                   placeholder='blue collar with stars, no left ear, damaged tail.'></textarea>
                     </div>
 
@@ -120,12 +127,14 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     <div className='row mt-2 '>
                         <label className='col-3 '>Description: <span
                             className='green_small'></span></label>
-                        <textarea onChange={(event) => handleClickInfo(event, 'description')} className='textarea_1'
+                        <textarea value={info.description || ''}
+                            onChange={(event) => handleClickInfo(event, 'description')} className='textarea_1'
                                   placeholder='brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.'></textarea>
                     </div>
                     <div className='row mt-2'>
                         <label className='col-3'>Location:</label>
-                        <textarea onChange={event => handleClickInfo(event, 'location')} className='textarea'
+                        <textarea value={info.address.country || ''}
+                            onChange={event => handleClickInfo(event, 'location')} className='textarea'
                                   placeholder='Florentin Street, Tel Aviv'></textarea>
                         <div>
                             <p className='col-6 offset-2 DRAG '><FaFileUpload/>Drag and drop photos or</p>
@@ -164,7 +173,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
     }
 
     const publishRender = () => {
-            return <PublishPreview setEdit={setEdit}/>
+        return <PublishPreview setEdit={setEdit}/>
     }
 
     return (

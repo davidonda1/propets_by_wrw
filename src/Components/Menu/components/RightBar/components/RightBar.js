@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css_modules/rightBarCssModule.css'
-import add_2 from "../../../utils/Images/add2.png";
+import add_2 from "../../../../../utils/Images/add2.png";
 
 const RightBar = () => {
 
