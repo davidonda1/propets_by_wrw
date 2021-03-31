@@ -1,8 +1,8 @@
 import {
-    BASE_URL_LOST,
+    BASE_URL_LOST, BASE_URL_LOST_POSTS,
     PUT_IMG,
     PUT_LOADING,
-    PUT_LOST,
+    PUT_LOST, PUT_LOST_POSTS,
     PUT_MESSAGE
 } from "../../utils/constants/lost_found_post_constants";
 
@@ -27,6 +27,12 @@ export const putLoading = () => ({
     payload: 'done',
 })
 
+export const putLostPosts = posts => ({
+    type: PUT_LOST_POSTS,
+    payload: posts
+})
+
+
 export const lostPost = (info) => {
     return (dispatch, getState) => {
 
@@ -35,36 +41,36 @@ export const lostPost = (info) => {
         const userName = getState().accountingReducer.nickName;
         const avatar = getState().accountingReducer.user_avatar;
         const photos = getState().lost_found_post_reducer.images;
-
+        const data = {
+            userName: userName,
+            avatar: avatar,
+            type: info.type,
+            sex: info.sex,
+            breed: info.breed,
+            address: {
+                country: info.address.country,
+                city: info.address.city,
+                street: info.address.street,
+                building: info.address.building
+            },
+            location: {
+                latitude: info.location.latitude,
+                longitude: info.location.longitude
+            },
+            photos: photos,
+            tags: info.tags
+        };
         fetch(`${BASE_URL_LOST}${login}`, {
-            method: 'POST',
+            method: 'Post',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Token': xToken
+                'X-Token': xToken,
             },
-            body: JSON.stringify({
-                userName: userName,
-                avatar: avatar,
-                type: info.type,
-                sex: info.sex,
-                breed: info.breed,
-                address: {
-                    country: info.address.country,
-                    city: info.address.city,
-                    street: info.address.street,
-                    building: info.address.building,
-                },
-                location: {
-                    latitude: info.location.latitude,
-                    longitude: info.location.longitude
-                },
-                photos: photos,
-                tags: info.tags
-            })
+            body: JSON.stringify(data)
         })
             .then(response => response.json())
             .then(data => {
-                dispatch(putLost(data));
+                console.log(data);
                 dispatch(putLoading());
             })
     }
@@ -93,5 +99,21 @@ export const getImg = image => {
                 dispatch(putMessage('Error'))
                 console.error(error);
             });
+    }
+}
+
+export const getPosts = () => {
+    return (dispatch, getState) => {
+        const xToken = getState().accountingReducer.xToken;
+
+        fetch(`${BASE_URL_LOST_POSTS}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Token': xToken
+            }
+        })
+            .then(response => response.json())
+            .then(data => dispatch(putLostPosts(data.posts)))
     }
 }
