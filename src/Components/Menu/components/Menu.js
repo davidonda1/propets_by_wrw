@@ -4,7 +4,7 @@ import '../css_module/menu.css'
 import {
     HOME_PAGE,
     LOST_PAGE,
-    FOUND_PAGE, FAVORITES, USER_PAGE, VET_HELP, HOTELS, FOSTERING, WALKING
+    FOUND_PAGE, FAVORITES, USER_PAGE, VET_HELP, HOTELS, FOSTERING, WALKING, LOST_POST, FOUND_POST
 } from "../../../utils/constants/constants";
 import Favorites from "../../Favorites/components/Favorites";
 import VetHelp from '../../Services/VetHelp/components/VetHelp'
@@ -18,6 +18,8 @@ import Fostering from "../../Services/Fostering/components/Fostering";
 import Walking from "../../Services/Walking/components/Walking";
 import Lost_Post from "../../Posts/components/Lost_Post";
 import Found_Post from "../../Posts/components/Found_Post";
+import Found from "../../Found/components/Found";
+import Lost from "../../Lost/components/Lost";
 
 
 const Menu = ({page}) => {
@@ -44,15 +46,19 @@ const Menu = ({page}) => {
             case WALKING:
                 return <Walking/>
             case LOST_PAGE:
-                return <Lost_Post/>
+                return <Lost/>
             case FOUND_PAGE:
-                return <Found_Post/>
+                return <Found/>
             case HOME_PAGE:
                 return <Home/>
             case FAVORITES:
                 return <Favorites/>
             case USER_PAGE:
                 return <EditUser/>
+            case LOST_POST:
+                return <Lost_Post/>
+            case FOUND_POST:
+                return <Found_Post/>
             default:
                 return <Home/>
         }

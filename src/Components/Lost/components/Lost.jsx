@@ -1,11 +1,18 @@
-import React from 'react';
-import {pet_avatar} from "../../../utils/constants/constants";
+import React, {useEffect} from 'react';
 import {AiFillFacebook, AiOutlineSearch} from "react-icons/ai";
-import preview_dog from "../../../utils/Images/preview_dog.png";
 import {AiOutlineMessage, AiOutlinePhone, CgTrash, IoLocationOutline, TiPencil} from "react-icons/all";
 import '../css_module/lost.css'
+import {bindActionCreators} from "redux";
+import {getPosts} from "../../../Redux/actions/postActions";
+import {connect} from "react-redux";
 
-const Lost = () => {
+const Lost = ({getPosts, posts}) => {
+
+    useEffect(() => {
+        console.log(posts)
+        getPosts();
+    }, [])
+
     const renderInput = () => {
         return (
             <div className='container INPUT_HEADER mb-3 mt-3'>
@@ -18,68 +25,80 @@ const Lost = () => {
 
             </div>
         );
-
     }
 
 
     const renderLostPost = () => {
-        return(
-            <div className='container ALL'>
-                <div className='row  '>
-                    <img className='col-5 mt-3 mb-3' src={preview_dog} alt='preview_dog'/>
-                    <div className='container  col-6'>
-                        <div className='row mt-3 mb-3'>
-                            <p className='INFO '>Dog, Golden Retriever</p>
-                         {/*    <p className='POINTER'><TiPencil color='black'/><CgTrash color='black'/></p>*/}
-                        </div>
-                        <div className='row P'>
-                            <div className='row col-4'>
-                                <p><span>Color:</span> golden</p>
-                                <p><span>Sex:</span> male</p>
-                                <p><span>Height:</span> 45cm</p>
-                            </div>
-                            <div className='row col-6'>
-                                <p className=''><span>Distinctive features: </span> blue collar with stars, no left ear,
-                                    damaged tail.</p>
-                            </div>
+        if (posts) {
+            return (
+                posts.map(item => {
+                    return (
+                        <div key={item.id} className='container shadow ALL'>
                             <div className='row'>
-                                <p><span>Description:</span> brown fox jumps over a lazy dog. DJs flock by when MTV ax
-                                    quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.
-                                </p>
+                                <img className='col-5 mt-3 mb-3' src={item.photos[0]} alt='lost_pet'/>
+                                <div className='container col-6'>
+                                    <div className='row mt-3 mb-3'>
+                                        <p className='INFO '>{item.type}, {item.breed}</p>
+                                        {/*    <p className='POINTER'><TiPencil color='black'/><CgTrash color='black'/></p>*/}
+                                    </div>
+                                    <div className='row P'>
+                                        <div className='row col-4'>
+                                            <p><span>Color:</span> {item.color || 'white'}</p>
+                                            <p><span>Sex:</span> {item.sex}</p>
+                                            <p><span>Height:</span> {item.height || '45cm'}</p>
+                                        </div>
+                                        <div className='row col-6'>
+                                            <p className=''><span>Distinctive features: </span> blue collar with stars,
+                                                no left ear,
+                                                damaged tail.</p>
+                                        </div>
+                                        <div className='row'>
+                                            <p><span>Description:</span> brown fox jumps over a lazy dog. DJs flock by
+                                                when MTV ax
+                                                quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz,
+                                                vex nymphs.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div className='row'>
+                                        <p><IoLocationOutline color='black'/> {item.address.country}, {item.address.city}, {item.address.street}, {item.address.building}</p>
+                                    </div>
+                                    <div className='row POINTER'>
+                                        <p className='col-8'><img src={item.avatar}
+                                                                  alt='pet_avatar'/><span>{item.userName}</span></p>
+                                        <p className='col-4'><AiOutlinePhone/><AiFillFacebook/><AiOutlineMessage/></p>
+                                    </div>
+                                    <div className='row'>
+                                        <p className='clock'>{item.datePost}</p>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-                        <div className='row'>
-                            <p><IoLocationOutline color='black'/> Florentin, 27, Tel Aviv</p>
-                        </div>
-                        <div className='row POINTER'>
-                            <p className='col-8'><img src={pet_avatar} alt='pet_avatar'/><span>John Goodboi </span></p>
-                            <p className='col-4'><AiOutlinePhone/><AiFillFacebook/><AiOutlineMessage/></p>
-                        </div>
-                        <div className='row'>
-                            <p className='clock'>Dec 12, 2019</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        );
-
+                    )
+                })
+            );
+        } else {
+            return <span className='spinner-border text-success'></span>
+        }
     }
     return (
-
-      <div>
-          { renderInput()}
-          {renderLostPost()}
-      </div>
-
-
-
-
-
-
-)
-    ;
+        <div>
+            {renderInput()}
+            {renderLostPost()}
+        </div>
+    )
 };
 
-export default Lost;
+const mapStateToProps = state => {
+    return {
+        posts: state.lost_found_post_reducer.posts
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({getPosts}, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Lost);
