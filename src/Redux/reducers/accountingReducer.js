@@ -1,4 +1,4 @@
-import {LOGOUT, PUT_MESSAGE, PUT_USER} from "../../utils/constants/accountingConstants";
+import {LOGOUT, PUT_ERROR, PUT_MESSAGE, PUT_USER, PUT_X_TOKEN} from "../../utils/constants/accountingConstants";
 
 const initialState = {
     nickName: '',
@@ -31,9 +31,11 @@ export const accountingReducer = (state = initialState, action) => {
         case LOGOUT:
             localStorage.removeItem('token');
             return {}
-        case 'PUT_X_TOKEN':
+        case PUT_X_TOKEN:
             const xToken = action.payload;
             return {...state, xToken};
+        case PUT_ERROR:
+            return {...state, error: 'error'}
         default:
             return state
     }

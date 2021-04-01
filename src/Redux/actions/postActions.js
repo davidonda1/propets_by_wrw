@@ -1,29 +1,29 @@
 import {
     BASE_URL_LOST, BASE_URL_LOST_POSTS,
-    PUT_IMG,
-    PUT_LOADING,
-    PUT_LOST, PUT_LOST_POSTS,
-    PUT_MESSAGE
+    PUT_IMG_POSTS,
+    PUT_LOADING_POSTS,
+    PUT_LOST_POST, PUT_LOST_POSTS,
+    PUT_MESSAGE_POSTS
 } from "../../utils/constants/lost_found_post_constants";
 
 export const putLost = petInfo => ({
-    type: PUT_LOST,
+    type: PUT_LOST_POST,
     payload: petInfo
 })
 
 export const putImg = url => ({
-    type: PUT_IMG,
+    type: PUT_IMG_POSTS,
     payload: url,
 })
 
 
 export const putMessage = message => ({
-    type: PUT_MESSAGE,
+    type: PUT_MESSAGE_POSTS,
     payload: message,
 })
 
 export const putLoading = () => ({
-    type: PUT_LOADING,
+    type: PUT_LOADING_POSTS,
     payload: 'done',
 })
 

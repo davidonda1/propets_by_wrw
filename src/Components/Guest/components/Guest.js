@@ -4,15 +4,18 @@ import propetsSVG from '../../../utils/Images/propetsImg.svg';
 import Register from '../components/Register/components/Register';
 import {GiMagnifyingGlass} from "react-icons/gi";
 import '../css_module/guest.css';
+import {connect} from "react-redux";
 
-const Guest = () => {
+const Guest = ({error, message}) => {
+
 
     const [register, setRegister] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
     const token = localStorage.getItem('token');
 
     const showFullPage = () => {
-        if (!token) {
+        if (!token && !error && !message) {
             return (
                 <>
                     <div onClick={() => setRegister(true)} className="i_lost_pet">
@@ -36,11 +39,21 @@ const Guest = () => {
                     </p>
                 </>
             );
+        } else if (token || message) {
+            return <label className="spinner-border guest_spinner text-success"/>
         } else {
-            return <label className="spinner-border text-success"/>
+            if (error && !token) {
+                return (
+                    <div className="alert alert-danger main_danger">
+                        <strong>Wrong password!</strong> <label className='try_again_guest'
+                                                                onClick={() => setRegister(true)}>Try again</label>
+                    </div>
+                )
+            } else {
+                return <label className="spinner-border guest_spinner text-success"/>
+            }
         }
     }
-
 
     return (
         <div className={`grid-container`}>
@@ -51,7 +64,8 @@ const Guest = () => {
             <div className="sign_in">
                 <button onClick={() => setRegister(!register)} className={'sign_in_button'}>Sign in</button>
             </div>
-            {register ? <div className="main"><Register cancel={setRegister}/></div> :  showFullPage()}
+            {register ?
+                <div className="main"><Register submit={setSubmitted} cancel={setRegister}/></div> : showFullPage()}
             <div className="footer"></div>
         </div>
     );
@@ -59,4 +73,11 @@ const Guest = () => {
 
 // TODO footer
 
-export default Guest;
+const mapStateToProps = state => {
+    return {
+        error: state.accountingReducer.error,
+        message: state.accountingReducer.message,
+    }
+}
+
+export default connect(mapStateToProps)(Guest);
