@@ -40,7 +40,7 @@ const Guest = ({error, message}) => {
                 </>
             );
         } else if (token || message) {
-            return <label className="spinner-border guest_spinner text-success"/>
+            return <label className="spinner-grow guest_spinner text-success"/>
         } else {
             if (error && !token) {
                 return (
@@ -50,7 +50,7 @@ const Guest = ({error, message}) => {
                     </div>
                 )
             } else {
-                return <label className="spinner-border guest_spinner text-success"/>
+                return <label className="spinner-grow guest_spinner text-success"/>
             }
         }
     }

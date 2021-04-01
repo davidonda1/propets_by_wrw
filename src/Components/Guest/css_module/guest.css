@@ -125,7 +125,7 @@
     color: #84B6A3;
 }
 
-.spinner-border {
+.spinner-grow {
     grid-area: 6 / 6 / 6 / 6;
     width: 9vh;
     height: 9vh;

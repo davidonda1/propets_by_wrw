@@ -1,13 +1,15 @@
-.INPUT_HEADER{
+.INPUT_HEADER {
     background-color: #FFFFFF;
     border-radius: 15px;
 }
-.INPUT{
+
+.INPUT {
     justify-content: flex-start;
     justify-content: space-between;
 
 }
-.INPUT_text{
+
+.INPUT_text {
     text-align: left;
     font: normal normal medium 12px/15px Montserrat;
     letter-spacing: 0px;
@@ -16,6 +18,21 @@
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #8DBFAC;
     border-radius: 15px;
+}
 
+.found_posts {
+    animation: show 1s 1;
+}
 
+@keyframes show{
+    0%{
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+.spinner_found {
+    margin-top: 20rem;
 }

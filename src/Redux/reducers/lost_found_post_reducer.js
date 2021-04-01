@@ -1,4 +1,5 @@
 import {
+    PUT_FOUND_POSTS,
     PUT_IMG_POSTS,
     PUT_LOADING_POSTS,
     PUT_LOST_POST,
@@ -6,6 +7,7 @@ import {
     PUT_MESSAGE_POSTS
 } from "../../utils/constants/lost_found_post_constants";
 import {PUT_ERROR} from "../../utils/constants/accountingConstants";
+import {act} from "@testing-library/react";
 
 const initialState = {
     images: [],
@@ -26,6 +28,9 @@ export const lost_found_post_reducer = (state = initialState, action) => {
         case PUT_LOST_POSTS:
             const posts = action.payload;
             return {...state, posts};
+        case PUT_FOUND_POSTS:
+            const foundPosts = action.payload;
+            return {...state, foundPosts};
         default:
             return state;
     }

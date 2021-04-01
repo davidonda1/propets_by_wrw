@@ -1,5 +1,6 @@
 import {
-    BASE_URL_LOST, BASE_URL_LOST_POSTS,
+    BASE_URL_FOUND_POSTS,
+    BASE_URL_LOST, BASE_URL_LOST_POSTS, PUT_FOUND_POSTS,
     PUT_IMG_POSTS,
     PUT_LOADING_POSTS,
     PUT_LOST_POST, PUT_LOST_POSTS,
@@ -29,6 +30,11 @@ export const putLoading = () => ({
 
 export const putLostPosts = posts => ({
     type: PUT_LOST_POSTS,
+    payload: posts
+})
+
+export const putFoundPosts = posts => ({
+    type: PUT_FOUND_POSTS,
     payload: posts
 })
 
@@ -102,7 +108,7 @@ export const getImg = image => {
     }
 }
 
-export const getPosts = () => {
+export const getLostPosts = () => {
     return (dispatch, getState) => {
         const xToken = getState().accountingReducer.xToken;
 
@@ -115,5 +121,21 @@ export const getPosts = () => {
         })
             .then(response => response.json())
             .then(data => dispatch(putLostPosts(data.posts)))
+    }
+}
+
+export const getFoundPosts = () => {
+    return (dispatch, getState) => {
+        const xToken = getState().accountingReducer.xToken;
+
+        fetch(`${BASE_URL_FOUND_POSTS}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Token': xToken
+            }
+        })
+            .then(response => response.json())
+            .then(data => dispatch(putFoundPosts(data.posts)))
     }
 }

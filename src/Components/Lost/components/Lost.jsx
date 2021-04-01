@@ -1,15 +1,14 @@
 import React, {useEffect} from 'react';
-import {AiFillFacebook, AiOutlineSearch} from "react-icons/ai";
-import {AiOutlineMessage, AiOutlinePhone, CgTrash, IoLocationOutline, TiPencil} from "react-icons/all";
+import {AiFillFacebook} from "react-icons/ai";
+import {AiOutlineMessage, AiOutlinePhone, IoLocationOutline} from "react-icons/all";
 import '../css_module/lost.css'
 import {bindActionCreators} from "redux";
-import {getPosts} from "../../../Redux/actions/postActions";
+import {getLostPosts} from "../../../Redux/actions/postActions";
 import {connect} from "react-redux";
 
 const Lost = ({getPosts, posts}) => {
 
     useEffect(() => {
-        console.log(posts)
         getPosts();
     }, [])
 
@@ -17,10 +16,10 @@ const Lost = ({getPosts, posts}) => {
         return (
             <div className='container INPUT_HEADER mb-3 mt-3'>
                 <div className='row INPUT mt-3 mb-3'>
-                    <input className='INPUT_text' type='text ' placeholder='Type '/>
-                    <input className='INPUT_text' type='text ' placeholder='Breed'/>
-                    <input className='INPUT_text' type='text ' placeholder='Additional features'/>
-                    <input className='INPUT_text' type='text ' placeholder='Location'/>
+                    <input className='INPUT_text pl-2' type='text ' placeholder='Type '/>
+                    <input className='INPUT_text pl-2' type='text ' placeholder='Breed'/>
+                    <input className='INPUT_text pl-2' type='text ' placeholder='Additional features'/>
+                    <input className='INPUT_text pl-2' type='text ' placeholder='Location'/>
                 </div>
 
             </div>
@@ -33,13 +32,12 @@ const Lost = ({getPosts, posts}) => {
             return (
                 posts.map(item => {
                     return (
-                        <div key={item.id} className='container shadow ALL'>
+                        <div key={item.id} className='container lost_posts shadow ALL mt-1 mb-4'>
                             <div className='row'>
                                 <img className='col-5 mt-3 mb-3' src={item.photos[0]} alt='lost_pet'/>
                                 <div className='container col-6'>
                                     <div className='row mt-3 mb-3'>
                                         <p className='INFO '>{item.type}, {item.breed}</p>
-                                        {/*    <p className='POINTER'><TiPencil color='black'/><CgTrash color='black'/></p>*/}
                                     </div>
                                     <div className='row P'>
                                         <div className='row col-4'>
@@ -79,7 +77,7 @@ const Lost = ({getPosts, posts}) => {
                 })
             );
         } else {
-            return <span className='spinner-border text-success'></span>
+            return <span className='spinner-grow offset-6 spinner_lost text-success'></span>
         }
     }
     return (
@@ -97,7 +95,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({getPosts}, dispatch)
+    return bindActionCreators({getPosts: getLostPosts}, dispatch)
 }
 
 

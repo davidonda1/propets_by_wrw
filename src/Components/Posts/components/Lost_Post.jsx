@@ -137,14 +137,15 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                             onChange={event => handleClickInfo(event, 'location')} className='textarea'
                                   placeholder='Florentin Street, Tel Aviv'></textarea>
                         <div>
+
                             <p className='col-6 offset-2 DRAG '><FaFileUpload/>Drag and drop photos or</p>
-                            {message ? <label className="spinner-border text-success"></label> : <label/>}
                             <input type='file' name='file'
                                    className='col-6 offset-2 lost_input_file BTN_around justify-content-center BTN justify-content-center'
                                    onChange={(event) => {
                                        setImages([...images, event.target.value])
                                        getImg(event.target.files[0])
                                    }}/>
+                            {message ? <label className="spinner-border mt-5 offset-4 text-success"></label> : <label/>}
                         </div>
                     </div>
                     <div className='container mt-3'>

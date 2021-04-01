@@ -2,11 +2,14 @@ import React from 'react';
 import '../css_modules/rightBarCssModule.css'
 import add_2 from "../../../../../utils/Images/add2.png";
 
-const RightBar = () => {
+const RightBar = ({headerMode}) => {
 
     const renderNormBar = () => {
         return (
-            <div className='col-2 offset-2 mt-5'><img src={add_2} alt={add_2}/></div>
+            <div className='col-2 offset-2 mt-5'>
+                <img src={add_2} alt={add_2}/>
+            </div>
+
         );
     }
     const renderMapBar = () => {
@@ -18,8 +21,18 @@ const RightBar = () => {
             </div>
         );
     }
+
+    const condition = () => {
+        if (headerMode === 'lost') {
+            return renderMapBar();
+        } else {
+            return renderNormBar();
+        }
+
+    }
+
     return (
-        renderNormBar()
+        condition()
     );
 
 

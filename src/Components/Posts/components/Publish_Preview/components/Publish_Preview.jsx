@@ -38,7 +38,7 @@ const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost})
                             <p>Description: <span>brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.</span>
                             </p>
                         </div>
-                        <div className="dog_photo">
+                        <div className="dog_photo w-100 h-50">
                             <img src={images[0]} alt='dog'/>
                         </div>
                         <div className="location">
