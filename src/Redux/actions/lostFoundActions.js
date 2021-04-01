@@ -1,8 +1,8 @@
 import {BASE_URL} from "../../utils/constants/lostFoundConstants";
 import {error400, error401, error403, errorDefault} from "../../utils/constants/accountingConstants";
 import {putError, putMessage} from "./accountingActions";
-import {putImg} from "./postActions";
-import {PUT_IMG, PUT_MESSAGE} from "../../utils/constants/lost_found_post_constants";
+import {putImg, putLoading} from "./postActions";
+import {BASE_URL_LOST, PUT_IMG, PUT_MESSAGE} from "../../utils/constants/lost_found_post_constants";
 
 export const putXToken = xToken => {
     return {
@@ -12,11 +12,11 @@ export const putXToken = xToken => {
     }
 }
 export const putImage = url => ({
-    type:' PUT_IMG',
+    type: 'PUT_IMG',
     payload: url,
 })
 export const putMessagee = message => ({
-    type: PUT_MESSAGE,
+    type: 'PUT_MESSAGEE',
     payload: message,
 })
 
@@ -58,54 +58,47 @@ export const getImg = image => {
             });
     }
 }
+
 export const newLostPet = (found) => {
     return (dispatch, getState) => {
-        const login = getState().accountingReducer.email;
+
         const xToken = getState().accountingReducer.xToken;
+        const login = getState().accountingReducer.email;
         const userName = getState().accountingReducer.nickName;
-        const avatar = getState().accountingReducer.avatar;
-        fetch(`${BASE_URL}lost/${login}`, {
+        const avatar = getState().accountingReducer.user_avatar;
+        const photos = getState().lost_found_post_reducer.images;
+        const data = {
+            userName: userName,
+            avatar: avatar,
+            type: found.type,
+            sex: found.sex,
+            breed: found.breed,
+            address: {
+                country: found.address.country,
+                city: found.address.city,
+                street: found.address.street,
+                building: found.address.building
+            },
+            location: {
+                latitude: found.location.latitude,
+                longitude: found.location.longitude
+            },
+            photos: photos,
+            tags: found.tags
+        };
+        fetch(`https://propets-app.herokuapp.com/lostfound/en/v1/found/${login}
+`, {
             method: 'Post',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Token': xToken
+                'X-Token': xToken,
             },
-            body: {
-                userName:userName,
-                avatar: avatar,
-                type: found.type,
-                sex: found.sex,
-                breed: found.breed,
-                location: {
-                    latitude: found.location.latitude,
-                    longitude:found.location.longitude
-                },
-                address:{
-                    country: found.address.country,
-                    city: found.address.city,
-                    street: found.address.street,
-                    building: 10,
-                },
-                photos:found.photos,
-                tags : found.tags
-            }
+            body: JSON.stringify(data)
         })
-            .then(response=>{
-                if (response.status===400){
-                    dispatch(putError(error400))
-                }else if(response.status===401){
-                    dispatch(putError(error401))
-                }else if(response.status===403){
-                    dispatch(putError(error403))
-                }else{
-                    dispatch(putError(errorDefault))
-                }
-                if (response.ok) {
-
-                    dispatch(putMessage('Loading'));
-                    return response.text();
-                    console.log(response.text());
-                }
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                dispatch(putLoading());
             })
     }
 }

@@ -1,29 +1,20 @@
 const initialState = {
-    userName: "Anna Smith",
-    avatar: "https://www.gravatar.com/avatar/0?d=mp",
-    type: "cat",
-    sex: "male",
-    breed: "british",
-    location: {
-
-        latitude: 31.78,
-        longitude: 35.23
-    },
-    address:{
-        country: "Israel",
-        city: "Tel Aviv",
-        street: "Herzel",
-        building: 10
-    },
-    photos: ["www.image1.com", "www.image2.com"],
-    tags : ["tag1", "tag2", "tag3", "color1", "color2"]
+   images:[],
 }
 
 export const lostFoundReducer = (state = initialState, action) => {
+    console.log('ImageREducer')
     switch (action.type) {
         case 'PUT_INFO':
-            const info=action.payload
-            return {...state,info}
+            const info = action.payload
+            return {...state, info}
+        case 'PUT_MESSAGEE':
+            const message = action.payload;
+            return {...state, message}
+        case 'PUT_IMG':
+            const images = [...state.images]
+            images.push(action.payload);
+            return {...state, images}
         default:
             return state
     }
