@@ -2,7 +2,7 @@ import {
     BASE_URL_ACCOUNT,
     createToken,
     error400, error401, error403, errorDefault,
-    LOGOUT,
+    LOGOUT, PUT_ERROR,
     PUT_MESSAGE,
     PUT_USER
 } from "../../utils/constants/accountingConstants";
@@ -30,16 +30,16 @@ export const putXToken = xToken => {
     }
 }
 
-export const putMessage = (message) => {
+export const putMessage = message => {
     return {
         type: PUT_MESSAGE,
         payload: message
     }
 }
 
-export const putError = (error) => {
+export const putError = error => {
     return {
-        type: PUT_MESSAGE,
+        type: PUT_ERROR,
         payload: error
     }
 }
@@ -84,7 +84,7 @@ export const registerUser = (name, email, password) => {
 }
 
 
-export const loginUser = (token) => {
+export const loginUser = token => {
     return dispatch => {
         fetch(`${BASE_URL_ACCOUNT}login`, {
             method: 'Post',
@@ -93,7 +93,6 @@ export const loginUser = (token) => {
             }
         })
             .then(response => {
-
                 if (response.status===400){
                     dispatch(putError(error400))
                 }else if(response.status===401){
@@ -107,6 +106,8 @@ export const loginUser = (token) => {
                     dispatch(putXToken(response.headers.get('X-Token')));
                     dispatch(putMessage('Loading'));
                     return response.json();
+                } else {
+                    throw new Error('');
                 }
             })
             .then(user => {
@@ -114,6 +115,7 @@ export const loginUser = (token) => {
                 localStorage.setItem('token', token);
                 dispatch(putMessage(''));
             })
+            .catch(error => dispatch(putError(error400)))
 
     }
 }
