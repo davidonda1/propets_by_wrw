@@ -84,8 +84,8 @@ const Found_Post = ({addInfo, getImg, message, nickName, user_avatar, imgur,newL
                     </div>
                 </div>
                 <div className='container '>
-                    <img className='fixed-top offset-5 img_man  ' src={man_with_pet}/>
-                    <div className='textarea h col-1  offset-6  fixed-top '>{
+                    <img className='fixed-top offset-6 img_man  ' src={man_with_pet}/>
+                    <div className='textarea h col-1  offset-7  fixed-top '>{
                         object.images.map(item => <p key={item}>{item}<span
                             onClick={() => handleClickDelete(item)}><RiDeleteBack2Fill/></span></p>)
                     }</div>

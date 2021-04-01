@@ -43,7 +43,7 @@ const LeftBar = ({log_out, nickName, user_avatar}) => {
                     <Link className="nav-link" to={`${FAVORITES}`}><AiOutlineStar/>Favorites</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link col-1 BTN" to={`${USER_PAGE}`}>
+                    <Link className="nav-link col-1" to={`${USER_PAGE}`}>
                         <img src={user_avatar} alt={'avatar'}/>{nickName}
                     </Link>
                 </li>
