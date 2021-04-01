@@ -73,8 +73,8 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     </div>
                 </div>
                 <div className='container shadow pb-3'>
-                    <img className='fixed-top offset-5 img_man  ' src={man_with_pet}/>
-                    <div className='textarea h col-1  offset-6  fixed-top'>
+                    <img className='fixed-top offset-6 img_man  ' src={man_with_pet}/>
+                    <div className='textarea h col-1  offset-7  fixed-top'>
                         {images.map((item, index) => <label key={item}>{item}<span
                             onClick={() => handleClickDelete(item)}><RiDeleteBin2Fill/></span> </label>)}
                     </div>

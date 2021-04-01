@@ -73,7 +73,7 @@ const Menu = ({page}) => {
             <div className='container col-8 '>
                 <div className='row '>
                     <LeftBar/>
-                    <div className='col-8 MAIN '>
+                    <div className='col-11 MAIN '>
                         {renderPage()}
                     </div>
                     <RightBar headerMode={headerMode}/>
