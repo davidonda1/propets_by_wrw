@@ -6,7 +6,7 @@ import {bindActionCreators} from "redux";
 import {getLostPosts} from "../../../Redux/actions/postActions";
 import {connect} from "react-redux";
 
-const Lost = ({getPosts, posts, page}) => {
+const Lost = ({getPosts, posts}) => {
 
     useEffect(() => {
         getPosts();
