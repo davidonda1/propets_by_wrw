@@ -1,20 +1,14 @@
 import React from 'react';
 import '../css_modules/find_lost_post.css'
 import man_with_pet from '../../../utils/Images/manWithPetImg.svg'
-import import_1 from '../../../utils/Images/question_1.svg'
-
-import {FaPaw} from "react-icons/fa";
 import {FaFileUpload} from "react-icons/fa";
-import user_avatar from '../../../utils/Images/user_avatar.png'
 import {AiOutlineArrowDown, RiDeleteBack2Fill} from "react-icons/all";
-import {GiPuppet} from "react-icons/gi";
 import {useState} from "react";
 import {bindActionCreators} from "redux";
 import {addInfo, getImg, newLostPet, putMessagee} from "../../../Redux/actions/lostFoundActions";
 import {connect} from "react-redux";
 import PublishPreview from "./Publish_Preview/components/Publish_Preview";
 
-// import {FOUND_POST_TEXT} from "../../utils/constants/constants";
 
 
 const Found_Post = ({addInfo, getImg, message, nickName, user_avatar, imgur,newLostPet}) => {
@@ -79,12 +73,12 @@ const Found_Post = ({addInfo, getImg, message, nickName, user_avatar, imgur,newL
                     <div className='row'>
                         <div className=' col-12'>
                             <p className='HEADER_TEXT'>Found a pet? <span
-                                className='pSpan'>Please complete the form to help.</span></p>
+                                className='p_span'>Please complete the form to help.</span></p>
                         </div>
                     </div>
                 </div>
                 <div className='container '>
-                    <img className='fixed-top offset-6 img_man  ' src={man_with_pet}/>
+                    <img className='fixed-top offset-6 img_man' src={man_with_pet} alt='man_with_pet'/>
                     <div className='textarea h col-1  offset-7  fixed-top '>{
                         object.images.map(item => <p key={item}>{item}<span
                             onClick={() => handleClickDelete(item)}><RiDeleteBack2Fill/></span></p>)
@@ -129,17 +123,17 @@ const Found_Post = ({addInfo, getImg, message, nickName, user_avatar, imgur,newL
                         <AiOutlineArrowDown className='mt-1'/>
                     </div>
                     <div className='row   '>
-                        <label className='col-3 '>Distinktive features: <span className='green_small'></span></label>
+                        <label className='col-3 '>Distinktive features: <span className='green_small'/></label>
                         <textarea onChange={(event) => handleClickInfo(event, 'distinktive_features')}
                                   className='textarea ' value={object['distinktive_features']}
                                   placeholder='blue collar with stars, no left ear, damaged tail.'/>
                     </div>
                     <div className='row mt-2 '>
                         <label className='col-3 '>Description: <span
-                            className='green_small'></span></label>
+                            className='green_small'/></label>
                         <textarea onChange={(event) => handleClickInfo(event, 'description')} className='textarea_1 '
                                   value={object.description}
-                                  placeholder='brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.'></textarea>
+                                  placeholder='brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.'/>
 
                     </div>
                     <div className='row mt-2  '>
@@ -169,7 +163,7 @@ const Found_Post = ({addInfo, getImg, message, nickName, user_avatar, imgur,newL
                     </div>
                     <div className='container mt-3'>
                         <div className='row mr-3'>
-                            <img className='img' src={user_avatar}/>
+                            <img className='img' src={user_avatar} alt='user_avatar'/>
                             <p className='HEADER_TEXT col-3 ml-2 mt-3'>{nickName}</p>
                             <button onClick={() => handleClickPublish()}
                                     className='col-2 offset-10 my_btn_around justify-content-center '><p
@@ -179,9 +173,6 @@ const Found_Post = ({addInfo, getImg, message, nickName, user_avatar, imgur,newL
                         </div>
                     </div>
                 </div>
-                {/* <div className='container'>
-
-            </div>*/}
             </div>
         )
     }

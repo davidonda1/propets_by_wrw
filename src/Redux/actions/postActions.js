@@ -67,7 +67,7 @@ export const lostPost = (info) => {
             tags: info.tags
         };
         fetch(`${BASE_URL_LOST}${login}`, {
-            method: 'Post',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'X-Token': xToken,

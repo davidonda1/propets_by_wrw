@@ -4,7 +4,7 @@ import {
     error400, error401, error403, errorDefault,
     LOGOUT, PUT_ERROR,
     PUT_MESSAGE,
-    PUT_USER
+    PUT_USER, PUT_X_TOKEN
 } from "../../utils/constants/accountingConstants";
 
 export const put_user = (user, token) => {
@@ -24,8 +24,7 @@ export const log_out = () => {
 
 export const putXToken = xToken => {
     return {
-        // fixme
-        type: 'PUT_X_TOKEN',
+        type: PUT_X_TOKEN,
         payload: xToken,
     }
 }
@@ -115,7 +114,7 @@ export const loginUser = token => {
                 localStorage.setItem('token', token);
                 dispatch(putMessage(''));
             })
-            .catch(error => dispatch(putError(error400)))
+            .catch(error => dispatch(putError(error)))
 
     }
 }

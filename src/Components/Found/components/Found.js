@@ -26,7 +26,7 @@ const Lost = ({getFoundPosts, foundPosts}) => {
         );
     }
 
-
+// TODO lost and found render posts in the same way. It should do a different component in matter who calls it (props ? ... : ...)
     const renderLostPost = () => {
         if (foundPosts) {
             return (
@@ -50,10 +50,10 @@ const Lost = ({getFoundPosts, foundPosts}) => {
                                                 no left ear,
                                                 damaged tail.</p>
                                         </div>
-                                        <div className='row'>
+                                        <div className='row ml-1'>
                                             <p><span>Description:</span> brown fox jumps over a lazy dog. DJs flock by
                                                 when MTV ax
-                                                quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz,
+                                                quiz dog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz,
                                                 vex nymphs.
                                             </p>
                                         </div>
@@ -79,7 +79,7 @@ const Lost = ({getFoundPosts, foundPosts}) => {
                 })
             );
         } else {
-            return <span className='spinner-grow offset-6 spinner_found text-success'></span>
+            return <span className='spinner-grow offset-6 spinner_found text-success'/>
         }
     }
     return (

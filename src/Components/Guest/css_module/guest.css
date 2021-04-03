@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1px;
-    gap: 0px 0px;
     font: normal medium Montserrat;
 
 }
@@ -51,20 +49,17 @@
     padding-top: 2rem;
     padding-left: 12rem;
     text-align: left;
-    letter-spacing: 0px;
     opacity: 1;
 }
 
 .i_found_text, .i_lost_text {
     display: inline;
     font-size: 2rem;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1;
 }
 
 .i_found_text {
-    padding-left: 0rem;
     color: white;
 }
 
@@ -110,11 +105,7 @@
     font-size: 1rem;
     letter-spacing: 1px;
     color: #FFFFFF;
-    opacity: 1;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 5px 1.5rem 5px 1.5rem;
 }
 
 .welcome_text {

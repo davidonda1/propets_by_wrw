@@ -6,7 +6,7 @@ import {bindActionCreators} from "redux";
 import {getLostPosts} from "../../../Redux/actions/postActions";
 import {connect} from "react-redux";
 
-const Lost = ({getPosts, posts}) => {
+const Lost = ({getPosts, posts, page}) => {
 
     useEffect(() => {
         getPosts();
@@ -77,7 +77,7 @@ const Lost = ({getPosts, posts}) => {
                 })
             );
         } else {
-            return <span className='spinner-grow offset-6 spinner_lost text-success'></span>
+            return <span className='spinner-grow offset-6 spinner_lost text-success'/>
         }
     }
     return (

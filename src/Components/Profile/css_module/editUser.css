@@ -1,120 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-.p{
+.p {
     text-align: left;
     font: normal normal 600 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #669885;
 }
-.span{
+
+.span {
     text-align: left;
     font: normal normal bold 19px/22px Montserrat;
-    letter-spacing: 0px;
     color: #669885;
 }
-.Activites{
+
+.Activites {
     opacity: 0.36;
     background-color: #84B6A3;
     cursor: pointer;
 }
-.MyProfile{
+
+.MyProfile {
     background-color: #84B6A3;
     cursor: pointer;
 }
-.Activites_p,.MyProfile_p{
+
+.Activites_p, .MyProfile_p {
     text-align: center;
     font: normal normal bold 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
-.Visit{
+
+.Visit {
     text-align: left;
     font: normal normal 600 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
     opacity: 1;
 }
-.table{
+
+.table {
     text-align: right;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1;
 }
-.i1,.i2,.i3{
+
+.i1, .i2, .i3 {
     text-align: right;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1;
 }
-.l1,.l2,.l3{
+
+.l1, .l2, .l3 {
     text-align: left;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
 }
+
 .c1 {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+    background: #FFFFFF no-repeat padding-box;
+    box-shadow: 0 3px 6px #00000029;
     opacity: 1;
 
 }
-.b2{
 
-    background: #84B6A3 0% 0% no-repeat padding-box;
+.b2 {
+
+    background: #84B6A3 no-repeat padding-box;
     border: 1px solid #8DBFAC;
     border-radius: 17px;
     opacity: 1;
     text-align: center;
     font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
     color: white;
-    opacity: 1;
 }
-.b1{
-    background: white 0% 0% no-repeat padding-box;
+
+.b1 {
+    background: white no-repeat padding-box;
     border: 1px solid #8DBFAC;
     border-radius: 17px;
     opacity: 1;
     text-align: center;
     font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
-    color:#8DBFAC;
-    opacity: 1;
+    color: #8DBFAC;
 }
-.Name,.pet{
+
+.Name, .pet {
     cursor: pointer;
 }
-.INFO{
+
+.INFO {
     text-align: left;
     font: normal normal bold 19px/24px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
     opacity: 1;
 }
-p>span{
+
+p > span {
     text-align: left;
     font: normal normal medium 9px/15px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
 }
-.POINTER{
+
+.POINTER {
     cursor: pointer;
 }
-.clock{
+
+.clock {
     text-align: left;
     font: normal normal medium 9px/15px Montserrat;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
 }
-.noneActive{
+
+.noneActive {
     opacity: 0.28;
 }
-.active{
+
+.active {
     opacity: 1;
 }
 

@@ -3,3 +3,8 @@
     height: 1000px;
     border: 0;
 }
+
+.flex-column_right_bar {
+    background-color: #8dbfac;
+    height: 100vh;
+}

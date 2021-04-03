@@ -14,7 +14,7 @@ const ChangeProfile = ({message}) => {
 
     return (
         <div className='container'>
-            <p>{message ? <label className="spinner-border text-dark"></label> : ''}</p>
+            <p>{message ? <label className="spinner-border text-dark"/> : ''}</p>
             <div className='container mt-3 ml-3'>
                 <div className='row'>
                     <p className='p '><span className='span'>Your profile.</span> Change, edit and manage your data.</p>

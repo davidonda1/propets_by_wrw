@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import '../css_modules/new_post.css'
 import {BsUpload} from "react-icons/all";
 import {pet_avatar} from "../../../utils/constants/constants";
@@ -17,7 +17,7 @@ const New_Post = () => {
                             <label className='ml-4 col-2 text-right new_post_text'>Text<span
                                 className='row'> up to 1500 char</span></label>
                             <textarea className=' col-9 new_post_text_area' minLength={1} maxLength={1500}
-                                      placeholder='example text'></textarea>
+                                      placeholder='example text'/>
                         </div>
 
                     </div>

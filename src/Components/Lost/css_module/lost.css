@@ -3,17 +3,15 @@
     border-radius: 15px;
 }
 .INPUT{
-    justify-content: flex-start;
     justify-content: space-between;
 
 }
 .INPUT_text{
     text-align: left;
     font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
     opacity: 1;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: #FFFFFF no-repeat padding-box;
     border: 1px solid #8DBFAC;
     border-radius: 15px;
 

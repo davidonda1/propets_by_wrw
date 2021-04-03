@@ -7,12 +7,10 @@
 
 .register_grid-container {
     display: grid;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+    background: #FFFFFF no-repeat padding-box;
     opacity: 1;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
     background: rgba(255, 255, 255, 1);
     backdrop-filter: blur(1px);
     position: fixed;
@@ -28,9 +26,6 @@
 
 .propets {
     grid-area: 3 / 3 / 4 / 5;
-    /*
-    background: #669885 0% 0% no-repeat padding-box;
-    */
     fill: #8DBFAC;
     opacity: 1;
 }
@@ -40,7 +35,6 @@
     font-size: 2rem;
     grid-area: 4 / 3 / 5 / 8;
     text-align: left;
-    letter-spacing: 0px;
     color: #669885;
     opacity: 1;
 }
@@ -54,7 +48,6 @@
     font-size: 1rem;
     grid-area: 4 / 3 / 5 / 8;
     text-align: left;
-    letter-spacing: 0px;
     color: #669885;
     opacity: 1;
 }
@@ -64,9 +57,8 @@
     width: 14rem;
     height: 2.5rem;
     grid-area: 4 / 8 / 5 / 11;
-    background: #4560A6 0% 0% no-repeat padding-box;
+    background: #4560A6 no-repeat padding-box;
     font: normal normal bold 16px/19px Montserrat;
-    letter-spacing: 0px;
     border: 1px solid #5067B3;
     border-radius: 1rem;
     opacity: 1;
@@ -88,7 +80,6 @@
     padding-top: 0.8rem;
     text-align: center;
     font: normal normal bold 12px/15px Montserrat;
-    letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -98,7 +89,7 @@
     border-top: 1px solid #8DBFAC;
     height: 3rem;
     grid-area: 5 / 3 / 6 / 7;
-    background: #84B6A3 0% 0% no-repeat padding-box;
+    background: #84B6A3 no-repeat padding-box;
     opacity: 1;
 }
 
@@ -106,7 +97,6 @@
     padding-top: 1rem;
     text-align: center;
     font: normal normal bold 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -116,7 +106,6 @@
     padding-top: 1rem;
     text-align: center;
     font: normal normal bold 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
@@ -125,7 +114,7 @@
     border: 1px solid #8DBFAC;
     height: 3rem;
     grid-area: 5 / 7 / 6 / 11;
-    background: #84B6A3 0% 0% no-repeat padding-box;
+    background: #84B6A3 no-repeat padding-box;
     opacity: 0.28;
 }
 
@@ -154,13 +143,12 @@
 }
 
 .cancel_btn_text {
-    border: 0px solid white;
+    border: 0 solid white;
     background-color: white;
 
     padding-top: 0.5rem;
     text-align: center;
     font: normal normal medium Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
     opacity: 1;
 }
@@ -169,7 +157,7 @@
     margin-top: 2rem;
     height: 3.2rem;
     grid-area: 10 / 9 / 12 / 11;
-    background: #84B6A3 0% 0% no-repeat padding-box;
+    background: #84B6A3 no-repeat padding-box;
     border: 1px solid #8DBFAC;
     border-radius: 1rem;
     opacity: 1;
@@ -180,7 +168,6 @@
     padding-top: 0.5rem;
     text-align: center;
     font: normal normal medium Montserrat;
-    letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
     background: #84B6A3;
@@ -195,7 +182,6 @@
     text-align: left;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
 }
@@ -210,13 +196,9 @@
 }
 
 .name {
-
-    font-size: 0.7rem;
     grid-area: 6 / 3 / 7 / 4;
     text-align: right;
-    font: normal medium Montserrat;
-
-    letter-spacing: 0px;
+    font:  normal medium Montserrat;
     color: #393939;
     opacity: 1
 }
@@ -228,7 +210,6 @@
     text-align: left;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
     cursor: text;
@@ -240,7 +221,6 @@
     text-align: right;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1
 }
@@ -253,7 +233,6 @@
     text-align: left;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
 }
@@ -264,7 +243,6 @@
     text-align: right;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1
 }
@@ -275,7 +253,6 @@
     text-align: right;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1
 }
@@ -288,7 +265,6 @@
     text-align: left;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
 }
@@ -301,7 +277,6 @@
     text-align: left;
     font: normal medium Montserrat;
     font-size: 1rem;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
 }

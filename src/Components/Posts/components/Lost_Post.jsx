@@ -68,14 +68,14 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     <div className='row'>
                         <div className=' col-12'>
                             <p className='HEADER_TEXT'>Found a pet? <span
-                                className='pSpan'>Please complete the form to help.</span></p>
+                                className='p_span'>Please complete the form to help.</span></p>
                         </div>
                     </div>
                 </div>
                 <div className='container shadow pb-3'>
-                    <img className='fixed-top offset-6 img_man  ' src={man_with_pet}/>
+                    <img className='fixed-top offset-6 img_man' src={man_with_pet} alt='man_with_pet'/>
                     <div className='textarea h col-1  offset-7  fixed-top'>
-                        {images.map((item, index) => <label key={item}>{item}<span
+                        {images.map((item) => <label key={item}>{item}<span
                             onClick={() => handleClickDelete(item)}><RiDeleteBin2Fill/></span> </label>)}
                     </div>
                     <div className='row col-6 label_select'>
@@ -117,25 +117,25 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                         <AiOutlineArrowDown className='mt-1'/>
                     </div>
                     <div className='row'>
-                        <label className='col-3 '>Distinktive features: <span className='green_small'></span></label>
+                        <label className='col-3 '>Distinktive features: <span className='green_small'/></label>
                         <textarea value={info.features || ''}
                             onChange={(event) => handleClickInfo(event, 'features')} className='textarea'
-                                  placeholder='blue collar with stars, no left ear, damaged tail.'></textarea>
+                                  placeholder='blue collar with stars, no left ear, damaged tail.'/>
                     </div>
 
 
                     <div className='row mt-2 '>
                         <label className='col-3 '>Description: <span
-                            className='green_small'></span></label>
+                            className='green_small'/></label>
                         <textarea value={info.description || ''}
                             onChange={(event) => handleClickInfo(event, 'description')} className='textarea_1'
-                                  placeholder='brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.'></textarea>
+                                  placeholder='brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.'/>
                     </div>
                     <div className='row mt-2'>
                         <label className='col-3'>Location:</label>
                         <textarea value={info.address.country || ''}
                             onChange={event => handleClickInfo(event, 'location')} className='textarea'
-                                  placeholder='Florentin Street, Tel Aviv'></textarea>
+                                  placeholder='Florentin Street, Tel Aviv'/>
                         <div>
 
                             <p className='col-6 offset-2 DRAG '><FaFileUpload/>Drag and drop photos or</p>
@@ -145,7 +145,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                                        setImages([...images, event.target.value])
                                        getImg(event.target.files[0])
                                    }}/>
-                            {message ? <label className="spinner-border mt-5 offset-4 text-success"></label> : <label/>}
+                            {message ? <label className="spinner-border mt-5 offset-4 text-success"/> : <label/>}
                         </div>
                     </div>
                     <div className='container mt-3'>
@@ -159,7 +159,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     </div>
                     <div className='container mt-3'>
                         <div className='row mr-3'>
-                            <img className='img' src={user_avatar}/>
+                            <img className='img' src={user_avatar} alt='user_avatar'/>
                             <p className='HEADER_TEXT col-3 ml-2 mt-3'>{nickName}</p>
                             <button onClick={() => handleClickPublish()}
                                     className='col-2 offset-10 my_btn_around justify-content-center '><p

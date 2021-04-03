@@ -1,14 +1,13 @@
 .signin_btn_text{
     text-align: center;
     font: normal normal medium  Montserrat;
-    letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
 
 .HEADER{
     background-color: #FFFFFF;
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0 3px 6px #00000029;
 
 }
 
@@ -21,14 +20,14 @@
     border: 1px solid #FFFFFF;
     border-radius: 17px;
     opacity: 1;
-    background: #FFE18B 0% 0% no-repeat padding-box;
+    background: #FFE18B no-repeat padding-box;
 }
 
 .found_btn {
     border: 1px solid #FFFFFF;
     border-radius: 17px;
     opacity: 1;
-    background: #84B6A3 0% 0% no-repeat padding-box;
+    background: #84B6A3 no-repeat padding-box;
 }
 
 /*.found_btn, .lost_btn {*/

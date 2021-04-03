@@ -1,5 +1,5 @@
 import {BASE_URL} from "../../utils/constants/lostFoundConstants";
-import {error400, error401, error403, errorDefault} from "../../utils/constants/accountingConstants";
+import {error400, error401, error403, errorDefault, PUT_X_TOKEN} from "../../utils/constants/accountingConstants";
 import {putError, putMessage} from "./accountingActions";
 import {putImg, putLoading} from "./postActions";
 import {BASE_URL_LOST, PUT_IMG, PUT_MESSAGE} from "../../utils/constants/lost_found_post_constants";
@@ -7,7 +7,7 @@ import {BASE_URL_LOST, PUT_IMG, PUT_MESSAGE} from "../../utils/constants/lost_fo
 export const putXToken = xToken => {
     return {
         // fixme
-        type: 'PUT_X_TOKEN',
+        type: PUT_X_TOKEN,
         payload: xToken,
     }
 }

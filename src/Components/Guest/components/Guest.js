@@ -10,7 +10,7 @@ const Guest = ({error, message}) => {
 
 
     const [register, setRegister] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
+    // const [submitted, setSubmitted] = useState(false);
 
     const token = localStorage.getItem('token');
 
@@ -57,7 +57,7 @@ const Guest = ({error, message}) => {
 
     return (
         <div className={`grid-container`}>
-            <div className="header"></div>
+            <div className="header"/>
             <div className="propets">
                 <img src={propetsSVG} alt={'propet'}/>
             </div>
@@ -65,13 +65,13 @@ const Guest = ({error, message}) => {
                 <button onClick={() => setRegister(!register)} className={'sign_in_button'}>Sign in</button>
             </div>
             {register ?
-                <div className="main"><Register submit={setSubmitted} cancel={setRegister}/></div> : showFullPage()}
-            <div className="footer"></div>
+                <div className="main"><Register
+                    cancel={setRegister}/></div> : showFullPage()}
+            <div className="footer"/>
         </div>
     );
 };
 
-// TODO footer
 
 const mapStateToProps = state => {
     return {

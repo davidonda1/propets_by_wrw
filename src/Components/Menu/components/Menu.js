@@ -46,7 +46,7 @@ const Menu = ({page}) => {
             case WALKING:
                 return <Walking/>
             case LOST_PAGE:
-                return <Lost/>
+                return <Lost page={page}/>
             case FOUND_PAGE:
                 return <Found/>
             case HOME_PAGE:
@@ -64,15 +64,14 @@ const Menu = ({page}) => {
         }
     }
 
-
     return (
-        <div className='jumbotron '>
-            <div className='container-fluid HEADER  w-100 '>
+        <div className='jumbotron'>
+            <div className='container-fluid HEADER p-0 w-100 '>
                 <Header headerMode={headerMode}/>
             </div>
             <div className='container col-8 '>
-                <div className='row '>
-                    <LeftBar/>
+                <div className='row'>
+                    <LeftBar page={page}/>
                     <div className='col-11 MAIN '>
                         {renderPage()}
                     </div>

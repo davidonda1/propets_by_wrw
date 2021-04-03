@@ -3,7 +3,6 @@ const initialState = {
 }
 
 export const lostFoundReducer = (state = initialState, action) => {
-    console.log('ImageREducer')
     switch (action.type) {
         case 'PUT_INFO':
             const info = action.payload

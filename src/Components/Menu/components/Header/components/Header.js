@@ -1,5 +1,5 @@
 import React from 'react';
-import {FOUND_POST, HOME_PAGE, logo_, LOST_POST} from "../../../../../utils/constants/constants";
+import {FOUND_POST, logo_, LOST_POST} from "../../../../../utils/constants/constants";
 import {AiOutlineSearch} from "react-icons/ai";
 import {MdPets} from "react-icons/md";
 import {useHistory} from "react-router-dom";
@@ -11,7 +11,7 @@ const Header = ({headerMode}) => {
 
     const renderNorm = () => {
         return (
-            <div className='container-fluid HEADER  w-100 '>
+            <div className='container-fluid HEADER w-100 '>
                 <div className='row'>
                     <div className='offset-2 logo col-2'>
                         <img src={logo_} alt='logo'/>
@@ -32,7 +32,7 @@ const Header = ({headerMode}) => {
     const renderLostFoundHeader = () => {
         return (
             <div className='container-fluid HEADER w-100  '>
-                <div className='row mt-3 '>
+                <div className='row '>
                     <div className='offset-2 logo col-2'>
                         <img src={logo_} alt='logo'/>
                     </div>

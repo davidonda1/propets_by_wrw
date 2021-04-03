@@ -78,7 +78,7 @@ const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost})
                             <p>Share to Facebook</p>
                         </div>
                     </div>
-                    <div className="footer_text"></div>
+                    <div className="footer_text"/>
                     <div className="upper_text">
                         <p><span>Preview and Publish.</span> Please share the post to your FB to be more effective.</p>
                     </div>

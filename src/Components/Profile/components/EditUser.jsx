@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import pet from "../../../utils/Images/petAvatar.png";
 import {BiPencil} from "react-icons/bi";
 import {GiDisc} from "react-icons/gi";
 import {bindActionCreators} from "redux";

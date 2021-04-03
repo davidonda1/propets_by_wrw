@@ -6,8 +6,6 @@ import {
     PUT_LOST_POSTS,
     PUT_MESSAGE_POSTS
 } from "../../utils/constants/lost_found_post_constants";
-import {PUT_ERROR} from "../../utils/constants/accountingConstants";
-import {act} from "@testing-library/react";
 
 const initialState = {
     images: [],

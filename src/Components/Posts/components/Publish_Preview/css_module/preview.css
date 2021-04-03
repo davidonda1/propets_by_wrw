@@ -5,7 +5,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 5% 95%;
-    gap: 0px 0px;
     grid-template-areas:
     "header header header"
     "main main main";
@@ -21,7 +20,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
     "preview_post preview_post preview_post"
     "preview_post preview_post preview_post";
@@ -41,7 +39,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 10% 1fr 20% 5% 5%;
-    gap: 0px 0px;
     grid-template-areas:
     "upper_text upper_text upper_text"
     "preview_main preview_main preview_main"
@@ -56,7 +53,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
     "dog_photo dog_text dog_text"
     "dog_photo color features"
@@ -68,8 +64,8 @@
     "dog_photo location ."
     "dog_photo user icons";
     grid-area: preview_main;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+    background: #FFFFFF no-repeat padding-box;
+    box-shadow: 0 3px 6px #00000029;
     opacity: 1;
 
 }
@@ -117,7 +113,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 0px 0px;
     grid-template-areas:
     ". user_name";
     grid-area: user;
@@ -135,7 +130,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
     "text text text"
     "text text text"
@@ -175,7 +169,6 @@
     display: grid;
     grid-template-columns: 10% 1fr;
     grid-template-rows: 1fr;
-    gap: 0px 0px;
     grid-template-areas:
     ". share_text";
     grid-area: share;

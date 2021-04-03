@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SignUp = ({setName, name, setEmail, email, setPassword, password, setRepeatPass, repeatPass}) => {
+
     return (
         <>
             <label className="name">Name:</label>

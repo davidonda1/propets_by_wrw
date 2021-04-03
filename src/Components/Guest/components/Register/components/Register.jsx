@@ -9,7 +9,7 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import '../css_module/register.css';
 
-const Register = ({loginUser, registerUser, cancel, submit}) => {
+const Register = ({loginUser, registerUser, cancel}) => {
 
     const [mode, setMode] = useState(true);
 
@@ -35,13 +35,11 @@ const Register = ({loginUser, registerUser, cancel, submit}) => {
                 const token = createToken(email, password);
                 loginUser(token);
                 handleClickCancel();
-                submit(true);
             }
         } else {
             if (password === repeatPass && password && repeatPass && email && name) {
                 registerUser(name, email, password);
                 handleClickCancel();
-                submit(true)
             } else {
                 alert(`Password and repeat password are not the same \n 
                 Please try again`);

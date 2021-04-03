@@ -1,6 +1,5 @@
 .user_name {
     color: #84B6A3;
-    text-align: left;
     font: normal normal 600 16px/19px Montserrat;
 }
 
@@ -10,15 +9,17 @@
 }
 
 .user_text {
-    text-align: left;
-    font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #393939;
 }
 
 .user_text_span {
-    text-align: left;
-    font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
+}
+
+.user_name, .user_time, .user_text, .user_text_span {
+    text-align: left;
+}
+
+.user_text, .user_text_span {
+    font: normal normal medium 12px/18px Montserrat;
 }

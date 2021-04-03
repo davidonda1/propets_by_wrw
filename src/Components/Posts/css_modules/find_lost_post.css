@@ -1,25 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 
 .HEADER_TEXT {
     text-align: left;
     font: normal normal bold 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #669885;
 }
 
-pSpan {
+p_span {
     text-align: left;
     font: normal normal 600 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #669885;
 }
 
 .label_select {
     text-align: right;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1;
     background-color: white;
@@ -34,7 +30,6 @@ pSpan {
 .label_input {
     text-align: right;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #393939;
     opacity: 1;
     background-color: white;
@@ -43,7 +38,6 @@ pSpan {
 .input {
     text-align: left;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
     border-bottom-color: #8DBFAC;
@@ -55,7 +49,6 @@ pSpan {
 .green_small {
     text-align: left;
     font: normal normal medium 7px/15px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
     opacity: 1;
 }
@@ -63,12 +56,10 @@ pSpan {
 .textarea {
     text-align: left;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: #FFFFFF no-repeat padding-box;
     border: 1px solid #8DBFAC;
-    opacity: 1;
     box-sizing: border-box;
 outline: #84B6A3;
 }
@@ -85,12 +76,10 @@ outline: #84B6A3;
 .textarea_1 {
     text-align: left;
     font: normal normal medium 12px/18px Montserrat;
-    letter-spacing: 0px;
     color: #BABABA;
     opacity: 1;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: #FFFFFF no-repeat padding-box;
     border: 1px solid #8DBFAC;
-    opacity: 1;
     box-sizing: border-box;
     height: 180px;
     outline: #84B6A3;
@@ -100,7 +89,6 @@ outline: #84B6A3;
 my_p{
     text-align: left;
     font: normal normal 600 16px/19px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
     opacity: 1;
 }
@@ -108,12 +96,11 @@ BTN_1{
 
     text-align: left;
     font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
     color: white;
     opacity: 1;
 }
 .my_btn_around{
-    background: #84B6A3 0% 0% no-repeat padding-box;
+    background: #84B6A3 no-repeat padding-box;
     border: 1px solid #8DBFAC;
     border-radius: 17px;
     opacity: 1;
@@ -123,7 +110,6 @@ BTN_1{
 .DRAG {
     text-align: center;
     font: normal normal medium 12px/12px Montserrat;
-    letter-spacing: 0px;
     color:black;
     opacity: 1;
 }
@@ -140,7 +126,6 @@ BTN_1{
 .BTN {
     text-align: left;
     font: normal normal medium 12px/15px Montserrat;
-    letter-spacing: 0px;
     color: #84B6A3;
     opacity: 1;
 }
