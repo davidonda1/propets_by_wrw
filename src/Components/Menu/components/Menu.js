@@ -16,10 +16,10 @@ import RightBar from "./RightBar/components/RightBar";
 import Hotels from "../../Services/Hotels/components/Hotels";
 import Fostering from "../../Services/Fostering/components/Fostering";
 import Walking from "../../Services/Walking/components/Walking";
-import Lost_Post from "../../Posts/components/Lost_Post";
-import Found_Post from "../../Posts/components/Found_Post";
+
 import Found from "../../Found/components/Found";
 import Lost from "../../Lost/components/Lost";
+import Lost_Or_Found_Post from "../../Posts/components/Lost_Or_Found_Post";
 
 
 const Menu = ({page}) => {
@@ -56,9 +56,9 @@ const Menu = ({page}) => {
             case USER_PAGE:
                 return <EditUser/>
             case LOST_POST:
-                return <Lost_Post/>
+                return <Lost_Or_Found_Post page={true}/>
             case FOUND_POST:
-                return <Found_Post/>
+                return <Lost_Or_Found_Post page={false}/>
             default:
                 return <Home/>
         }

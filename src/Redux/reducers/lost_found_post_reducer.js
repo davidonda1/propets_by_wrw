@@ -7,12 +7,15 @@ import {
     PUT_MESSAGE_POSTS
 } from "../../utils/constants/lost_found_post_constants";
 
+
 const initialState = {
     images: [],
+
 }
 
 export const lost_found_post_reducer = (state = initialState, action) => {
     switch (action.type){
+
         case PUT_IMG_POSTS:
             const images = [...state.images];
             images.push(action.payload);

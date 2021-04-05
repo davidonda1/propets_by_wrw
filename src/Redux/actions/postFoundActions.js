@@ -1,6 +1,7 @@
 import {
+    BASE_URL_FOUND,
     BASE_URL_FOUND_POSTS,
-    BASE_URL_LOST, BASE_URL_LOST_POSTS, PUT_FOUND_POSTS,
+    BASE_URL_LOST, BASE_URL_LOST_POSTS, PUT_FOUND_OR_LOST, PUT_FOUND_POSTS,
     PUT_IMG_POSTS,
     PUT_LOADING_POSTS,
     PUT_LOST_POST, PUT_LOST_POSTS,
@@ -38,8 +39,13 @@ export const putFoundPosts = posts => ({
     payload: posts
 })
 
+export const putFoundOrLost=foundOrLost=>({
+    type: PUT_FOUND_OR_LOST,
+    payload:foundOrLost
+})
 
-export const lostPost = (info) => {
+
+/*export const lostPost = (info) => {
     return (dispatch, getState) => {
 
         const xToken = getState().accountingReducer.xToken;
@@ -80,8 +86,52 @@ export const lostPost = (info) => {
                 dispatch(putLoading());
             })
     }
-}
+}*/
 
+export const lostOrFoundPost = (info, statement) => {
+    let baseUrl = statement ? BASE_URL_LOST : BASE_URL_FOUND;
+    return (dispatch, getState) => {
+        const xToken = getState().accountingReducer.xToken;
+        const login = getState().accountingReducer.email;
+        const userName = getState().accountingReducer.nickName;
+        const avatar = getState().accountingReducer.user_avatar;
+        const photos = getState().lost_found_post_reducer.images;
+
+        const data = {
+            userName: userName,
+            avatar: avatar,
+            type: info.type,
+            sex: info.sex,
+            breed: info.breed,
+            address: {
+                country: info.address.country,
+                city: info.address.city,
+                street: info.address.street,
+                building: info.address.building
+            },
+            location: {
+                latitude: info.location.latitude,
+                longitude: info.location.longitude
+            },
+            photos: photos,
+            tags: info.tags
+        };
+
+        fetch(`${baseUrl}${login}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Token': xToken,
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                dispatch(putLoading());
+            })
+    }
+}
 export const getImg = image => {
     return (dispatch) => {
         dispatch(putMessage('Loading'));

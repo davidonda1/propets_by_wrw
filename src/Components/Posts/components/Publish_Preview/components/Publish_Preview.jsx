@@ -5,11 +5,11 @@ import {FaPaw} from "react-icons/fa";
 import {connect} from "react-redux";
 import '../css_module/preview.css';
 import {bindActionCreators} from "redux";
-import {lostPost} from '../../../../../Redux/actions/postActions';
+import {lostOrFoundPost} from "../../../../../Redux/actions/postFoundActions";
 import {useHistory} from "react-router-dom";
 import {HOME_PAGE} from "../../../../../utils/constants/constants";
 
-const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost}) => {
+const PublishPreview = ({pet_info, images, setEdit, avatar, userName,page, lostOrFoundPost}) => {
 
     const history = useHistory();
 
@@ -67,7 +67,7 @@ const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost})
                         <button><AiFillEdit/>Edit</button>
                     </div>
                     <div onClick={() => {
-                        lostPost(pet_info)
+                        lostOrFoundPost(pet_info, page)
                         history.push(HOME_PAGE)
                     }} className="publish">
                         <button><FaPaw/>Publish</button>
@@ -99,7 +99,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({lostPost}, dispatch)
+    return bindActionCreators({lostOrFoundPost}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PublishPreview);

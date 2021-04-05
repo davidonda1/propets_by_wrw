@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import {FaFileUpload} from "react-icons/fa";
 import {bindActionCreators} from "redux";
-import {putLost, getImg, putMessage} from "../../../Redux/actions/postActions";
+import {putLost, getImg, putMessage} from "../../../Redux/actions/postFoundActions";
 import {connect} from "react-redux";
 import {AiOutlineArrowDown, RiDeleteBin2Fill} from "react-icons/all";
 import man_with_pet from "../../../utils/Images/manWithPetImg.svg";
 import '../css_modules/find_lost_post.css';
 import PublishPreview from "./Publish_Preview/components/Publish_Preview";
+import {FOUND_TEXT, LOST_TEXT} from "../../../utils/constants/lost_found_post_constants";
 
-const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => {
+const Lost_Or_Found_Post = ({putLost, getImg, nickName, user_avatar, message, imgur,page}) => {
 
 
     const [images, setImages] = useState([]);
@@ -67,8 +68,8 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                 <div className='container'>
                     <div className='row'>
                         <div className=' col-12'>
-                            <p className='HEADER_TEXT'>Found a pet? <span
-                                className='p_span'>Please complete the form to help.</span></p>
+                            <p className='HEADER_TEXT'>{page?LOST_TEXT.header_text:FOUND_TEXT.header_text} <span
+                                className='p_span'>{page?LOST_TEXT.under_header_text:FOUND_TEXT.under_header_text}</span></p>
                         </div>
                     </div>
                 </div>
@@ -174,7 +175,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
     }
 
     const publishRender = () => {
-        return <PublishPreview setEdit={setEdit}/>
+        return <PublishPreview setEdit={setEdit} page={page}/>
     }
 
     return (
@@ -192,7 +193,8 @@ const mapStateToProps = state => {
         nickName: state.accountingReducer.nickName,
         message: state.lost_found_post_reducer.message,
         imgur: state.lost_found_post_reducer.images,
+        page:true
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Lost_Post);
+export default connect(mapStateToProps, mapDispatchToProps)(Lost_Or_Found_Post);

@@ -3,7 +3,7 @@ import {AiFillFacebook} from "react-icons/ai";
 import {AiOutlineMessage, AiOutlinePhone, IoLocationOutline} from "react-icons/all";
 import '../css_module/lost.css'
 import {bindActionCreators} from "redux";
-import {getLostPosts} from "../../../Redux/actions/postActions";
+import {getLostPosts} from "../../../Redux/actions/postFoundActions";
 import {connect} from "react-redux";
 
 const Lost = ({getPosts, posts}) => {
