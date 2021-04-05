@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 import {log_out} from '../../../../../Redux/actions/accountingActions';
 import {
     FAVORITES, FOSTERING,
-    FOUND_PAGE,
+    FOUND_PAGE, GUEST_PAGE,
     HOME_PAGE, HOTELS,
     LOST_PAGE,
     USER_PAGE,
@@ -37,16 +37,16 @@ const LeftBar = ({log_out, nickName, user_avatar, page}) => {
             return (
                 <>
                     <Link className={`mt-2 nav-link ${page === HOTELS ? active : none_active}`}
-                          to={`${HOTELS}`}><span className='mr-2'><FaHotel/></span>Hotels</Link>
+                          to={HOTELS}><span className='mr-2'><FaHotel/></span>Hotels</Link>
 
                     <Link className={`nav-link ${page === WALKING ? active : none_active}`}
-                          to={`${WALKING}`}><span className='mr-2'><FaWalking/></span>Walking</Link>
+                          to={WALKING}><span className='mr-2'><FaWalking/></span>Walking</Link>
 
                     <Link className={`nav-link ${returnActive(FOSTERING)}`}
-                          to={`${FOSTERING}`}><span className='mr-2'><FaDog/></span>Fostering</Link>
+                          to={FOSTERING}><span className='mr-2'><FaDog/></span>Fostering</Link>
 
                     <Link className={`mb-5 nav-link ${page === VET_HELP ? active : none_active}`}
-                          to={`${VET_HELP}`}><span className='mr-2'><FaStethoscope/></span>Vet Help</Link>
+                          to={VET_HELP}><span className='mr-2'><FaStethoscope/></span>Vet Help</Link>
                 </>
             )
         }
@@ -57,38 +57,39 @@ const LeftBar = ({log_out, nickName, user_avatar, page}) => {
             <ul className=" navbar-nav mb-5">
                 <li onClick={() => setServices(false)} className="nav-item">
                     <Link className={`nav-link ${returnActive(HOME_PAGE)}`}
-                          to={`${HOME_PAGE}`}><span className='mr-2'><BsFillHouseFill/></span>Home</Link>
+                          to={HOME_PAGE}><span className='mr-2'><BsFillHouseFill/></span>Home</Link>
                 </li>
                 <li onClick={() => setServices(false)} className="nav-item">
                     <Link className={`nav-link ${returnActive(LOST_PAGE)}`}
-                          to={`${LOST_PAGE}`}><span className='mr-2'><GiMagnifyingGlass/></span>Lost</Link>
+                          to={LOST_PAGE}><span className='mr-2'><GiMagnifyingGlass/></span>Lost</Link>
                 </li>
                 <li onClick={() => setServices(false)} className="nav-item">
                     <Link className={`nav-link ${returnActive(FOUND_PAGE)}`}
-                          to={`${FOUND_PAGE}`}><span className='mr-2'><MdPets/></span>Found</Link>
+                          to={FOUND_PAGE}><span className='mr-2'><MdPets/></span>Found</Link>
                 </li>
                 <li onClick={() => setServices(true)} className="nav-item">
-                    <Link
+                    <Link to={HOTELS}
                         // FIXME
-                        className={`nav-link 
+                          className={`nav-link 
                         ${returnActive(VET_HELP)} 
                         ${returnActive(FOSTERING)}
                          ${returnActive(WALKING)}
-                          ${returnActive(HOTELS)}`}><span className='mr-2'><IoIosNotificationsOutline/></span>Services</Link>
+                          ${returnActive(HOTELS)}`}><span
+                        className='mr-2'><IoIosNotificationsOutline/></span>Services</Link>
                     {returnServices()}
                 </li>
                 <li onClick={() => setServices(false)} className="nav-item">
                     <Link className={`nav-link ${returnActive(FAVORITES)}`}
-                          to={`${FAVORITES}`}><span className='mr-2'><AiOutlineStar/></span>Favorites</Link>
+                          to={FAVORITES}><span className='mr-2'><AiOutlineStar/></span>Favorites</Link>
                 </li>
                 <li onClick={() => setServices(false)} className={`nav-item left_bar_border`}>
-                    <Link className={`nav-link col-1`} to={`${USER_PAGE}`}>
+                    <Link className={`nav-link col-1`} to={USER_PAGE}>
                         <img src={user_avatar} alt={'avatar'}/>
                         <span className={`${returnActive(USER_PAGE)}`}>{nickName}</span>
                     </Link>
                 </li>
                 <li onClick={() => log_out()} className="nav-item">
-                    <Link className="nav-link col-2 LOGOUT mt-5" to='/guest'><IoIosLogOut/>Logout</Link>
+                    <Link className="nav-link col-2 LOGOUT mt-5" to={GUEST_PAGE}><IoIosLogOut/>Logout</Link>
                 </li>
             </ul>
         </nav>
