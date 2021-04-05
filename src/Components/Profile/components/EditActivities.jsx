@@ -35,7 +35,7 @@ const EditActivities = () => {
                         <p><IoLocationOutline color='black'/> Florentin, 27, Tel Aviv</p>
                     </div>
                     <div className='row POINTER'>
-                        <p className='col-8'><img src={pet_avatar} alt='pet_avatar'/><span>John Goodboi </span></p>
+                        <p className='col-8'><img className='left_user_avatar' src={pet_avatar} alt='pet_avatar'/><span>John Goodboi </span></p>
                         <p className='col-4'><AiOutlinePhone/><AiFillFacebook/><AiOutlineMessage/></p>
                     </div>
                     <div className='row'>

@@ -46,6 +46,8 @@ export const putError = error => {
 
 export const registerUser = (name, email, password) => {
     return dispatch => {
+
+        dispatch(putError(''));
         const token = createToken(email, password);
         fetch(`${BASE_URL_ACCOUNT}registration`, {
             method: 'Post',
@@ -59,13 +61,13 @@ export const registerUser = (name, email, password) => {
             })
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -85,6 +87,7 @@ export const registerUser = (name, email, password) => {
 
 export const loginUser = token => {
     return dispatch => {
+        dispatch(putError(''));
         fetch(`${BASE_URL_ACCOUNT}login`, {
             method: 'Post',
             headers: {
@@ -92,13 +95,13 @@ export const loginUser = token => {
             }
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -123,6 +126,8 @@ export const loginUser = token => {
 export const userInfo = () => {
 
     return (dispatch, getState) => {
+
+        dispatch(putError(''));
         const login = getState().accountingReducer.email;
         const token = getState().accountingReducer.xToken;
         fetch(`${BASE_URL_ACCOUNT}${login}/info`, {
@@ -132,13 +137,13 @@ export const userInfo = () => {
             },
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -173,13 +178,13 @@ export const editUser = (name, avatar, phone) => {
             })
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -206,13 +211,13 @@ export const deleteUser = () => {
             }
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -246,13 +251,13 @@ export const addUserRole = () => {
              ]*/
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -286,13 +291,13 @@ export const delUserRole = () => {
              ]*/
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -320,13 +325,13 @@ export const blockUserAccount = () => {
             }
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -354,13 +359,13 @@ export const addUserFavorite = () => {
 
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -387,13 +392,13 @@ export const addUserActivity = () => {
             }
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -420,13 +425,13 @@ export const delUserFavorite = () => {
             }
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -453,13 +458,13 @@ export const delUserActivity = () => {
         })
             .then(response => {
 
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -480,13 +485,13 @@ export const getUserDataPostActivites = () => {
             method: 'Get',
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -508,13 +513,13 @@ export const getUserDataPostFavourites = () => {
             method: 'Get',
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {
@@ -538,13 +543,13 @@ export const tokenValidation = () => {
             }
         })
             .then(response => {
-                if (response.status===400){
+                if (response.status === 400) {
                     dispatch(putError(error400))
-                }else if(response.status===401){
+                } else if (response.status === 401) {
                     dispatch(putError(error401))
-                }else if(response.status===403){
+                } else if (response.status === 403) {
                     dispatch(putError(error403))
-                }else{
+                } else {
                     dispatch(putError(errorDefault))
                 }
                 if (response.ok) {

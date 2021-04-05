@@ -59,6 +59,9 @@ export const putFoundOrLost=foundOrLost=>({
             type: info.type,
             sex: info.sex,
             breed: info.breed,
+            color: info.color,
+            description: info.description,
+            features: info.features,
             address: {
                 country: info.address.country,
                 city: info.address.city,
@@ -70,7 +73,7 @@ export const putFoundOrLost=foundOrLost=>({
                 longitude: info.location.longitude
             },
             photos: photos,
-            tags: info.tags
+            tags: [info.color, info.features, info.description]
         };
         fetch(`${BASE_URL_LOST}${login}`, {
             method: 'POST',
@@ -82,7 +85,7 @@ export const putFoundOrLost=foundOrLost=>({
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                console.log(data)
                 dispatch(putLoading());
             })
     }

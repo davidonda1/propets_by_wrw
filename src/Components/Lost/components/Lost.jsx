@@ -34,36 +34,38 @@ const Lost = ({getPosts, posts}) => {
                     return (
                         <div key={item.id} className='container lost_posts shadow ALL mt-1 mb-4'>
                             <div className='row'>
-                                <img className='col-5 mt-3 mb-3' src={item.photos[0]} alt='lost_pet'/>
+                                <img className='col-5 mt-3 mb-3 lost_post_image' src={item.photos[0]} alt='lost_pet'/>
                                 <div className='container col-6'>
                                     <div className='row mt-3 mb-3'>
                                         <p className='INFO '>{item.type}, {item.breed}</p>
                                     </div>
                                     <div className='row P'>
-                                        <div className='row col-4'>
-                                            <p><span>Color:</span> {item.color || 'white'}</p>
-                                            <p><span>Sex:</span> {item.sex}</p>
-                                            <p><span>Height:</span> {item.height || '45cm'}</p>
+                                        <div className='row col-4 text-left'>
+                                            <p><span>Color:</span> white</p>
+                                            <p className='offset-1'><span>Sex:</span> {item.sex}</p>
+                                            <p><span>Height:</span> 45cm</p>
                                         </div>
                                         <div className='row col-6'>
-                                            <p className=''><span>Distinctive features: </span> blue collar with stars,
-                                                no left ear,
+                                            <p className=''>
+                                                <span>Distinctive features: </span> blue collar with stars, no left ear,
                                                 damaged tail.</p>
                                         </div>
                                         <div className='row'>
-                                            <p><span>Description:</span> brown fox jumps over a lazy dog. DJs flock by
-                                                when MTV ax
-                                                quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz,
-                                                vex nymphs.
+                                            <p className=''><span>Description:</span>
+                                                 brown fox jumps over a lazy dog. DJs flock by when MTV ax
+                                                    quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz,
+                                                    vex nymphs.
                                             </p>
                                         </div>
 
                                     </div>
                                     <div className='row'>
-                                        <p><IoLocationOutline color='black'/> {item.address.country}, {item.address.city}, {item.address.street}, {item.address.building}</p>
+                                        <p><IoLocationOutline
+                                            color='black'/> {item.address.country}
+                                        </p>
                                     </div>
                                     <div className='row POINTER'>
-                                        <p className='col-8'><img src={item.avatar}
+                                        <p className='col-8'><img className='left_user_avatar' src={item.avatar}
                                                                   alt='pet_avatar'/><span>{item.userName}</span></p>
                                         <p className='col-4'><AiOutlinePhone/><AiFillFacebook/><AiOutlineMessage/></p>
                                     </div>

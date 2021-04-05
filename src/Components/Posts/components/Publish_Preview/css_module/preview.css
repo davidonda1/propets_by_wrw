@@ -194,3 +194,8 @@
 .description > p > span, .features > p > span, .location > p > span {
     color: #393939;
 }
+
+/*.preview_pet_img {*/
+/*    max-height: 100px;*/
+/*    max-width: 100px;*/
+/*}*/
