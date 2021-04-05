@@ -47,7 +47,7 @@ const EditUser = ({nickName, editUser, userPhone, userAvatar}) => {
             <div className='container shadow'>
                 <div className='row Visit'>
                     <div className='img ml-2 mt-3 col-1'>
-                        <img className='pet' src={userAvatar} alt='avatar'/>
+                        <img className='pet left_user_avatar' src={userAvatar} alt='avatar'/>
                     </div>
                     <div className='p offset-1 col-2 mt-4 mr-2'>
                         {editMode ? editForm() :

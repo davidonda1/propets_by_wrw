@@ -5,9 +5,9 @@ import {FaPaw} from "react-icons/fa";
 import {connect} from "react-redux";
 import '../css_module/preview.css';
 import {bindActionCreators} from "redux";
-import {lostPost} from '../../../../../Redux/actions/postActions';
+import {lostPost, putLost} from '../../../../../Redux/actions/postActions';
 import {useHistory} from "react-router-dom";
-import {HOME_PAGE} from "../../../../../utils/constants/constants";
+import {LOST_PAGE} from "../../../../../utils/constants/constants";
 
 const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost}) => {
 
@@ -28,24 +28,26 @@ const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost})
                             <p><span>Sex: </span>{pet_info.sex}</p>
                         </div>
                         <div className="features">
-                            <p>Distinctive features: <span> blue collar with stars, no left ear, damaged tail.</span>
+                            <p>Distinctive features: <span> {pet_info.features}</span>
                             </p>
                         </div>
                         <div className="height">
-                            <p><span>Height: </span>45cm</p>
+                            <p><span>Height: </span>{pet_info.height}</p>
                         </div>
                         <div className="description">
-                            <p>Description: <span>brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.</span>
+                            <p>Description: <span>{pet_info.description}</span>
                             </p>
                         </div>
-                        <div className="dog_photo w-100 h-50">
-                            <img src={images[0]} alt='dog'/>
+                        <div className="dog_photo w-50 h-50">
+                            <img className='preview_pet_img' src={images[0]} alt='dog'/>
                         </div>
                         <div className="location">
-                            <p><VscLocation/><span>{pet_info.address.street}, {pet_info.address.building}, {pet_info.address.city}, {pet_info.address.country}</span></p>
+                            <p>
+                                <VscLocation/><span>{pet_info.address.street}</span>
+                            </p>
                         </div>
-                        <div className="user">
-                            <img src={avatar} alt='user_avatar'/>
+                        <div className="user mb-2">
+                            <img className='left_user_avatar' src={avatar} alt='user_avatar'/>
                             <div className="user_name">
                                 <p>{userName}</p>
                             </div>
@@ -68,7 +70,8 @@ const PublishPreview = ({pet_info, images, setEdit, avatar, userName, lostPost})
                     </div>
                     <div onClick={() => {
                         lostPost(pet_info)
-                        history.push(HOME_PAGE)
+                        putLost('');
+                        history.push(LOST_PAGE)
                     }} className="publish">
                         <button><FaPaw/>Publish</button>
                     </div>
@@ -99,7 +102,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({lostPost}, dispatch)
+    return bindActionCreators({lostPost, putLost}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PublishPreview);

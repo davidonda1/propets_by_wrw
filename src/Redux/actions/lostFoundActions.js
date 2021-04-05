@@ -26,10 +26,10 @@ export const putMessagee = message => ({
         payload:error
     }
 }*/
-export const addInfo=info=>{
-    return{
-        type:'PUT_INFO',
-        payload:info
+export const addInfo = info => {
+    return {
+        type: 'PUT_INFO',
+        payload: info
     }
 }
 
@@ -44,7 +44,6 @@ export const getImg = image => {
             body: image
         }).then(response => {
             if (response.ok) {
-                console.log('Image uploaded to album');
                 return response.json();
             }
         })
@@ -54,7 +53,6 @@ export const getImg = image => {
             })
             .catch(error => {
                 dispatch(putMessagee('Error'))
-                console.error(error);
             });
     }
 }
@@ -97,7 +95,6 @@ export const newLostPet = (found) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 dispatch(putLoading());
             })
     }

@@ -35,7 +35,7 @@ export const accountingReducer = (state = initialState, action) => {
             const xToken = action.payload;
             return {...state, xToken};
         case PUT_ERROR:
-            return {...state, error: 'error'}
+            return {...state, error: action.payload}
         default:
             return state
     }

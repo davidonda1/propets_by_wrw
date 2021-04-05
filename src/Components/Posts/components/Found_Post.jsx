@@ -163,7 +163,7 @@ const Found_Post = ({addInfo, getImg, message, nickName, user_avatar, imgur,newL
                     </div>
                     <div className='container mt-3'>
                         <div className='row mr-3'>
-                            <img className='img' src={user_avatar} alt='user_avatar'/>
+                            <img className='img left_user_avatar' src={user_avatar} alt='user_avatar'/>
                             <p className='HEADER_TEXT col-3 ml-2 mt-3'>{nickName}</p>
                             <button onClick={() => handleClickPublish()}
                                     className='col-2 offset-10 my_btn_around justify-content-center '><p

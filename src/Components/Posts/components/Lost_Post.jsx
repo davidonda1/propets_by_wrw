@@ -34,7 +34,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
             return;
         }
         if (images.length) {
-            setInfo(prevState => ({...prevState, imgur, tags: ['tag1', 'tag2', 'tag3']}));
+            setInfo(prevState => ({...prevState, imgur, tags: [prevState.color, prevState.features, prevState.description]}));
             putLost(info);
             setEdit(false);
         } else {
@@ -90,7 +90,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     <div className='row col-6 label_select'>
                         <label className='mr-2'>Sex:</label>
                         <select value={info.sex}
-                            onChange={(event) => handleClickInfo(event, 'sex')}
+                                onChange={(event) => handleClickInfo(event, 'sex')}
                                 className='select mb-2 ml-2'>
                             <option>Male</option>
                             <option>Female</option>
@@ -100,13 +100,13 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     <div className='row col-6 label_input'>
                         <label>Breed:</label>
                         <input value={info.breed || ''}
-                            onChange={(event) => handleClickInfo(event, 'breed')} className='input ml-3 mb-1'
+                               onChange={(event) => handleClickInfo(event, 'breed')} className='input ml-3 mb-1'
                                type='text' placeholder='Golden Retriever'/>
                     </div>
                     <div className='row col-6 label_input'>
                         <label>Color:</label>
                         <input value={info.color || ''}
-                            onChange={(event) => handleClickInfo(event, 'color')} className='input ml-3 mb-1'
+                               onChange={(event) => handleClickInfo(event, 'color')} className='input ml-3 mb-1'
                                type='text' placeholder='Beige'/>
                     </div>
                     <div className='row col-6 label_select'>
@@ -119,7 +119,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     <div className='row'>
                         <label className='col-3 '>Distinktive features: <span className='green_small'/></label>
                         <textarea value={info.features || ''}
-                            onChange={(event) => handleClickInfo(event, 'features')} className='textarea'
+                                  onChange={(event) => handleClickInfo(event, 'features')} className='textarea'
                                   placeholder='blue collar with stars, no left ear, damaged tail.'/>
                     </div>
 
@@ -128,13 +128,13 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                         <label className='col-3 '>Description: <span
                             className='green_small'/></label>
                         <textarea value={info.description || ''}
-                            onChange={(event) => handleClickInfo(event, 'description')} className='textarea_1'
+                                  onChange={(event) => handleClickInfo(event, 'description')} className='textarea_1'
                                   placeholder='brown fox jumps over a lazy dog. DJs flock by when jhkjk jhgMTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.'/>
                     </div>
                     <div className='row mt-2'>
                         <label className='col-3'>Location:</label>
                         <textarea value={info.address.country || ''}
-                            onChange={event => handleClickInfo(event, 'location')} className='textarea'
+                                  onChange={event => handleClickInfo(event, 'location')} className='textarea'
                                   placeholder='Florentin Street, Tel Aviv'/>
                         <div>
 
@@ -159,7 +159,7 @@ const Lost_Post = ({putLost, getImg, nickName, user_avatar, message, imgur}) => 
                     </div>
                     <div className='container mt-3'>
                         <div className='row mr-3'>
-                            <img className='img' src={user_avatar} alt='user_avatar'/>
+                            <img className='img left_user_avatar' src={user_avatar} alt='user_avatar'/>
                             <p className='HEADER_TEXT col-3 ml-2 mt-3'>{nickName}</p>
                             <button onClick={() => handleClickPublish()}
                                     className='col-2 offset-10 my_btn_around justify-content-center '><p

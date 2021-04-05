@@ -84,7 +84,7 @@ const LeftBar = ({log_out, nickName, user_avatar, page}) => {
                 </li>
                 <li onClick={() => setServices(false)} className={`nav-item left_bar_border`}>
                     <Link className={`nav-link col-1`} to={USER_PAGE}>
-                        <img src={user_avatar} alt={'avatar'}/>
+                        <img className='left_user_avatar' src={user_avatar} alt={'avatar'}/>
                         <span className={`${returnActive(USER_PAGE)}`}>{nickName}</span>
                     </Link>
                 </li>

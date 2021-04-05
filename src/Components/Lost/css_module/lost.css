@@ -34,3 +34,8 @@
 .spinner_lost {
     margin-top: 20rem;
 }
+
+.lost_post_image {
+    max-width: 20rem;
+    max-height: 20rem;
+}
